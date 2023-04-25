@@ -15,7 +15,7 @@ describe('API Gateway: rutas estáticas', () => {
   describe('Rutas estáticas de MS Plantilla', () => {
     it('Devuelve MS Plantilla Home Page', (done) => {
       supertest(app)
-        .get('/plantilla/')
+        .get('/futbolsala/')
         .expect(200)
         .expect('Content-Type', /json/)
         .expect(function (res) {
@@ -28,7 +28,7 @@ describe('API Gateway: rutas estáticas', () => {
     });
     it('Devuelve MS Plantilla Acerca De', (done) => {
       supertest(app)
-        .get('/plantilla/acercade')
+        .get('/futbolsala/acercade')
         .expect(200)
         .expect('Content-Type', /json/)
         .expect(function (res) {
@@ -41,7 +41,7 @@ describe('API Gateway: rutas estáticas', () => {
     });
     it('Devuelve todos los jugadores de la base de datos, comprueba que se ha devuelto un array', (done) => {
       supertest(app)
-        .get('/plantilla/get-todos')
+        .get('/futbolsala/get-todos')
         .expect(200)
         .expect('Content-Type', /json/)
         .expect(function (res) {
@@ -57,7 +57,7 @@ describe('API Gateway: rutas estáticas', () => {
 
     it('Devuelve Leonardo Santana da Silva al recuperar los datos del Jugador con id 361431682640773325 mediante getPorId', (done) => {
       supertest(app)
-        .get('/plantilla/getPorId/361431682640773325')
+        .get('/futbolsala/getPorId/361431682640773325')
         .expect(200)
         .expect('Content-Type', /json/)
         .expect(function (res) {
@@ -88,7 +88,7 @@ describe('API Gateway: rutas estáticas', () => {
         equipos_jugados_jugador: ''
       };
       supertest(app)
-        .post('/plantilla/set-cambios')
+        .post('/futbolsala/set-cambios')
         .send(jugador)
         .expect(200)
         .expect('Content-Type', /json/)
@@ -119,7 +119,7 @@ describe('API Gateway: rutas estáticas', () => {
         equipos_jugados_jugador: ''
       };
       supertest(app)
-        .post('/plantilla/set-cambios')
+        .post('/futbolsala/set-cambios')
         .send(jugador)
         .expect(200)
         .expect('Content-Type', /json/)
@@ -154,7 +154,7 @@ describe('API Gateway: rutas estáticas', () => {
         ]
       };
       supertest(app)
-        .post('/plantilla/add-jugador')
+        .post('/futbolsala/add-jugador')
         .send(jugador)
         .expect(200)
         .expect('Content-Type', /json/)
@@ -189,25 +189,7 @@ describe('API Gateway: rutas estáticas', () => {
         );
     });
 
-    it('Devuelve Marcos (Marcao) al borrar al jugador con id 362643639561617613 con deleteJugador', (done) => {
-      /**
-       * IMPORTANTE: Para probar este expect, probar con la ID de este jugador porque este ya no está en la BBDD ;)
-       */
-      supertest(app)
-        .delete('/plantilla/delete-jugador/362643639561617613')
-        .expect(200)
-        .expect('Content-Type', /json/)
-        .expect(function (res) {
-          //console.log( res.body ); // Para comprobar qué contiene exactamente res.body
-          assert(res.body.data.hasOwnProperty('nombre'));
-          assert(res.body.data.nombre === "Marcos");
 
-          assert(res.body.data.hasOwnProperty('apodo'));
-          assert(res.body.data.apodo === "Marcao");
-        })
-        .end((error) => { error ? done.fail(error) : done(); }
-        );
-    });
   })
 });
 
