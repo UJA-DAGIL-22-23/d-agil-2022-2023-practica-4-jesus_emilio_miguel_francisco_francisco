@@ -1,5 +1,5 @@
 /**
- * @file Plantilla.js
+ * @file FSala.js
  * @description Funciones para el procesamiento de la info enviada por el MS Plantilla
  * @author Víctor M. Rivas <vrivas@ujaen.es>
  * @date 03-feb-2023
@@ -8,12 +8,12 @@
 "use strict";
 
 /// Creo el espacio de nombres
-let Plantilla = {};
+let FSala = {};
 
 let jugadores = null;
 
 // Plantilla de datosDescargados vacíos
-Plantilla.datosDescargadosNulos = {
+FSala.datosDescargadosNulos = {
     mensaje: "Datos Descargados No válidos",
     autor: "",
     email: "",
@@ -21,7 +21,7 @@ Plantilla.datosDescargadosNulos = {
 }
 
 // Plantilla de jugadores vacía
-Plantilla.datosJugadoresNulos = {
+FSala.datosJugadoresNulos = {
     ref: {
         "@ref": {
             id: ""
@@ -42,7 +42,7 @@ Plantilla.datosJugadoresNulos = {
     }
 };
 
-Plantilla.vectorJugadoresNulos = [
+FSala.vectorJugadoresNulos = [
     {
         ref: {
             "@ref": {
@@ -67,7 +67,7 @@ Plantilla.vectorJugadoresNulos = [
 
 
 // Tags que voy a usar para sustituir los campos
-Plantilla.plantillaTags = {
+FSala.plantillaTags = {
     "ID": "### ID ###",
     "NOMBRE": "### NOMBRE ###",
     "APELLIDOS": "### APELLIDOS ###",
@@ -81,55 +81,55 @@ Plantilla.plantillaTags = {
 }
 
 /// Plantilla para poner los datos de un jugador en un tabla dentro de un formulario
-Plantilla.plantillaFormularioJugador = {}
+FSala.plantillaFormularioJugador = {}
 
 // Formulario para mostrar los datos de un jugador
-Plantilla.plantillaFormularioJugador.formulario = `
+FSala.plantillaFormularioJugador.formulario = `
 <form method='post' action=''>
     <table width="100%" class="listado-personas">
-    <a href="javascript:Plantilla.anteriorJugador()" id="sig-btn" class="opcion-secundaria">Anterior</a>
-    <a href="javascript:Plantilla.siguienteJugador()" id="ant-btn" class="opcion-secundaria sig-btn">Siguiente</a>
+    <a href="javascript:FSala.anteriorJugador()" id="sig-btn" class="opcion-secundaria">Anterior</a>
+    <a href="javascript:FSala.siguienteJugador()" id="ant-btn" class="opcion-secundaria sig-btn">Siguiente</a>
         <thead>
             <th width="10%">Id</th><th width="20%">Nombre</th><th width="20%">Apellidos</th>
             <th width="20%">Apodo</th><th width="20%">Fecha de nacimiento</th><th width="20%">Dorsal</th>
             <th width="20%">Posición</th><th width="20%">Trayectoria</th><th width="20%">Opciones</th>
         </thead>
         <tbody>
-            <tr title="${Plantilla.plantillaTags.ID}">
+            <tr title="${FSala.plantillaTags.ID}">
                 <td><input type="text" class="form-persona-elemento" disabled id="form-jugador-id"
-                        value="${Plantilla.plantillaTags.ID}" 
+                        value="${FSala.plantillaTags.ID}" 
                         name="id_jugador"/></td>
                 <td><input type="text" class="form-persona-elemento editable" disabled
-                        id="form-jugador-nombre" required value="${Plantilla.plantillaTags.NOMBRE}" 
+                        id="form-jugador-nombre" required value="${FSala.plantillaTags.NOMBRE}" 
                         name="nombre_jugador"/></td>
                 <td><input type="text" class="form-persona-elemento editable" disabled
-                        id="form-jugador-apellidos" required value="${Plantilla.plantillaTags.APELLIDOS}" 
+                        id="form-jugador-apellidos" required value="${FSala.plantillaTags.APELLIDOS}" 
                         name="apellidos_jugador"/></td>
                 <td><input type="text" class="form-persona-elemento editable" disabled
-                        id="form-jugador-apodo" required value="${Plantilla.plantillaTags.APODO}" 
+                        id="form-jugador-apodo" required value="${FSala.plantillaTags.APODO}" 
                         name="apodo_jugador"/></td>
                 <td><input type="number" class="form-persona-elemento editable" disabled
-                        id="form-jugador-dia" required value="${Plantilla.plantillaTags.DIA}"
+                        id="form-jugador-dia" required value="${FSala.plantillaTags.DIA}"
                         name="dia_jugador"/>-
                     <input type="number" class="form-persona-elemento editable" disabled
-                        id="form-jugador-mes" required value="${Plantilla.plantillaTags.MES}"
+                        id="form-jugador-mes" required value="${FSala.plantillaTags.MES}"
                         name="mes_jugador"/>-
                     <input type="number" class="form-persona-elemento editable" disabled
-                        id="form-jugador-anio" required value="${Plantilla.plantillaTags.ANIO}"
+                        id="form-jugador-anio" required value="${FSala.plantillaTags.ANIO}"
                         name="año_jugador"/></td>
                 <td><input type="number" class="form-persona-elemento editable" disabled
-                        id="form-jugador-dorsal" required value="${Plantilla.plantillaTags.DORSAL}" 
+                        id="form-jugador-dorsal" required value="${FSala.plantillaTags.DORSAL}" 
                         name="dorsal_jugador"/></td>
                 <td><input type="text" class="form-persona-elemento editable" disabled
-                        id="form-jugador-posicion" required value="${Plantilla.plantillaTags.POSICION}" 
+                        id="form-jugador-posicion" required value="${FSala.plantillaTags.POSICION}" 
                         name="posicion_jugador"/></td>
                 <td><p class="form-persona-elemento"
-                        id="form-jugador-trayectoria" name="equipos-jugados-jugador">${Plantilla.plantillaTags.EQUIPOS_JUGADOS}</p></td>
+                        id="form-jugador-trayectoria" name="equipos-jugados-jugador">${FSala.plantillaTags.EQUIPOS_JUGADOS}</p></td>
                 <td>
-                    <div><a href="javascript:Plantilla.editar()" id="editar-btn" onclick="Plantilla.mostrarBotonesEdicion()" class="opcion-secundaria mostrar">Editar</a></div>
-                    <div><a href="javascript:Plantilla.borra('${Plantilla.plantillaTags.ID}')" id="borrar-btn" class="opcion-secundaria mostrar">Borrar</a></div>
-                    <div><a href="javascript:Plantilla.guardar()" id="guardar-btn" class="opcion-terciaria editar ocultar">Guardar</a></div>
-                    <div><a href="javascript:Plantilla.mostrar('${Plantilla.plantillaTags.ID}')" id="cancelar-btn" class="opcion-terciaria editar ocultar">Cancelar</a></div>
+                    <div><a href="javascript:FSala.editar()" id="editar-btn" onclick="FSala.mostrarBotonesEdicion()" class="opcion-secundaria mostrar">Editar</a></div>
+                    <div><a href="javascript:FSala.borra('${FSala.plantillaTags.ID}')" id="borrar-btn" class="opcion-secundaria mostrar">Borrar</a></div>
+                    <div><a href="javascript:FSala.guardar()" id="guardar-btn" class="opcion-terciaria editar ocultar">Guardar</a></div>
+                    <div><a href="javascript:FSala.mostrar('${FSala.plantillaTags.ID}')" id="cancelar-btn" class="opcion-terciaria editar ocultar">Cancelar</a></div>
                 </td>
             </tr>
         </tbody>
@@ -138,12 +138,12 @@ Plantilla.plantillaFormularioJugador.formulario = `
 `;
 
 // Función para borrar un jugador de la base de datos a partir de su id
-Plantilla.borra = function (idJugador) {
-    Plantilla.eliminaJugador(idJugador)
+FSala.borra = function (idJugador) {
+    FSala.eliminaJugador(idJugador)
 }
 
 // Función que elimina un jugador a partir de su id
-Plantilla.eliminaJugador = async function(idJugador) {
+FSala.eliminaJugador = async function(idJugador) {
     console.log(idJugador)
     try {
         const url = Frontend.API_GATEWAY + "/futbolsala/delete-jugador/" + idJugador
@@ -152,7 +152,7 @@ Plantilla.eliminaJugador = async function(idJugador) {
             mode: 'no-cors'
         })
 
-        Plantilla.listar()
+        FSala.listar()
 
     } catch (error) {
         alert("Error: No se han podido acceder al API Gateway")
@@ -162,19 +162,19 @@ Plantilla.eliminaJugador = async function(idJugador) {
 
 
 // Función que muestra el siguiente jugador de la base de datos
-Plantilla.siguienteJugador = function () {
-    Plantilla.recupera(this.siguiente)
+FSala.siguienteJugador = function () {
+    FSala.recupera(this.siguiente)
 }
 
 // Función que muestra el jugador anterior de la base de datos
-Plantilla.anteriorJugador = function () {
-    Plantilla.recupera(this.anterior)
+FSala.anteriorJugador = function () {
+    FSala.recupera(this.anterior)
 }
 
 // Función para obtener el jugador siguiente al actual y mostrarlo
-Plantilla.siguiente = function (vector) {
-    vector = vector || Plantilla.vectorJugadoresNulos
-    if (typeof vector !== "object") vector = Plantilla.vectorJugadoresNulos
+FSala.siguiente = function (vector) {
+    vector = vector || FSala.vectorJugadoresNulos
+    if (typeof vector !== "object") vector = FSala.vectorJugadoresNulos
     // Sacamos los índices
     let indices = []
     if (Array.isArray(vector)) {
@@ -192,18 +192,18 @@ Plantilla.siguiente = function (vector) {
         // Controlamos que no nos salgamos del rango [0, vector.length - 1]
         pos = (pos % vector.length + vector.length) % vector.length;
         //Mostramos el siguiente jugador
-        Plantilla.mostrar(indices[pos])
+        FSala.mostrar(indices[pos])
     } else
-        Plantilla.sustituyeTags(Plantilla.plantillaFormularioJugador.formulario, Plantilla.datosJugadoresNulos)
+        FSala.sustituyeTags(FSala.plantillaFormularioJugador.formulario, FSala.datosJugadoresNulos)
     return indices
 }
 
 // Función para obtener el jugador anterior al actual y mostrarlo
-Plantilla.anterior = function (vector) {
+FSala.anterior = function (vector) {
 
-    vector = vector || Plantilla.vectorJugadoresNulos
+    vector = vector || FSala.vectorJugadoresNulos
 
-    if (typeof vector !== "object") vector = Plantilla.vectorJugadoresNulos
+    if (typeof vector !== "object") vector = FSala.vectorJugadoresNulos
 
     // Sacamos los índices
     let indices = []
@@ -227,10 +227,10 @@ Plantilla.anterior = function (vector) {
         pos = (pos % vector.length + vector.length) % vector.length;
 
         //Mostramos el siguiente jugador
-        Plantilla.mostrar(indices[pos])
+        FSala.mostrar(indices[pos])
     } else
 
-        Plantilla.sustituyeTags(Plantilla.plantillaFormularioJugador.formulario, Plantilla.datosJugadoresNulos)
+        FSala.sustituyeTags(FSala.plantillaFormularioJugador.formulario, FSala.datosJugadoresNulos)
 
     return indices
 }
@@ -238,7 +238,7 @@ Plantilla.anterior = function (vector) {
 /**
  * Función para ocultar el botón de editar y mostrar los botones de guardar y cancelar
  */
-Plantilla.mostrarBotonesEdicion = function () {
+FSala.mostrarBotonesEdicion = function () {
     // Cambiar la clase de los botones de ocultar a mostrar
     document.getElementById("guardar-btn").classList.remove("ocultar");
     document.getElementById("cancelar-btn").classList.remove("ocultar");
@@ -254,7 +254,7 @@ Plantilla.mostrarBotonesEdicion = function () {
 /**
  * Función para habilitar los campos que serán editables de un jugador y cambia la visibilidad de los botones
  */
-Plantilla.editar = function () {
+FSala.editar = function () {
     document.getElementById("form-jugador-nombre").disabled = false;
     document.getElementById("form-jugador-apellidos").disabled = false;
     document.getElementById("form-jugador-apodo").disabled = false;
@@ -269,7 +269,7 @@ Plantilla.editar = function () {
  * @param {*} jugador Datos del jugador que vamos a mostrar
  * @returns 
  */
-Plantilla.sustituyeTags = function (plantilla, jugador) {
+FSala.sustituyeTags = function (plantilla, jugador) {
     // Si no se ha proporcionado valor para jugador
     jugador = jugador || this.datosJugadoresNulos
 
@@ -277,16 +277,16 @@ Plantilla.sustituyeTags = function (plantilla, jugador) {
     if (typeof jugador !== "object") jugador = this.datosJugadoresNulos
 
     return plantilla
-        .replace(new RegExp(Plantilla.plantillaTags.ID, 'g'), jugador.ref['@ref'].id)
-        .replace(new RegExp(Plantilla.plantillaTags.NOMBRE, 'g'), jugador.data.nombre)
-        .replace(new RegExp(Plantilla.plantillaTags.APELLIDOS, 'g'), jugador.data.apellidos)
-        .replace(new RegExp(Plantilla.plantillaTags.APODO, 'g'), jugador.data.apodo)
-        .replace(new RegExp(Plantilla.plantillaTags.DIA, 'g'), jugador.data.fecha_nacimiento.dia)
-        .replace(new RegExp(Plantilla.plantillaTags.MES, 'g'), jugador.data.fecha_nacimiento.mes)
-        .replace(new RegExp(Plantilla.plantillaTags.ANIO, 'g'), jugador.data.fecha_nacimiento.año)
-        .replace(new RegExp(Plantilla.plantillaTags.DORSAL, 'g'), jugador.data.dorsal)
-        .replace(new RegExp(Plantilla.plantillaTags.POSICION, 'g'), jugador.data.posicion)
-        .replace(new RegExp(Plantilla.plantillaTags.EQUIPOS_JUGADOS, 'g'), jugador.data.equipos_jugados)
+        .replace(new RegExp(FSala.plantillaTags.ID, 'g'), jugador.ref['@ref'].id)
+        .replace(new RegExp(FSala.plantillaTags.NOMBRE, 'g'), jugador.data.nombre)
+        .replace(new RegExp(FSala.plantillaTags.APELLIDOS, 'g'), jugador.data.apellidos)
+        .replace(new RegExp(FSala.plantillaTags.APODO, 'g'), jugador.data.apodo)
+        .replace(new RegExp(FSala.plantillaTags.DIA, 'g'), jugador.data.fecha_nacimiento.dia)
+        .replace(new RegExp(FSala.plantillaTags.MES, 'g'), jugador.data.fecha_nacimiento.mes)
+        .replace(new RegExp(FSala.plantillaTags.ANIO, 'g'), jugador.data.fecha_nacimiento.año)
+        .replace(new RegExp(FSala.plantillaTags.DORSAL, 'g'), jugador.data.dorsal)
+        .replace(new RegExp(FSala.plantillaTags.POSICION, 'g'), jugador.data.posicion)
+        .replace(new RegExp(FSala.plantillaTags.EQUIPOS_JUGADOS, 'g'), jugador.data.equipos_jugados)
 }
 
 /**
@@ -294,28 +294,28 @@ Plantilla.sustituyeTags = function (plantilla, jugador) {
  * @param {*} jugador Datos del jugador que vamos a mostrar en la plantilla del formulario
  * @returns 
  */
-Plantilla.plantillaFormularioJugador.actualiza = function (jugador) {
+FSala.plantillaFormularioJugador.actualiza = function (jugador) {
     // Si no se ha proporcionado valor para jugador
     jugador = jugador || this.datosJugadoresNulos
 
     // Si jugador NO es un objeto 
     if (typeof jugador !== "object") jugador = this.datosJugadoresNulos
 
-    return Plantilla.sustituyeTags(this.formulario, jugador)
+    return FSala.sustituyeTags(this.formulario, jugador)
 }
 
 /**
  * Función para actualizar el frontend con los datos del jugador
  * @param {*} jugador Datos del jugador
  */
-Plantilla.unJugador = function (jugador) {
+FSala.unJugador = function (jugador) {
     // Si no se ha proporcionado valor para jugador
     jugador = jugador || this.datosJugadoresNulos
 
     // Si jugador NO es un objeto 
     if (typeof jugador !== "object") jugador = this.datosJugadoresNulos
 
-    let msj = Plantilla.plantillaFormularioJugador.actualiza(jugador)
+    let msj = FSala.plantillaFormularioJugador.actualiza(jugador)
     Frontend.Article.actualizar("Mostrar un jugador", msj)
     return msj;
 }
@@ -325,7 +325,7 @@ Plantilla.unJugador = function (jugador) {
  * @param {*} idJugador ID del jugador que queremos recuperar de la base de datos
  * @param {*} callBackFn Función que se va a llamara cuando recuperemos al jugador
  */
-Plantilla.recuperaJugador = async function (idJugador, callBackFn) {
+FSala.recuperaJugador = async function (idJugador, callBackFn) {
     try {
         const url = Frontend.API_GATEWAY + "/futbolsala/getPorId/" + idJugador
         const response = await fetch(url);
@@ -343,14 +343,14 @@ Plantilla.recuperaJugador = async function (idJugador, callBackFn) {
  * Función para mostrar los datos de un jugador
  * @param {*} idJugador ID del jugador que queremos mostrar los datos
  */
-Plantilla.mostrar = function (idJugador) {
+FSala.mostrar = function (idJugador) {
     this.recuperaJugador(idJugador, this.unJugador)
 }
 
 /**
  * Función para guardar los cambios realizados en un jugador
  */
-Plantilla.guardar = async function () {
+FSala.guardar = async function () {
     try {
         let url = Frontend.API_GATEWAY + "/futbolsala/set-cambios/"
         let id_jugador = document.getElementById("form-jugador-id").value
@@ -380,7 +380,7 @@ Plantilla.guardar = async function () {
             }), // body data type must match "Content-Type" header
         })
 
-        Plantilla.mostrar(id_jugador)
+        FSala.mostrar(id_jugador)
     } catch (error) {
         alert("Error: No se han podido acceder al API Gateway " + error)
         //console.error(error)
@@ -388,10 +388,10 @@ Plantilla.guardar = async function () {
 }
 
 // Plantilla para poner los datos de un nuevo jugador en un formulario vacio
-Plantilla.plantillaAddJugador = {}
+FSala.plantillaAddJugador = {}
 
 // Formulario vacio para añadir un jugador
-Plantilla.plantillaAddJugador.formulario = `
+FSala.plantillaAddJugador.formulario = `
 <form method='post' action=''>
     <table width="100%" class="listado-personas">
         <thead>
@@ -411,7 +411,7 @@ Plantilla.plantillaAddJugador.formulario = `
                 <td><input type="text" class="form-persona-elemento editable" id="add-jugador-posicion" placeholder="Posición"/></td>
                 <td><textarea class="form-persona-elemento editable" id="add-jugador-trayectoria" placeholder="Equipos jugados"></textarea></td>
                 <td>
-                    <div><a href="javascript:Plantilla.añadir()" id="añadir-btn" class="opcion-secundaria mostrar">Guardar</a></div>
+                    <div><a href="javascript:FSala.añadir()" id="añadir-btn" class="opcion-secundaria mostrar">Guardar</a></div>
                 </td>
             </tr>
         </tbody>
@@ -420,12 +420,12 @@ Plantilla.plantillaAddJugador.formulario = `
 `;
 
 // Método para mostrar el formulario de añadir un jugador
-Plantilla.mostrarFormAñadir = function() {
-    Frontend.Article.actualizar("Añade un jugador", Plantilla.plantillaAddJugador.formulario)
+FSala.mostrarFormAñadir = function() {
+    Frontend.Article.actualizar("Añade un jugador", FSala.plantillaAddJugador.formulario)
 }
 
 // Método para añadir un jugador a la base de datos y muestra todos los jugadores
-Plantilla.añadir = function() {
+FSala.añadir = function() {
     if (document.getElementById("add-jugador-nombre").value === "" ||
     document.getElementById("add-jugador-apellidos").value === "" ||
     document.getElementById("add-jugador-apodo").value === "" ||
@@ -436,12 +436,12 @@ Plantilla.añadir = function() {
     document.getElementById("add-jugador-posicion").value === "" ||
     document.getElementById("add-jugador-trayectoria").value === "") alert("Por favor, completa todos los campos")
     else {
-        Plantilla.añadeJugador()
+        FSala.añadeJugador()
     }
 }
 
 // Método asíncrono que crea un jugador con los datos obtenidos del formulario y lo añade a la base de datos
-Plantilla.añadeJugador = async function() {
+FSala.añadeJugador = async function() {
     try{
 
         let url = Frontend.API_GATEWAY + "/futbolsala/add-jugador"
@@ -480,7 +480,7 @@ Plantilla.añadeJugador = async function() {
         })
 
         // Listamos todos los jugadores
-        Plantilla.listar()
+        FSala.listar()
 
     } catch (error) {
         alert("Error: No se han podido acceder al API Gateway " + error)
@@ -493,7 +493,7 @@ Plantilla.añadeJugador = async function() {
  * @param {string} ruta Ruta a descargar
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
-Plantilla.descargarRuta = async function (ruta, callBackFn) {
+FSala.descargarRuta = async function (ruta, callBackFn) {
     let response = null
 
     // Intento conectar con el microservicio Plantilla
@@ -518,7 +518,7 @@ Plantilla.descargarRuta = async function (ruta, callBackFn) {
 /**
  * Función principal para mostrar los datos enviados por la ruta "home" de MS Plantilla
  */
-Plantilla.mostrarHome = function (datosDescargados) {
+FSala.mostrarHome = function (datosDescargados) {
     // Si no se ha proporcionado valor para datosDescargados
     datosDescargados = datosDescargados || this.datosDescargadosNulos
 
@@ -534,7 +534,7 @@ Plantilla.mostrarHome = function (datosDescargados) {
 /**
  * Función principal para mostrar los datos enviados por la ruta "acerca de" de MS Plantilla
  */
-Plantilla.mostrarAcercaDe = function (datosDescargados) {
+FSala.mostrarAcercaDe = function (datosDescargados) {
     // Si no se ha proporcionado valor para datosDescargados
     datosDescargados = datosDescargados || this.datosDescargadosNulos
 
@@ -565,7 +565,7 @@ Plantilla.mostrarAcercaDe = function (datosDescargados) {
  * Función para listar el nombre de todos los jugadores de la base de datos
  * @param {jugadores} jugadores Vector con todos los jugadores de la base de datos
  */
-Plantilla.listadoDeNombres = function (jugadores) {
+FSala.listadoDeNombres = function (jugadores) {
     // Si no se ha proporcionado valor para datosDescargados
     jugadores = jugadores || this.datosJugadoresNulos
 
@@ -603,7 +603,7 @@ Plantilla.listadoDeNombres = function (jugadores) {
             <tr>
                 <td>${jugadores.data[i].data.nombre}</td>
                 <td>
-                    <div><a href="javascript:Plantilla.mostrar('${jugadores.data[i].ref['@ref'].id}')" class="opcion-secundaria mostrar">Mostrar</a></div>
+                    <div><a href="javascript:FSala.mostrar('${jugadores.data[i].ref['@ref'].id}')" class="opcion-secundaria mostrar">Mostrar</a></div>
                 </td>
             </tr>`;
         }
@@ -619,7 +619,7 @@ Plantilla.listadoDeNombres = function (jugadores) {
  * Función para listar el nombre en orden alfabético de todos los jugadores de la base de datos
  * @param {jugadores} jugadores Vector con todos los jugadores de la base de datos
  */
-Plantilla.listadoDeNombresOrden = function (jugadores) {
+FSala.listadoDeNombresOrden = function (jugadores) {
     // Si no se ha proporcionado valor para datosDescargados
     jugadores = jugadores || this.datosJugadoresNulos
 
@@ -673,11 +673,11 @@ Plantilla.listadoDeNombresOrden = function (jugadores) {
 
 
 // Plantilla para poner los datos de los jugadores en una tabla
-Plantilla.plantillaTablaPersonas = {}
+FSala.plantillaTablaPersonas = {}
 
 // Función que busca un jugador que cumpla un determinado criterio de búsqueda
-Plantilla.buscar = function () {
-    Plantilla.recupera(this.filtraVector)
+FSala.buscar = function () {
+    FSala.recupera(this.filtraVector)
 }
 
 /**
@@ -685,11 +685,11 @@ Plantilla.buscar = function () {
  * Se puede buscar por Nombre, Apellidos, Apodo y Posición
  * @param {jugadores} vector Vector con todos los jugadores de la base de datos 
  */
-Plantilla.filtraVector = function (vector) {
+FSala.filtraVector = function (vector) {
 
-    vector = vector || Plantilla.vectorJugadoresNulos
+    vector = vector || FSala.vectorJugadoresNulos
 
-    if (typeof vector !== "object") vector = Plantilla.vectorJugadoresNulos
+    if (typeof vector !== "object") vector = FSala.vectorJugadoresNulos
 
     // Comprueba que terminoBusqeda no sea undefined
     const terminoBusqueda = document.getElementById("busqueda");
@@ -705,7 +705,7 @@ Plantilla.filtraVector = function (vector) {
         );
 
         // Imprime el vector filtrado y devuelve el vector filtrado para los expects
-        Plantilla.imprimeJugadores(vectorFiltrado);
+        FSala.imprimeJugadores(vectorFiltrado);
         return vectorFiltrado;
     } else {
 
@@ -717,11 +717,11 @@ Plantilla.filtraVector = function (vector) {
 
 
 // Cabecera de la tabla
-Plantilla.plantillaTablaPersonas.cabecera = `<table width="100%" class="listado-personas">
+FSala.plantillaTablaPersonas.cabecera = `<table width="100%" class="listado-personas">
 <div>
   <label for="busqueda">Buscar:</label>
   <input type="text" id="busqueda" name="busqueda">
-  <button onclick="Plantilla.buscar()">Buscar</button>
+  <button onclick="FSala.buscar()">Buscar</button>
 </div>
 <div>
     <h4>Haga click sobre los títulos para ordenar la tabla</h4> 
@@ -742,24 +742,24 @@ Plantilla.plantillaTablaPersonas.cabecera = `<table width="100%" class="listado-
     `;
 
 // Elemento TR que muestra los datos de una persona
-Plantilla.plantillaTablaPersonas.cuerpo = `
-    <tr title="${Plantilla.plantillaTags.ID}">
-        <td>${Plantilla.plantillaTags.ID}</td>
-        <td>${Plantilla.plantillaTags.NOMBRE}</td>
-        <td>${Plantilla.plantillaTags.APELLIDOS}</td>
-        <td>${Plantilla.plantillaTags.APODO}</td>
-        <td>${Plantilla.plantillaTags.DIA}/${Plantilla.plantillaTags.MES}/${Plantilla.plantillaTags.ANIO}</td>
-        <td>${Plantilla.plantillaTags.DORSAL}</td>
-        <td>${Plantilla.plantillaTags.POSICION}</td>
-        <td>${Plantilla.plantillaTags.EQUIPOS_JUGADOS}</td>
+FSala.plantillaTablaPersonas.cuerpo = `
+    <tr title="${FSala.plantillaTags.ID}">
+        <td>${FSala.plantillaTags.ID}</td>
+        <td>${FSala.plantillaTags.NOMBRE}</td>
+        <td>${FSala.plantillaTags.APELLIDOS}</td>
+        <td>${FSala.plantillaTags.APODO}</td>
+        <td>${FSala.plantillaTags.DIA}/${FSala.plantillaTags.MES}/${FSala.plantillaTags.ANIO}</td>
+        <td>${FSala.plantillaTags.DORSAL}</td>
+        <td>${FSala.plantillaTags.POSICION}</td>
+        <td>${FSala.plantillaTags.EQUIPOS_JUGADOS}</td>
         <td>
-                    <div><a href="javascript:Plantilla.mostrar('${Plantilla.plantillaTags.ID}')" class="opcion-secundaria mostrar">Mostrar</a></div>
+                    <div><a href="javascript:FSala.mostrar('${FSala.plantillaTags.ID}')" class="opcion-secundaria mostrar">Mostrar</a></div>
         </td>
     </tr>
     `;
 
 // Pie de la tabla
-Plantilla.plantillaTablaPersonas.pie = `        </tbody>
+FSala.plantillaTablaPersonas.pie = `        </tbody>
              </table>
              `;
 
@@ -767,15 +767,15 @@ Plantilla.plantillaTablaPersonas.pie = `        </tbody>
  * Función para actualizar los datos de la tabla con los del jugador que se le pasa 
  * @param jugador Datos del jugador
  */
-Plantilla.plantillaTablaPersonas.actualiza = function (jugador) {
-    return Plantilla.sustituyeTags(this.cuerpo, jugador)
+FSala.plantillaTablaPersonas.actualiza = function (jugador) {
+    return FSala.sustituyeTags(this.cuerpo, jugador)
 }
 
 /**
  * Función para recuperar los jugadores de la base de datos y devuelve vector.data
  * @param callBackFn Función que se va a llamar cuando se recuperen los datos 
  */
-Plantilla.recupera = async function (callBackFn) {
+FSala.recupera = async function (callBackFn) {
     let response = null
 
     // Intento conectar con el microservicio personas
@@ -801,7 +801,7 @@ Plantilla.recupera = async function (callBackFn) {
  * Función para mostrar los datos de los jugadores en la tabla
  * @param {vector} vector Array con los datos de los jugadores
  */
-Plantilla.imprimeJugadores = function (vector) {
+FSala.imprimeJugadores = function (vector) {
 
     // Si no se ha proporcionado valor para datosDescargados
     vector = vector || this.vectorJugadoresNulos
@@ -810,9 +810,9 @@ Plantilla.imprimeJugadores = function (vector) {
     if (typeof vector !== "object") vector = this.vectorJugadoresNulos
 
     // Compongo el contenido que se va a mostrar dentro de la tabla
-    let msj = Plantilla.plantillaTablaPersonas.cabecera
-    vector.forEach(e => msj += Plantilla.plantillaTablaPersonas.actualiza(e))
-    msj += Plantilla.plantillaTablaPersonas.pie
+    let msj = FSala.plantillaTablaPersonas.cabecera
+    vector.forEach(e => msj += FSala.plantillaTablaPersonas.actualiza(e))
+    msj += FSala.plantillaTablaPersonas.pie
 
     // Borro toda la info de Article y la sustituyo por la que me interesa
     Frontend.Article.actualizar("Listado de jugadores", msj)
@@ -825,7 +825,7 @@ Plantilla.imprimeJugadores = function (vector) {
         });
 
         // Actualizar la tabla con los datos ordenados
-        Plantilla.imprimeJugadores(vector);
+        FSala.imprimeJugadores(vector);
     });
 
     document.getElementById("table-nombre").addEventListener("click", function () {
@@ -835,7 +835,7 @@ Plantilla.imprimeJugadores = function (vector) {
         });
 
         // Actualizar la tabla con los datos ordenados
-        Plantilla.imprimeJugadores(vector);
+        FSala.imprimeJugadores(vector);
     });
 
     document.getElementById("table-apellidos").addEventListener("click", function () {
@@ -845,7 +845,7 @@ Plantilla.imprimeJugadores = function (vector) {
         });
 
         // Actualizar la tabla con los datos ordenados
-        Plantilla.imprimeJugadores(vector);
+        FSala.imprimeJugadores(vector);
     });
 
     document.getElementById("table-apodo").addEventListener("click", function () {
@@ -855,7 +855,7 @@ Plantilla.imprimeJugadores = function (vector) {
         });
 
         // Actualizar la tabla con los datos ordenados
-        Plantilla.imprimeJugadores(vector);
+        FSala.imprimeJugadores(vector);
     });
 
     document.getElementById("table-fecha_nac").addEventListener("click", function () {
@@ -867,7 +867,7 @@ Plantilla.imprimeJugadores = function (vector) {
         });
 
         // Actualizar la tabla con los datos ordenados
-        Plantilla.imprimeJugadores(vector);
+        FSala.imprimeJugadores(vector);
     });
 
     document.getElementById("table-dorsal").addEventListener("click", function () {
@@ -877,7 +877,7 @@ Plantilla.imprimeJugadores = function (vector) {
         });
 
         // Actualizar la tabla con los datos ordenados
-        Plantilla.imprimeJugadores(vector);
+        FSala.imprimeJugadores(vector);
     });
 
     document.getElementById("table-posicion").addEventListener("click", function () {
@@ -887,7 +887,7 @@ Plantilla.imprimeJugadores = function (vector) {
         });
 
         // Actualizar la tabla con los datos ordenados
-        Plantilla.imprimeJugadores(vector);
+        FSala.imprimeJugadores(vector);
     });
 
     document.getElementById("table-trayectoria").addEventListener("click", function () {
@@ -897,41 +897,41 @@ Plantilla.imprimeJugadores = function (vector) {
             });
 
         // Actualizar la tabla con los datos ordenados
-        Plantilla.imprimeJugadores(vector);
+        FSala.imprimeJugadores(vector);
     });
 
     return msj;
 }
 
 // Función para listar todos los jugadores de la base de datos
-Plantilla.listar = function () {
-    Plantilla.recupera(Plantilla.imprimeJugadores);
+FSala.listar = function () {
+    FSala.recupera(FSala.imprimeJugadores);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Home"
  */
-Plantilla.procesarHome = function () {
+FSala.procesarHome = function () {
     this.descargarRuta("/futbolsala/", this.mostrarHome);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Acerca de"
  */
-Plantilla.procesarAcercaDe = function () {
+FSala.procesarAcercaDe = function () {
     this.descargarRuta("/futbolsala/acercade", this.mostrarAcercaDe);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Listar jugadores solo nombre"
  */
-Plantilla.procesarListadoDeNombres = function () {
+FSala.procesarListadoDeNombres = function () {
     this.descargarRuta("/futbolsala/get-todos", this.listadoDeNombres);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Listar nombres ordenado"
  */
-Plantilla.procesarListadoDeNombresOrden = function () {
+FSala.procesarListadoDeNombresOrden = function () {
     this.descargarRuta("/futbolsala/get-todos", this.listadoDeNombresOrden);
 }

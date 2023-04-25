@@ -122,86 +122,86 @@ function esperar(ms) {
 
 // SPECS a probar
 
-describe("Plantilla.mostrarHome: ", function () {
+describe("FSala.mostrarHome: ", function () {
 
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
-            Plantilla.mostrarHome()
+            FSala.mostrarHome()
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(FSala.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
-            Plantilla.mostrarHome(23)
+            FSala.mostrarHome(23)
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(FSala.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje",
         function () {
             // Objeto vacío
-            Plantilla.mostrarHome({})
+            FSala.mostrarHome({})
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(FSala.datosDescargadosNulos.mensaje)
 
             // Objeto sin campo mensaje
-            Plantilla.mostrarHome({ foo: "bar" })
+            FSala.mostrarHome({ foo: "bar" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(FSala.datosDescargadosNulos.mensaje)
         })
 
     it("muestra correctamente el título y el mensaje",
         function () {
-            Plantilla.mostrarHome(datosDescargadosPrueba)
+            FSala.mostrarHome(datosDescargadosPrueba)
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
             expect(elementoContenido.innerHTML).toBe(datosDescargadosPrueba.mensaje)
         })
 })
 
 
-describe("Plantilla.mostrarAcercaDe: ", function () {
+describe("FSala.mostrarAcercaDe: ", function () {
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
-            Plantilla.mostrarAcercaDe()
+            FSala.mostrarAcercaDe()
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(FSala.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
-            Plantilla.mostrarAcercaDe(23)
+            FSala.mostrarAcercaDe(23)
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(FSala.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje o autor o email o fecha ",
         function () {
             // Objeto vacío
-            Plantilla.mostrarAcercaDe({})
+            FSala.mostrarAcercaDe({})
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(FSala.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
 
             // Objeto sin campo mensaje
-            Plantilla.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
+            FSala.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(FSala.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo autor
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
+            FSala.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(FSala.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo email
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
+            FSala.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(FSala.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo fecha
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
+            FSala.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(FSala.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
     it("muestra correctamente el título y el mensaje conteniendo el autor, el email y la fecha",
         function () {
-            Plantilla.mostrarAcercaDe(datosDescargadosPrueba)
+            FSala.mostrarAcercaDe(datosDescargadosPrueba)
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
 
             // Comprobamos que al buscar el autor, el email y la fecha de prueba los encuentra dentro del contenido del article
@@ -219,15 +219,15 @@ IMPORTANTE
 Las pruebas TDD que se encargan de probar las conexiones con el microservicio desde el cliente son difíciles de probar 
 dado que requieren solucionar temas de sincronización. 
 Esto afecta a los métodos:
- - Plantilla.descargarRuta
- - Plantilla.procesarAcercaDe
- - Plantilla.procesarHome
+ - FSala.descargarRuta
+ - FSala.procesarAcercaDe
+ - FSala.procesarHome
 
  Las soluciones propuestas en distintos sitios web no han producido el resultado esperado, 
  por tanto: para esta práctica, se pueden dejar SIN HACER.
 
  */
-describe("Plantilla.listadoDeNombres: ", function () {
+describe("FSala.listadoDeNombres: ", function () {
 
     let j = {
         nombre: "Sergio"
@@ -247,30 +247,30 @@ describe("Plantilla.listadoDeNombres: ", function () {
 
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
-            Plantilla.listadoDeNombres()
+            FSala.listadoDeNombres()
             expect(elementoTitulo.innerHTML).toBe(TITULO_LISTADO_NOMBRES)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosJugadoresNulos.nombre) == "").toBeTrue()
+            expect(elementoContenido.innerHTML.search(FSala.datosJugadoresNulos.nombre) == "").toBeTrue()
         })
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
-            Plantilla.listadoDeNombres(23)
+            FSala.listadoDeNombres(23)
             expect(elementoTitulo.innerHTML).toBe(TITULO_LISTADO_NOMBRES)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosJugadoresNulos.nombre) == "").toBeTrue()
+            expect(elementoContenido.innerHTML.search(FSala.datosJugadoresNulos.nombre) == "").toBeTrue()
         })
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo nombre o vacío",
         function () {
             // Objeto vacío
-            Plantilla.listadoDeNombres({})
+            FSala.listadoDeNombres({})
             expect(elementoTitulo.innerHTML).toBe(TITULO_LISTADO_NOMBRES)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosJugadoresNulos.nombre) == "").toBeTrue()
+            expect(elementoContenido.innerHTML.search(FSala.datosJugadoresNulos.nombre) == "").toBeTrue()
             // Objeto sin campo nombre
-            Plantilla.listadoDeNombres({ apellidos: "Lozano Martínez", apodo: "El búfalo", fecha_nacimiento: { dia: "9", mes: "11", año: "1988" }, dorsal: "9", posicion: "Ala", equipos_jugados: ["EFA Arganda", "UD Las Rozas Boadilla", "Reale Cartagena", "Caja Segovia", "Barça"] })
+            FSala.listadoDeNombres({ apellidos: "Lozano Martínez", apodo: "El búfalo", fecha_nacimiento: { dia: "9", mes: "11", año: "1988" }, dorsal: "9", posicion: "Ala", equipos_jugados: ["EFA Arganda", "UD Las Rozas Boadilla", "Reale Cartagena", "Caja Segovia", "Barça"] })
             expect(elementoTitulo.innerHTML).toBe(TITULO_LISTADO_NOMBRES)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosJugadoresNulos.nombre) == "").toBeTrue()
+            expect(elementoContenido.innerHTML.search(FSala.datosJugadoresNulos.nombre) == "").toBeTrue()
         })
     it("muestra correctamente el nombre del jugador",
         function () {
-            let mensaje = Plantilla.listadoDeNombres(jugador)
+            let mensaje = FSala.listadoDeNombres(jugador)
             expect(elementoTitulo.innerHTML).toBe(TITULO_LISTADO_NOMBRES)
 
             // Comprobamos que al buscar el nombre lo encuentra en el article
@@ -278,39 +278,39 @@ describe("Plantilla.listadoDeNombres: ", function () {
         })
 })
 
-describe("Plantilla.listadoDeNombresOrden: ", function () {
+describe("FSala.listadoDeNombresOrden: ", function () {
 
 
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
-            Plantilla.listadoDeNombresOrden()
+            FSala.listadoDeNombresOrden()
             expect(elementoTitulo.innerHTML).toBe(TITULO_LISTADO_NOMBRES)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosJugadoresNulos.nombre) == "").toBeTrue()
+            expect(elementoContenido.innerHTML.search(FSala.datosJugadoresNulos.nombre) == "").toBeTrue()
         })
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
-            Plantilla.listadoDeNombresOrden(23)
+            FSala.listadoDeNombresOrden(23)
             expect(elementoTitulo.innerHTML).toBe(TITULO_LISTADO_NOMBRES)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosJugadoresNulos.nombre) == "").toBeTrue()
+            expect(elementoContenido.innerHTML.search(FSala.datosJugadoresNulos.nombre) == "").toBeTrue()
         })
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo nombre o vacío",
         function () {
             // Objeto vacío
-            Plantilla.listadoDeNombresOrden({})
+            FSala.listadoDeNombresOrden({})
             expect(elementoTitulo.innerHTML).toBe(TITULO_LISTADO_NOMBRES)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosJugadoresNulos.nombre) == "").toBeTrue()
+            expect(elementoContenido.innerHTML.search(FSala.datosJugadoresNulos.nombre) == "").toBeTrue()
             // Objeto sin campo nombre
-            Plantilla.listadoDeNombresOrden({ apellidos: "Lozano Martínez", apodo: "El búfalo", fecha_nacimiento: { dia: "9", mes: "11", año: "1988" }, dorsal: "9", posicion: "Ala", equipos_jugados: ["EFA Arganda", "UD Las Rozas Boadilla", "Reale Cartagena", "Caja Segovia", "Barça"] })
+            FSala.listadoDeNombresOrden({ apellidos: "Lozano Martínez", apodo: "El búfalo", fecha_nacimiento: { dia: "9", mes: "11", año: "1988" }, dorsal: "9", posicion: "Ala", equipos_jugados: ["EFA Arganda", "UD Las Rozas Boadilla", "Reale Cartagena", "Caja Segovia", "Barça"] })
             expect(elementoTitulo.innerHTML).toBe(TITULO_LISTADO_NOMBRES)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosJugadoresNulos.nombre) == "").toBeTrue()
+            expect(elementoContenido.innerHTML.search(FSala.datosJugadoresNulos.nombre) == "").toBeTrue()
         })
 })
 
-describe("Plantilla.imprimeJugadores: ", function () {
+describe("FSala.imprimeJugadores: ", function () {
 
     it("si no se pasa nada no muestra ningún dato",
         function () {
-            let msj = Plantilla.imprimeJugadores()
+            let msj = FSala.imprimeJugadores()
             expect(elementoTitulo.innerHTML).toBe(TITULO_LISTADO_JUGADORES)
             expect(msj.includes(j.ref['@ref'].id)).toBeFalse()
             expect(msj.includes(j.data.nombre)).toBeFalse()
@@ -325,7 +325,7 @@ describe("Plantilla.imprimeJugadores: ", function () {
         })
     it("si no se pasa una variable de tipo object no muestra ningún dato",
         function () {
-            let msj = Plantilla.imprimeJugadores(23)
+            let msj = FSala.imprimeJugadores(23)
             expect(elementoTitulo.innerHTML).toBe(TITULO_LISTADO_JUGADORES)
             expect(msj.includes(j.ref['@ref'].id)).toBeFalse()
             expect(msj.includes(j.data.nombre)).toBeFalse()
@@ -340,7 +340,7 @@ describe("Plantilla.imprimeJugadores: ", function () {
         })
     it("se muestra el mensaje con los datos del jugador",
         function () {
-            let msj = Plantilla.imprimeJugadores(vector_j)
+            let msj = FSala.imprimeJugadores(vector_j)
             expect(msj.includes(j.ref['@ref'].id)).toBeTrue()
             expect(elementoTitulo.innerHTML).toBe(TITULO_LISTADO_JUGADORES)
             expect(msj.includes(j.data.nombre)).toBeTrue()
@@ -356,11 +356,11 @@ describe("Plantilla.imprimeJugadores: ", function () {
 
 })
 
-describe("Plantilla.unJugador: ", function () {
+describe("FSala.unJugador: ", function () {
 
     it("si no se pasa nada no muestra ningún dato",
         function () {
-            let msj = Plantilla.unJugador()
+            let msj = FSala.unJugador()
             expect(elementoTitulo.innerHTML).toBe(TITULO_MOSTRAR)
             expect(msj.includes(j.ref['@ref'].id)).toBeFalse()
             expect(msj.includes(j.data.nombre)).toBeFalse()
@@ -375,7 +375,7 @@ describe("Plantilla.unJugador: ", function () {
         })
     it("si no se pasa una variable de tipo object no muestra ningún dato",
         function () {
-            let msj = Plantilla.unJugador(23)
+            let msj = FSala.unJugador(23)
             expect(elementoTitulo.innerHTML).toBe(TITULO_MOSTRAR)
             expect(msj.includes(j.ref['@ref'].id)).toBeFalse()
             expect(msj.includes(j.data.nombre)).toBeFalse()
@@ -390,7 +390,7 @@ describe("Plantilla.unJugador: ", function () {
         })
     it("se muestra el mensaje con los datos del jugador",
         function () {
-            let msj = Plantilla.unJugador(j)
+            let msj = FSala.unJugador(j)
             expect(msj.includes(j.ref['@ref'].id)).toBeTrue()
             expect(elementoTitulo.innerHTML).toBe(TITULO_MOSTRAR)
             expect(msj.includes(j.data.nombre)).toBeTrue()
@@ -405,49 +405,49 @@ describe("Plantilla.unJugador: ", function () {
         })
 })
 
-describe("Plantilla.anterior: ", function () {
+describe("FSala.anterior: ", function () {
     let indices_prueba = []
     it("si no se pasa nada el array de indices tiene tamaño 1 ['']",
         function () {
-            indices_prueba = Plantilla.anterior()
+            indices_prueba = FSala.anterior()
             expect(indices_prueba).toHaveSize(1)
         })
 
     it("si no se pasa un objeto de tipo objet el array de indices tiene tamaño 1, indices = ['']",
         function () {
-            indices_prueba = Plantilla.anterior(23)
+            indices_prueba = FSala.anterior(23)
             expect(indices_prueba).toHaveSize(1)
         })
 
 })
 
-describe("Plantilla.siguiente: ", function () {
+describe("FSala.siguiente: ", function () {
     let indices_prueba = []
     it("si no se pasa nada el array de indices tiene tamaño 1, indices = ['']",
         function () {
-            indices_prueba = Plantilla.siguiente()
+            indices_prueba = FSala.siguiente()
             expect(indices_prueba).toHaveSize(1)
         })
 
     it("si no se pasa un objeto de tipo objet el array de indices tiene tamaño 1, indices = ['']",
         function () {
-            indices_prueba = Plantilla.siguiente(23)
+            indices_prueba = FSala.siguiente(23)
             expect(indices_prueba).toHaveSize(1)
         })
 
 })
 
-describe("Plantilla.filtraVector: ", function () {
+describe("FSala.filtraVector: ", function () {
     let vector_prueba = []
     it("si no se pasa nada el array que devuelve tiene tamaño 0",
         function () {
-            vector_prueba = Plantilla.filtraVector()
+            vector_prueba = FSala.filtraVector()
             expect(vector_prueba).toHaveSize(0)
         })
 
     it("si no se pasa una variable de tipo object el array que devuelve tiene tamaño 0",
         function () {
-            vector_prueba = Plantilla.filtraVector(33)
+            vector_prueba = FSala.filtraVector(33)
             expect(vector_prueba).toHaveSize(0)
         })
 
@@ -455,7 +455,7 @@ describe("Plantilla.filtraVector: ", function () {
     // y por lo tanto su valor es undefined
 })
 
-describe("Plantilla.imprimeJugadores.ordenado: ", function () {
+describe("FSala.imprimeJugadores.ordenado: ", function () {
     
     it("se ordena correctamente por id",
         function () {
@@ -552,10 +552,10 @@ describe("Plantilla.imprimeJugadores.ordenado: ", function () {
 
 })
 
-describe("Plantilla.mostrarFormAñadir: ", function () {
+describe("FSala.mostrarFormAñadir: ", function () {
     it("se muestra correctamente el formulario",
         function () {
-            Plantilla.mostrarFormAñadir()
+            FSala.mostrarFormAñadir()
             expect(elementoTitulo.innerHTML).toBe(TITULO_AÑADIR)
             expect(elementoContenido.innerHTML.includes("Nombre")).toBeTrue()
             expect(elementoContenido.innerHTML.includes("Apellidos")).toBeTrue()
