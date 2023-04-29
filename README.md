@@ -27,4 +27,4 @@
 # Datos de Trello
 * URL del tablero de Trello: https://trello.com/b/OxFdYMoj/pr%C3%A1ctica-4-da
 * Captura inicial del tablero
-![captura_inicial_trello](https://user-images.githubusercontent.com/114186139/235299426-c27afe08-bd3c-46fd-8dde-874a3737aa0b.png)
+![captura_inicial_trello](assets/img/Inicio_Trello.png)
