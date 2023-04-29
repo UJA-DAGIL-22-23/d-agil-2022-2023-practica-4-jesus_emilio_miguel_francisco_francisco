@@ -25,6 +25,7 @@
 * mahm0010@red.ujaen.es
 
 # Datos de Trello
-* URL del tablero de Trello: https://trello.com/b/OxFdYMoj/pr%C3%A1ctica-4-da
-* Captura inicial del tablero
+  URL del tablero de Trello: https://trello.com/b/OxFdYMoj/pr%C3%A1ctica-4-da
+
+### Captura inicial del tablero
 ![captura_inicial_trello](assets/img/Inicio_Trello.png)
