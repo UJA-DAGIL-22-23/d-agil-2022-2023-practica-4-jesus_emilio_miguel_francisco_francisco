@@ -8,6 +8,35 @@
 /// Espacio de nombres
 let Frontend = {};
 
+// Estos dos métodos muestran los botones de la aplicación de fútbol sala. Al pulsar sobre el botón 'Home'
+// se vuelve a mostrar el botón con id 'brn-fsala' y es ocultan todos los demás
+Frontend.mostrarOpcionesFSala = function (){
+    document.getElementById("btn-fsala").classList.remove("mostrar")
+    document.getElementById("btn-fsala-listado").classList.remove("ocultar")
+    document.getElementById("btn-fsala-nombres").classList.remove("ocultar")
+    document.getElementById("btn-fsala-nombresorden").classList.remove("ocultar")
+    document.getElementById("btn-fsala-añadir").classList.remove("ocultar")
+
+    document.getElementById("btn-fsala").classList.add("ocultar")
+    document.getElementById("btn-fsala-listado").classList.add("mostrar")
+    document.getElementById("btn-fsala-nombres").classList.add("mostrar")
+    document.getElementById("btn-fsala-nombresorden").classList.add("mostrar")
+    document.getElementById("btn-fsala-añadir").classList.add("mostrar")
+}
+
+Frontend.ocultarOpcionesFSala = function () {
+    document.getElementById("btn-fsala").classList.remove("ocultar")
+    document.getElementById("btn-fsala-listado").classList.remove("mostrar")
+    document.getElementById("btn-fsala-nombres").classList.remove("mostrar")
+    document.getElementById("btn-fsala-nombresorden").classList.remove("mostrar")
+    document.getElementById("btn-fsala-añadir").classList.remove("mostrar")
+
+    document.getElementById("btn-fsala").classList.add("mostrar")
+    document.getElementById("btn-fsala-listado").classList.add("ocultar")
+    document.getElementById("btn-fsala-nombres").classList.add("ocultar")
+    document.getElementById("btn-fsala-nombresorden").classList.add("ocultar")
+    document.getElementById("btn-fsala-añadir").classList.add("ocultar")
+}
 
 /// Dirección del MS que funciona como API_GATEWAY
 Frontend.API_GATEWAY = "http://localhost:8001"

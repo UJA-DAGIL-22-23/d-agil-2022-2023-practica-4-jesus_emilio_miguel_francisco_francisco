@@ -23,18 +23,20 @@
     <h1>Aplicación Microservicios de la Práctica 4 Desarrollo Ágil</h1>
     <!-- Barra de navegación de la aplicación -->
     <nav>
-        <a href="javascript:FSala.procesarHome()" class="opcion-principal"
+        <a href="javascript:FSala.procesarHome()" id="btn-frontend-home" class="opcion-principal"
             title="Llama a la ruta / del MS Plantilla">Home</a>
         <a href="javascript:FSala.procesarAcercaDe()" class="opcion-principal"
             title="Llama a la ruta /acercade del MS Plantilla">Acerca de</a>
-        <a href="javascript:FSala.procesarListadoDeNombres()" class="opcion-principal"
+        <a href="javascript:Frontend.mostrarOpcionesFSala()" id="btn-fsala" class="opcion-principal mostrar"
+            title="Muestra los botones de la aplicación de fútbol sala">Mostrar opciones Fútbol Sala</a>
+        <a href="javascript:FSala.procesarListadoDeNombres()" id="btn-fsala-nombres" class="opcion-principal ocultar"
             title="Realiza un listado del nombre de los jugadores que hay en la BBDD">Listar jugadores solo nombre</a>
-        <a href="javascript:FSala.procesarListadoDeNombresOrden()" class="opcion-principal"
+        <a href="javascript:FSala.procesarListadoDeNombresOrden()" id="btn-fsala-nombresorden" class="opcion-principal ocultar"
             title="Realiza un listado del nombre de los jugadores que hay en la BBDD ordenados alfabéticamente">Listar
             nombres ordenados</a>
-        <a href="javascript:FSala.listar()" class="opcion-principal"
+        <a href="javascript:FSala.listar()" class="opcion-principal ocultar" id="btn-fsala-listado"
             title="Realiza un listado de todos los jugadores dque hay en la BBDD">Listar jugadores</a>
-        <a href="javascript:FSala.mostrarFormAñadir()" class="opcion-principal"
+        <a href="javascript:FSala.mostrarFormAñadir()" id="btn-fsala-añadir" class="opcion-principal ocultar"
             title="Muestra el formulario para añadir un jugador a la base de datos">Añadir jugador</a>
     </nav>
 

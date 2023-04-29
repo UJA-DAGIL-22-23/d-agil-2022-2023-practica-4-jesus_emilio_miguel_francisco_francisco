@@ -80,6 +80,11 @@ FSala.plantillaTags = {
     "EQUIPOS_JUGADOS": "### EQUIPOS_JUGADOS ###"
 }
 
+FSala.esconder = function (){
+    document.getElementById("btn-frontend-home").classList.remove("mostrar")
+    document.getElementById("btn-frontend-home").classList.add("ocultar")
+}
+
 /// Plantilla para poner los datos de un jugador en un tabla dentro de un formulario
 FSala.plantillaFormularioJugador = {}
 
@@ -912,6 +917,7 @@ FSala.listar = function () {
  * Función principal para responder al evento de elegir la opción "Home"
  */
 FSala.procesarHome = function () {
+    Frontend.ocultarOpcionesFSala()
     this.descargarRuta("/futbolsala/", this.mostrarHome);
 }
 
