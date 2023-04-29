@@ -16,6 +16,16 @@ const ROUTES = [
                 [`^/futbolsala`]: '',
             },
         }
+    },
+    {
+        url: '/criquet',
+        proxy: {
+            target: "http://localhost:8004",
+            changeOrigin: true,
+            pathRewrite: {
+                [`^/criquet`]: '',
+            },
+        }
     }
 ]
 
