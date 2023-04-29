@@ -1,10 +1,10 @@
 /**
  * @file server-spec.js
- * @description Fichero con la especificación de las pruebas TDD para server.js del MS MS Plantilla
+ * @description Fichero con la especificación de las pruebas TDD para server.js del MS Criquet
  *              Este fichero DEBE llamarse server-spec.js
  *              Este fichero DEBE ubicarse en el subdirectorio spec/
  * @author Francisco Javier Jiménez Aznar <fjja0004@red.ujaen.es>
- * @date 17-Abr-2023
+ * @date 29-Abr-2023
  */
 
 
@@ -15,9 +15,9 @@ const app = require('../server');
 /**
  * Test para las rutas "estáticas": / y /acerdade
  */
-describe('Servidor PLANTILLA:', () => {
+describe('Servidor CRIQUET:', () => {
   describe('Rutas / y /acercade', () => {
-    it('Devuelve MS Plantilla Home Page', (done) => {
+    it('Devuelve MS Criquet Home Page', (done) => {
       supertest(app)
         .get('/')
         .expect(200)
@@ -25,12 +25,12 @@ describe('Servidor PLANTILLA:', () => {
         .expect(function (res) {
           //console.log( res.body ); // Para comprobar qué contiene exactamente res.body
           assert(res.body.hasOwnProperty('mensaje'));
-          assert(res.body.mensaje === "Microservicio MS Plantilla: home");
+          assert(res.body.mensaje === "Microservicio MS Criquet: home");
 
         })
         .end((error) => { error ? done.fail(error) : done() })
     });
-    it('Devuelve MS Plantilla Acerca De', (done) => {
+    it('Devuelve MS Criquet Acerca De', (done) => {
       supertest(app)
         .get('/acercade')
         .expect(200)

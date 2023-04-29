@@ -1,8 +1,8 @@
 /**
  * @file routes.js
- * @description Define las rutas ante las que va a responder al MS Plantilla
- * @author Víctor M. Rivas <vrivas@ujaen.es>
- * @date 03-feb-2023
+ * @description Define las rutas ante las que va a responder al MS Criquet
+ * @author Francisco Javier Jiménez Aznar <fjja0004@ujaen.es>
+ * @date 29-abr-2023
  */
 
 const express = require("express");

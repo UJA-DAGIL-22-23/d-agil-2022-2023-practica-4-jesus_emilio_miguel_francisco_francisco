@@ -1,8 +1,8 @@
 /**
  * @file server.js
  * @description Define el servidor que aceptará las peticiones para esta aplicación.
- * @author Víctor M. Rivas <vrivas@ujaen.es>
- * @date 03-feb-2023
+ * @author Francisco Javier Jiménez Aznar <fjja0004@ujaen.es>
+ * @date 29-abr-2023
  */
 const express = require("express")
 const app = express()
@@ -21,7 +21,7 @@ app.use("/", routes);
 
 const port = 8004;
 app.listen(port, () => {
-    console.log(`Microservicio PLANTILLA ejecutándose en puerto ${port}!`);
+    console.log(`Microservicio CRIQUET ejecutándose en puerto ${port}!`);
 });
 
 
