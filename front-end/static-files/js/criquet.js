@@ -51,7 +51,7 @@ Criquet.recupera = async function (callBackFn) {
 
     // Intento conectar con el microservicio jugadores
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodosJugadores"
+        const url = Frontend.API_GATEWAY + "/criquet/getTodosJugadores"
         response = await fetch(url)
 
     } catch (error) {
@@ -209,14 +209,14 @@ Criquet.pieTable = function () {
 }
 
 /**
- * Función que descarga la info MS Plantilla al llamar a una de sus rutas
+ * Función que descarga la info MS Criquet al llamar a una de sus rutas
  * @param {string} ruta Ruta a descargar
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
 Criquet.descargarRuta = async function (ruta, callBackFn) {
     let response = null
 
-    // Intento conectar con el microservicio Plantilla
+    // Intento conectar con el microservicio Criquet
     try {
         const url = Frontend.API_GATEWAY + ruta
         response = await fetch(url)
@@ -237,7 +237,7 @@ Criquet.descargarRuta = async function (ruta, callBackFn) {
 
 
 /**
- * Función principal para mostrar los datos enviados por la ruta "home" de MS Plantilla
+ * Función principal para mostrar los datos enviados por la ruta "home" de MS Criquet
  */
 Criquet.mostrarHome = function (datosDescargados) {
     // Si no se ha proporcionado valor para datosDescargados
@@ -249,11 +249,11 @@ Criquet.mostrarHome = function (datosDescargados) {
     // Si datos descargados NO contiene el campo mensaje
     if (typeof datosDescargados.mensaje === "undefined") datosDescargados = this.datosDescargadosNulos
 
-    Frontend.Article.actualizar("Plantilla Home", datosDescargados.mensaje)
+    Frontend.Article.actualizar("Criquet Home", datosDescargados.mensaje)
 }
 
 /**
- * Función principal para mostrar los datos enviados por la ruta "acerca de" de MS Plantilla
+ * Función principal para mostrar los datos enviados por la ruta "acerca de" de MS Criquet
  */
 Criquet.mostrarAcercaDe = function (datosDescargados) {
     // Si no se ha proporcionado valor para datosDescargados
@@ -278,7 +278,7 @@ Criquet.mostrarAcercaDe = function (datosDescargados) {
     </ul>
     </div>
     `;
-    Frontend.Article.actualizar("Plantilla Acerca de", mensajeAMostrar)
+    Frontend.Article.actualizar("Criquet Acerca de", mensajeAMostrar)
 }
 
 
@@ -286,12 +286,12 @@ Criquet.mostrarAcercaDe = function (datosDescargados) {
  * Función principal para responder al evento de elegir la opción "Home"
  */
 Criquet.procesarHome = function () {
-    this.descargarRuta("/plantilla/", this.mostrarHome);
+    this.descargarRuta("/criquet/", this.mostrarHome);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Acerca de"
  */
 Criquet.procesarAcercaDe = function () {
-    this.descargarRuta("/plantilla/acercade", this.mostrarAcercaDe);
+    this.descargarRuta("/criquet/acercade", this.mostrarAcercaDe);
 }
