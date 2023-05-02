@@ -132,7 +132,6 @@ FSala.plantillaFormularioJugador.formulario = `
                         id="form-jugador-trayectoria" name="equipos-jugados-jugador">${FSala.plantillaTags.EQUIPOS_JUGADOS}</p></td>
                 <td>
                     <div><a href="javascript:FSala.editar()" id="editar-btn" onclick="FSala.mostrarBotonesEdicion()" class="opcion-secundaria mostrar">Editar</a></div>
-                    <div><a href="javascript:FSala.borra('${FSala.plantillaTags.ID}')" id="borrar-btn" class="opcion-secundaria mostrar">Borrar</a></div>
                     <div><a href="javascript:FSala.guardar()" id="guardar-btn" class="opcion-terciaria editar ocultar">Guardar</a></div>
                     <div><a href="javascript:FSala.mostrar('${FSala.plantillaTags.ID}')" id="cancelar-btn" class="opcion-terciaria editar ocultar">Cancelar</a></div>
                 </td>
@@ -141,30 +140,6 @@ FSala.plantillaFormularioJugador.formulario = `
     </table>
 </form>
 `;
-
-// Función para borrar un jugador de la base de datos a partir de su id
-FSala.borra = function (idJugador) {
-    FSala.eliminaJugador(idJugador)
-}
-
-// Función que elimina un jugador a partir de su id
-FSala.eliminaJugador = async function(idJugador) {
-    console.log(idJugador)
-    try {
-        const url = Frontend.API_GATEWAY + "/futbolsala/delete-jugador/" + idJugador
-        const response = await fetch(url, {
-            method: 'DELETE',
-            mode: 'no-cors'
-        })
-
-        FSala.listar()
-
-    } catch (error) {
-        alert("Error: No se han podido acceder al API Gateway")
-        console.error(error)
-    }
-}
-
 
 // Función que muestra el siguiente jugador de la base de datos
 FSala.siguienteJugador = function () {

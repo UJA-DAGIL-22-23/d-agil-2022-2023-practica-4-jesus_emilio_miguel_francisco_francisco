@@ -66,3 +66,24 @@ Frontend.Article.actualizar = function (titulo, contenido) {
     document.getElementById( Frontend.ID_SECCION_PRINCIPAL_CONTENIDO ).innerHTML = contenido
     return this;
 }
+
+/**
+ * Añade una nueva cadena al contenido del article
+ * @param {String} contenido INformacion para el contenido del article
+ * @returns El propio Article para concatenar llamadas
+ */
+Frontend.Article.añadirContenido = function (contenido) {
+    // Si son nulos, los sustituyo por la cadena vacía
+    contenido = contenido || ""
+
+    // Sustituyo el título y el contenido del articulo
+    document.getElementById( Frontend.ID_SECCION_PRINCIPAL_CONTENIDO ).innerHTML += contenido
+    return this;
+}
+
+/**
+ * 
+ */
+Frontend.mostrarTodosAcercaDe = function () {
+    //
+}
