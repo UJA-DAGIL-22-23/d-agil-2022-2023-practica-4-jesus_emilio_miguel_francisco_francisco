@@ -29,3 +29,22 @@
 
 ### Captura inicial del tablero
 ![captura_inicial_trello](assets/img/Inicio_Trello.png)
+
+### 2. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Francisco José Jordán Jiménez
+La página muestra un botón que al pulsarlo despliega los botones de mi práctica
+![image](https://user-images.githubusercontent.com/114186139/235651384-99753eee-6c0c-48ae-a6ed-9fbc047969de.png)
+![image](https://user-images.githubusercontent.com/114186139/235651426-fe2c42c9-7534-48f8-a2af-1948ed688292.png)
+
+Las funcionalidades siguen funcionando correctamente
+![image](https://user-images.githubusercontent.com/114186139/235651509-6685368d-4220-46dc-8a96-e2143fb5f8b9.png)
+![image](https://user-images.githubusercontent.com/114186139/235651559-fe6c78b7-dc97-42f7-8156-76610bd42603.png)
+![image](https://user-images.githubusercontent.com/114186139/235651644-4c116cf7-4dcb-4a45-aac5-ed2fbf1ef2e9.png)
+![image](https://user-images.githubusercontent.com/114186139/235651691-cf6c9ba5-efe0-4bd3-9cd7-e6b7b90d54d0.png)
+![image](https://user-images.githubusercontent.com/114186139/235651753-34862183-2cea-4766-bc36-576d86197ee6.png)
+![image](https://user-images.githubusercontent.com/114186139/235651850-2394dd40-b8ff-4c15-bb60-64358d455647.png)
+
+
+
+
+
+
