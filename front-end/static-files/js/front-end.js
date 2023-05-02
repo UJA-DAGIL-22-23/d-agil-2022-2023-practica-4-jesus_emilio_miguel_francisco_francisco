@@ -85,5 +85,5 @@ Frontend.Article.añadirContenido = function (contenido) {
  * 
  */
 Frontend.mostrarTodosAcercaDe = function () {
-    //
+    FSala.procesarAcercaDe();
 }
