@@ -26,7 +26,17 @@ const ROUTES = [
                 [`^/criquet`]: '',
             },
         }
-    }
+    },
+    {
+        url: '/atletismo',
+        proxy: {
+            target: "http://localhost:8005",
+            changeOrigin: true,
+            pathRewrite: {
+                [`^/atletismo`]: '',
+            },
+        }
+    },
 ]
 
 exports.routes = ROUTES;

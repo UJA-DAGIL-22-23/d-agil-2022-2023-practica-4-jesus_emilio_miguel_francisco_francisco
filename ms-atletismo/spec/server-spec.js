@@ -15,31 +15,29 @@ const app = require('../server');
 /**
  * Test para las rutas "estáticas": / y /acerdade
  */
-describe('Servidor PLANTILLA-ATLETISMO:', () => {
+describe('Servidor ATLETISMO:', () => {
   describe('Rutas / y /acercade', () => {
-    it('Devuelve MS Plantilla Home Page', (done) => {
+    it('Devuelve MS ATLETISMO Home Page', (done) => {
       supertest(app)
-        .get('/')
+        .get('/atletismo/')
         .expect(200)
         .expect('Content-Type', /json/)
         .expect(function (res) {
           //console.log( res.body ); // Para comprobar qué contiene exactamente res.body
           assert(res.body.hasOwnProperty('mensaje'));
           assert(res.body.mensaje === "Microservicio MS Plantilla: home");
-
         })
         .end((error) => { error ? done.fail(error) : done() })
     });
-    it('Devuelve MS Plantilla Acerca De', (done) => {
+    it('Devuelve MS ATLETISMO Acerca De', (done) => {
       supertest(app)
-        .get('/acercade')
+        .get('/atletismo/acercade')
         .expect(200)
         .expect('Content-Type', /json/)
         .expect(function (res) {
           //console.log( "BODY ACERCA DE ", res.body ); // Para comprobar qué contiene exactamente res.body
           assert(res.body.hasOwnProperty('mensaje'));
           assert(res.body.mensaje === "Microservicio MS Plantilla: acerca de");
-
         })
         .end((error) => { error ? done.fail(error) : done() })
     });
@@ -51,19 +49,17 @@ describe('Servidor PLANTILLA-ATLETISMO:', () => {
   describe('Acceso a BBDD:', () => {
     it('Devuelve Juan Pérez al consultar mediante test_db', (done) => {
       supertest(app)
-        .get('/test_db')
+        .get('/atletismo/test_db')
         .expect(200)
         .expect('Content-Type', /json/)
         .expect(function (res) {
           //console.log( res.body ); // Para comprobar qué contiene exactamente res.body
           assert(res.body.data[0].data.hasOwnProperty('nombre'));
           assert(res.body.data[0].data.nombre === "Juan Pérez");
-
         })
         .end((error) => { error ? done.fail(error) : done(); }
         );
     });
-
   })
 
   /**
@@ -72,7 +68,7 @@ describe('Servidor PLANTILLA-ATLETISMO:', () => {
   describe('Probar la BBDD:', () => {
       it('Devuelve todos los atletas de la BBDD', (done) => {
         supertest(app)
-        .get('/getTodos')
+        .get('/atletismo/getTodos')
         .expect(200)
         .expect('Content-Type', /json/)
         .expect(function (res) {
@@ -87,7 +83,7 @@ describe('Servidor PLANTILLA-ATLETISMO:', () => {
 
       it('Devuelve el atleta con id "361633960436957388"', (done) => {
         supertest(app)
-          .get('/getAtletaPorId?id=361633960436957388')
+          .get('/atletismo/getAtletaPorId?id=361633960436957388')
           .expect(200)
           .expect('Content-Type', /json/)
           .expect(function (res) {
@@ -97,8 +93,6 @@ describe('Servidor PLANTILLA-ATLETISMO:', () => {
           .end((error) => { error ? done.fail(error) : done(); });
       });
   })
-
-
 });
 
 
