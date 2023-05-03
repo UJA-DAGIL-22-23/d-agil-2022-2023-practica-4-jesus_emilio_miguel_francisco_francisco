@@ -26,6 +26,16 @@ const ROUTES = [
                 [`^/criquet`]: '',
             },
         }
+    },
+    {
+        url: '/tenis',
+        proxy: {
+            target: "http://localhost:8006",
+            changeOrigin: true,
+            pathRewrite: {
+                [`^/tenis`]: '',
+            },
+        }
     }
 ]
 

@@ -38,6 +38,36 @@ Frontend.ocultarOpcionesFSala = function () {
     document.getElementById("btn-fsala-añadir").classList.add("ocultar")
 }
 
+
+
+Frontend.mostrarOpcionesTenis = function (){
+    document.getElementById("btn-tenis").classList.remove("mostrar")
+    document.getElementById("btn-tenis-listar").classList.remove("ocultar")
+    document.getElementById("btn-tenis-acercade").classList.remove("ocultar")
+    document.getElementById("btn-tenis-home").classList.remove("ocultar")
+
+    document.getElementById("btn-tenis").classList.add("ocultar")
+    document.getElementById("btn-tenis-listar").classList.add("mostrar")
+    document.getElementById("btn-tenis-acercade").classList.add("mostrar")
+    document.getElementById("btn-tenis-home").classList.add("mostrar")
+}
+
+Frontend.ocultarOpcionesTenis = function () {
+    document.getElementById("btn-tenis").classList.remove("ocultar")
+    document.getElementById("btn-tenis-listar").classList.remove("mostrar")
+    document.getElementById("btn-tenis-acercade").classList.remove("mostrar")
+    document.getElementById("btn-tenis-home").classList.remove("mostrar")
+
+    document.getElementById("btn-tenis").classList.add("mostrar")
+    document.getElementById("btn-tenis-listar").classList.add("ocultar")
+    document.getElementById("btn-tenis-acercade").classList.add("ocultar")
+    document.getElementById("btn-tenis-home").classList.add("ocultar")
+}
+
+
+
+
+
 /// Dirección del MS que funciona como API_GATEWAY
 Frontend.API_GATEWAY = "http://localhost:8001"
 
