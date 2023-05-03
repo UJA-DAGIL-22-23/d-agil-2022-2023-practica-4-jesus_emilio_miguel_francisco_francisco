@@ -15,6 +15,7 @@
     <!-- Cargamos nuestros CSS -->
     <link rel="stylesheet" href="css/front-end.css">
     <link rel="stylesheet" href="css/futbolsala.css">
+    <link rel="stylesheet" href="css/atletismo.css">
 
 
 </head>
@@ -38,6 +39,11 @@
             title="Realiza un listado de todos los jugadores dque hay en la BBDD">Listar jugadores</a>
         <a href="javascript:FSala.mostrarFormAñadir()" id="btn-fsala-añadir" class="opcion-principal ocultar"
             title="Muestra el formulario para añadir un jugador a la base de datos">Añadir jugador</a>
+            
+        <a href="javascript:Atletas.listar()" class="opcion-principal mostrar"
+            title="Realiza un listado de todas los atletas que hay en la BBDD">Listar atletas</a>
+        <a href="javascript:Atletas.procesarAcercaDe()" class="opcion-principal"
+            title="Llama a la ruta /acercade del MS ATLETISMO">Acerca de</a>
     </nav>
 
     <!-- 
@@ -63,11 +69,13 @@
     <!-- Cargamos ficheros JS propios del proyecto -->
     <script src="js/front-end.js"></script>
     <script src="js/futbolsala.js"></script>
+    <script src="js/atletismo.js"></script>
 
 
     <!-- Cargamos ficheros spec con los tests -->
     <script src="js/front-end-spec.js"></script>
     <script src="js/futbolsala-spec.js"></script>
+    <script src="js/atletismo-spec.js"></script>
 
 </body>
 
