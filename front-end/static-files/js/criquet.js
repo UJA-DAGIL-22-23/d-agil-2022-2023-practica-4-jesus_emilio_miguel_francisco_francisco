@@ -278,7 +278,7 @@ Criquet.mostrarAcercaDe = function (datosDescargados) {
     </ul>
     </div>
     `;
-    Frontend.Article.actualizar("Criquet Acerca de", mensajeAMostrar)
+    Frontend.Article.añadirContenido(mensajeAMostrar)
 }
 
 
