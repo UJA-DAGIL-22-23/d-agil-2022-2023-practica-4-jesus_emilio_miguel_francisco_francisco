@@ -28,12 +28,12 @@ const ROUTES = [
         }
     },
     {
-        url: '/atletismo',
+        url: '/atletas',
         proxy: {
             target: "http://localhost:8005",
             changeOrigin: true,
             pathRewrite: {
-                [`^/atletismo`]: '',
+                [`^/atletas`]: '',
             },
         }
     },

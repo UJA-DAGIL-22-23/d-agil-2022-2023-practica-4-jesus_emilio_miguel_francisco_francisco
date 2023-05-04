@@ -68,3 +68,14 @@ router.get("/getAtletaPorId", async (req, res) => {
 
 // Exporto el módulo para poder usarlo en server
 module.exports = router;
+
+/**
+ * Modifica el nombre de un jugador
+ */
+router.post("/setNombre", async (req, res) => {
+    try {
+        await callbacks.setNombre(req, res)
+    } catch (error) {
+        console.log(error);
+    }
+});

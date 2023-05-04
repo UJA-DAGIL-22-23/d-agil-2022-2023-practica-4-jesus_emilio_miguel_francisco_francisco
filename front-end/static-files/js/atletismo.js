@@ -323,7 +323,7 @@ Atletas.imprimeOrdenadoAñosMundiales = async function () {
 }
 
 /**
- * Función que recuperar un atleta llamando al MS Plantilla
+ * Función que recuperar un atleta llamando al MS ATLETISMO
  */
 Atletas.recuperaUnAtleta = async function (ID) {
     let response = null
@@ -352,6 +352,96 @@ Atletas.recuperaUnAtleta = async function (ID) {
     }
 }
 
+/**
+ * Función que recuperar y muestra los atletas según la búsqueda pedida
+ */
+Atletas.buscar = async function () {
+    let response = null
+
+    try {
+        const url = Frontend.API_GATEWAY + "/atletas/getTodos"
+        response = await fetch(url)
+
+    } catch (error) {
+        alert("Error: No se han podido acceder al API Gateway")
+        console.error(error)
+        //throw error
+    }
+
+    // Filtro todos los atletas recuperados
+    let raw_vector = null
+    let vectorFiltrado = []
+    if (response) {
+        raw_vector = await response.json()
+        let vector = raw_vector.data
+    
+        let palabraBuscar = document.getElementById("busqueda");
+        console.log(palabraBuscar.value)
+        if (palabraBuscar) {
+            // Filtra todos los atletas según el criterio de búsqueda
+            const palabraBuscarTratado = palabraBuscar.value.trim().toLowerCase();
+            // console.log("La palabra a filtrar es: " + palabraBuscarTratado)
+            vectorFiltrado = vector.filter(atleta => 
+                atleta.data.nombre.toLowerCase().includes(palabraBuscarTratado) ||
+                atleta.data.nacionalidad.toLowerCase().includes(palabraBuscarTratado) ||
+                (parseInt(atleta.data.mundiales_participados) === parseInt(palabraBuscarTratado)) ||
+                atleta.data.categoría.toLowerCase().includes(palabraBuscarTratado))
+        }
+
+        // console.log(vectorFiltrado)
+
+        let msj = "";
+        msj += Atletas.cabeceraTable();
+        vectorFiltrado.forEach(e => msj += Atletas.cuerpoTr(e))
+        msj += Atletas.pieTable();
+
+        // Borro toda la info de Article y la sustituyo por la que me interesa
+        Frontend.Article.actualizar( "Listado de atletas", msj )
+    }
+}
+
+/**
+ * Función que recuperar un atleta llamando al MS ATLETISMO
+ */
+Atletas.setNombre = async function (ID, nombre) {
+    let response = null
+
+    console.log("setNombre" + ID + nombre)
+
+    try {
+        const url = Frontend.API_GATEWAY + "/atletas/setNombre";
+        response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams({
+                id: ID,
+                nombre: nombre
+            })
+        });
+
+    } catch (error) {
+        alert("Error: No se han podido acceder al API Gateway");
+        console.error(error);
+    }
+
+    console.log(response)
+
+    let atleta = null
+    if (response) {
+        atleta = await response.json()
+
+        let msj = "";
+        msj += Atletas.cabeceraTable();
+        msj += Atletas.cuerpoTr(atleta);
+        msj += Atletas.pieTable();
+
+        // Borro toda la info de Article y la sustituyo por la que me interesa
+        Frontend.Article.actualizar( "Atleta modificado", msj )
+    }
+}
+
 // Funciones para mostrar como TABLE
 
 /**
@@ -360,21 +450,23 @@ Atletas.recuperaUnAtleta = async function (ID) {
  */
 Atletas.cabeceraTable = function () {
     return `
-    <div>
-        <label for="busqueda">Buscar:</label>
-        <input type="text" id="busqueda" name="busqueda">
-        <button onclick="Atletas.buscar()">Buscar</button>
-    </div>
-    <table class="listado-atletas">
-        <thead>
-            <th onclick="Atletas.imprimeOrdenadoNombre()">Nombre</th>
-            <th onclick="Atletas.imprimeOrdenadoFechaNacimiento()">Fecha de nacimiento</th>
-            <th onclick="Atletas.imprimeOrdenadoNacionalidad()">Nacionalidad</th>
-            <th onclick="Atletas.imprimeOrdenadoMundialesParticipados()">Mundiales participados</th>
-            <th onclick="Atletas.imprimeOrdenadoAñosMundiales()">Años mundiales</th>
-            <th onclick="Atletas.imprimeOrdenadoCategoria()">Categoría</th>
-            <th>Mostrar</th>
-        </thead>
+        <table class="listado-atletas">
+        <div>
+            <label for="busqueda">Buscar:</label>
+            <input type="text" id="busqueda" name="busqueda">
+            <button onclick="Atletas.buscar()">Buscar</button>
+        </div>
+        </br>
+            <thead>
+                <th onclick="Atletas.imprimeOrdenadoNombre()">Nombre</th>
+                <th onclick="Atletas.imprimeOrdenadoFechaNacimiento()">Fecha de nacimiento</th>
+                <th onclick="Atletas.imprimeOrdenadoNacionalidad()">Nacionalidad</th>
+                <th onclick="Atletas.imprimeOrdenadoMundialesParticipados()">Mundiales participados</th>
+                <th onclick="Atletas.imprimeOrdenadoAñosMundiales()">Años mundiales</th>
+                <th onclick="Atletas.imprimeOrdenadoCategoria()">Categoría</th>
+                <th>Mostrar</th>
+                <th>Modificar Nombre</th>
+            </thead>
         <tbody>
     `;
 }
@@ -397,6 +489,12 @@ Atletas.cuerpoTr = function (a) {
             <td>${d.categoría}</td>
             <td>
                 <div><a href="javascript:Atletas.recuperaUnAtleta('${a.ref['@ref'].id}')">Mostrar</a></div>
+            </td>
+            <td>
+                <div>
+                    <input type="text" id="nombre-atleta-${a.ref['@ref'].id}" style="text-align: center;" placeholder="Nuevo nombre">
+                    <button onclick="Atletas.setNombre('${a.ref['@ref'].id}', document.getElementById('nombre-atleta-${a.ref['@ref'].id}').value)">Cambiar nombre</button>
+                </div>
             </td>
             </tr>`;
 }

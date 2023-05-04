@@ -1,6 +1,6 @@
 /**
  * @file atletismo-spec.js
- * @description Fichero TDD para probar todo lo relacionado con MS Plantilla en el front-end
+ * @description Fichero TDD para probar todo lo relacionado con MS ATLETISMO en el front-end
  * @author Víctor M. Rivas <vrivas@ujaen.es>
  * @date 03-feb-2023
  */
@@ -38,16 +38,24 @@ function esperar(ms) {
 describe("Cabecera table ", function () {
     it("debería devolver las etiquetas HTML para la cabecera de la tabla",
         function () {
-            expect(Atletas.cabeceraTable()).toBe(`<table class="listado-atletas">
-        <thead>
-            <th onclick="Atletas.imprimeOrdenadoNombre()">Nombre</th>
-            <th onclick="Atletas.imprimeOrdenadoFechaNacimiento()">Fecha de nacimiento</th>
-            <th onclick="Atletas.imprimeOrdenadoNacionalidad()">Nacionalidad</th>
-            <th onclick="Atletas.imprimeOrdenadoMundialesParticipados()">Mundiales participados</th>
-            <th onclick="Atletas.imprimeOrdenadoAñosMundiales()">Años mundiales</th>
-            <th onclick="Atletas.imprimeOrdenadoCategoria()">Categoría</th>
-            <th>Mostrar</th>
-        </thead>
+            expect(Atletas.cabeceraTable()).toBe(`
+        <table class="listado-atletas">
+        <div>
+            <label for="busqueda">Buscar:</label>
+            <input type="text" id="busqueda" name="busqueda">
+            <button onclick="Atletas.buscar()">Buscar</button>
+        </div>
+        </br>
+            <thead>
+                <th onclick="Atletas.imprimeOrdenadoNombre()">Nombre</th>
+                <th onclick="Atletas.imprimeOrdenadoFechaNacimiento()">Fecha de nacimiento</th>
+                <th onclick="Atletas.imprimeOrdenadoNacionalidad()">Nacionalidad</th>
+                <th onclick="Atletas.imprimeOrdenadoMundialesParticipados()">Mundiales participados</th>
+                <th onclick="Atletas.imprimeOrdenadoAñosMundiales()">Años mundiales</th>
+                <th onclick="Atletas.imprimeOrdenadoCategoria()">Categoría</th>
+                <th>Mostrar</th>
+                <th>Modificar Nombre</th>
+            </thead>
         <tbody>
     `);
     });
@@ -85,6 +93,11 @@ describe("cuerpoTr ", function () {
     let msj = Atletas.cuerpoTr(d)
     
     // Realizo los expect
+    it("debería devolver una fila de tabla con el título igual al ID del atleta",
+        function () {
+            expect(msj.includes(`title="${d.ref['@ref'].id}"`)).toBeTrue();
+        });
+    
     it("debería devolver una fila de tabla con el nombre del atleta",
         function () {
             expect(msj.includes(d.data.nombre)).toBeTrue();
@@ -113,6 +126,22 @@ describe("cuerpoTr ", function () {
     it("debería devolver una fila de tabla con la categoría del atleta",
         function () {
             expect(msj.includes(d.data.categoría)).toBeTrue();
+        });
+    
+    it("debería devolver una fila de tabla con un enlace que muestre los detalles del atleta",
+        function () {
+            expect(msj.includes(`href="javascript:Atletas.recuperaUnAtleta('${d.ref['@ref'].id}')"`)).toBeTrue();
+        });
+    
+    it("debería devolver una fila de tabla con un campo de entrada para el nuevo nombre del atleta",
+        function () {
+            expect(msj.includes(`id="nombre-atleta-${d.ref['@ref'].id}"`)).toBeTrue();
+            expect(msj.includes('placeholder="Nuevo nombre"')).toBeTrue();
+        });
+    
+    it("debería devolver una fila de tabla con un botón para cambiar el nombre del atleta",
+        function () {
+            expect(msj.includes(`onclick="Atletas.setNombre('${d.ref['@ref'].id}', document.getElementById('nombre-atleta-${d.ref['@ref'].id}').value)"`)).toBeTrue();
         });
 });
 
@@ -454,6 +483,271 @@ describe("Atletas.imprimeOrdenadoAñosMundiales: ", function () {
         expect(añosOrdenados).toEqual([[2015, 2017, 2019], [2015, 2017], [2013, 2017], [2013]]);
     });
 })
+
+
+describe("Atletas.buscar", function () {
+    let vector = [
+        {
+        "ref": {
+            "@ref": {
+                "id": "361633960436957388",
+                "collection": {
+                    "@ref": {
+                        "id": "Atletas",
+                        "collection": {
+                            "@ref": {
+                                "id": "collections"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "ts": 1681140020210000,
+        "data": {
+            "nombre": "Juan Pérez",
+            "fecha_nacimiento": {
+                "dia": 12,
+                "mes": 5,
+                "año": 1990
+            },
+            "nacionalidad": "México",
+            "mundiales_participados": 3,
+            "años_mundiales": [
+                2015,
+                2017,
+                2019
+            ],
+            "categoría": "100 metros lisos"
+        }
+        },
+        {
+        "ref": {
+            "@ref": {
+                "id": "361634138868941004",
+                "collection": {
+                    "@ref": {
+                        "id": "Atletas",
+                        "collection": {
+                            "@ref": {
+                                "id": "collections"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "ts": 1681140091600000,
+        "data": {
+            "nombre": "Ana Gómez",
+            "fecha_nacimiento": {
+                "dia": 20,
+                "mes": 7,
+                "año": 1995
+            },
+            "nacionalidad": "España",
+            "mundiales_participados": 2,
+            "años_mundiales": [
+                2017,
+                2019
+            ],
+            "categoría": "Salto de altura"
+        }
+    }
+    ];
+
+    it("Debería filtrar correctamente por nombre", () => {
+        let palabraBuscarTratado = "Juan";
+        vectorFiltrado = vector.filter(atleta => 
+            atleta.data.nombre.toLowerCase().includes(palabraBuscarTratado.toLowerCase()) ||
+            atleta.data.nacionalidad.toLowerCase().includes(palabraBuscarTratado.toLowerCase()) ||
+            (parseInt(atleta.data.mundiales_participados) === parseInt(palabraBuscarTratado)) ||
+            atleta.data.categoría.toLowerCase().includes(palabraBuscarTratado.toLowerCase())
+            )        
+            
+        expect(vectorFiltrado.length).toBe(1);
+        expect(vectorFiltrado[0].data.nombre).toBe("Juan Pérez");
+    });
+    
+    it("Debería filtrar correctamente por nombre cuando no encuentra coincidencias", () => {
+        let palabraBuscarTratado = "Maria";
+        vectorFiltrado = vector.filter(atleta => 
+            atleta.data.nombre.toLowerCase().includes(palabraBuscarTratado.toLowerCase()) ||
+            atleta.data.nacionalidad.toLowerCase().includes(palabraBuscarTratado.toLowerCase()) ||
+            (parseInt(atleta.data.mundiales_participados) === parseInt(palabraBuscarTratado)) ||
+            atleta.data.categoría.toLowerCase().includes(palabraBuscarTratado.toLowerCase())
+            )
+        
+        expect(vectorFiltrado.length).toBe(0);
+    });
+    
+    it("Debería filtrar correctamente por nombre cuando la búsqueda está en mayúsculas", () => {
+        let palabraBuscarTratado = "ANA";
+        vectorFiltrado = vector.filter(atleta => 
+            atleta.data.nombre.toLowerCase().includes(palabraBuscarTratado.toLowerCase()) ||
+            atleta.data.nacionalidad.toLowerCase().includes(palabraBuscarTratado.toLowerCase()) ||
+            (parseInt(atleta.data.mundiales_participados) === parseInt(palabraBuscarTratado)) ||
+            atleta.data.categoría.toLowerCase().includes(palabraBuscarTratado.toLowerCase())
+            )
+
+        expect(vectorFiltrado.length).toBe(1);
+        expect(vectorFiltrado[0].data.nombre).toBe("Ana Gómez");
+    });
+    
+    it("Debería filtrar correctamente por nacionalidad", () => {
+        let palabraBuscarTratado = "España";
+        vectorFiltrado = vector.filter(atleta => 
+            atleta.data.nombre.toLowerCase().includes(palabraBuscarTratado.toLowerCase()) ||
+            atleta.data.nacionalidad.toLowerCase().includes(palabraBuscarTratado.toLowerCase()) ||
+            (parseInt(atleta.data.mundiales_participados) === parseInt(palabraBuscarTratado)) ||
+            atleta.data.categoría.toLowerCase().includes(palabraBuscarTratado.toLowerCase())
+            )
+
+        expect(vectorFiltrado.length).toBe(1);
+        expect(vectorFiltrado[0].data.nacionalidad).toBe("España");
+    });
+
+    it("Debería filtrar correctamente por nacionalidad cuando la búsqueda está en mayúsculas", () => {
+        let palabraBuscarTratado = "ESPAÑA";
+        vectorFiltrado = vector.filter(atleta => 
+            atleta.data.nombre.toLowerCase().includes(palabraBuscarTratado.toLowerCase()) ||
+            atleta.data.nacionalidad.toLowerCase().includes(palabraBuscarTratado.toLowerCase()) ||
+            (parseInt(atleta.data.mundiales_participados) === parseInt(palabraBuscarTratado)) ||
+            atleta.data.categoría.toLowerCase().includes(palabraBuscarTratado.toLowerCase())
+            )
+
+        expect(vectorFiltrado.length).toBe(1);
+        expect(vectorFiltrado[0].data.nacionalidad).toBe("España");
+    });
+
+    it("Debería filtrar correctamente por nacionalidad cuando la búsqueda no encuentra coincidencias", () => {
+        let palabraBuscarTratado = "Francia";
+        vectorFiltrado = vector.filter(atleta => 
+            atleta.data.nombre.toLowerCase().includes(palabraBuscarTratado.toLowerCase()) ||
+            atleta.data.nacionalidad.toLowerCase().includes(palabraBuscarTratado.toLowerCase()) ||
+            (parseInt(atleta.data.mundiales_participados) === parseInt(palabraBuscarTratado)) ||
+            atleta.data.categoría.toLowerCase().includes(palabraBuscarTratado.toLowerCase())
+            )
+
+        expect(vectorFiltrado.length).toBe(0);
+    });
+
+    it("Debería filtrar correctamente por mundiales_participados", () => {
+        let palabraBuscarTratado = "3";
+        vectorFiltrado = vector.filter(atleta => 
+            atleta.data.nombre.toLowerCase().includes(palabraBuscarTratado.toLowerCase()) ||
+            atleta.data.nacionalidad.toLowerCase().includes(palabraBuscarTratado.toLowerCase()) ||
+            (parseInt(atleta.data.mundiales_participados) === parseInt(palabraBuscarTratado)) ||
+            atleta.data.categoría.toLowerCase().includes(palabraBuscarTratado.toLowerCase())
+            )
+
+        expect(vectorFiltrado.length).toBe(1);
+        expect(vectorFiltrado[0].data.mundiales_participados).toBe(3);
+    });
+
+    it("Debería filtrar correctamente por mundiales_participados cuando la búsqueda no encuentra coincidencias", () => {
+        let palabraBuscarTratado = "4";
+        vectorFiltrado = vector.filter(atleta => 
+            atleta.data.nombre.toLowerCase().includes(palabraBuscarTratado.toLowerCase()) ||
+            atleta.data.nacionalidad.toLowerCase().includes(palabraBuscarTratado.toLowerCase()) ||
+            (parseInt(atleta.data.mundiales_participados) === parseInt(palabraBuscarTratado)) ||
+            atleta.data.categoría.toLowerCase().includes(palabraBuscarTratado.toLowerCase())
+            )
+
+        expect(vectorFiltrado.length).toBe(0);
+    });
+
+    it("Debería filtrar correctamente por categoría", () => {
+        let palabraBuscarTratado = "Salto de altura";
+        vectorFiltrado = vector.filter(atleta => 
+            atleta.data.nombre.toLowerCase().includes(palabraBuscarTratado.toLowerCase()) ||
+            atleta.data.nacionalidad.toLowerCase().includes(palabraBuscarTratado.toLowerCase()) ||
+            (parseInt(atleta.data.mundiales_participados) === parseInt(palabraBuscarTratado)) ||
+            atleta.data.categoría.toLowerCase().includes(palabraBuscarTratado.toLowerCase())
+            )
+
+        expect(vectorFiltrado.length).toBe(1);
+        expect(vectorFiltrado[0].data.categoría).toBe("Salto de altura");
+    });
+
+    it("Debería filtrar correctamente por categoría cuando la búsqueda está en mayúsculas", () => {
+        let palabraBuscarTratado = "SALTO DE ALTURA";
+        vectorFiltrado = vector.filter(atleta => 
+            atleta.data.nombre.toLowerCase().includes(palabraBuscarTratado.toLowerCase()) ||
+            atleta.data.nacionalidad.toLowerCase().includes(palabraBuscarTratado.toLowerCase()) ||
+            (parseInt(atleta.data.mundiales_participados) === parseInt(palabraBuscarTratado)) ||
+            atleta.data.categoría.toLowerCase().includes(palabraBuscarTratado.toLowerCase())
+            )
+
+        expect(vectorFiltrado.length).toBe(1);
+        expect(vectorFiltrado[0].data.categoría).toBe("Salto de altura");
+    });
+
+    it("Debería filtrar correctamente por categoría cuando la búsqueda no encuentra coincidencias", () => {
+        let palabraBuscarTratado = "SALTO DE LONGITUD";
+        vectorFiltrado = vector.filter(atleta => 
+            atleta.data.nombre.toLowerCase().includes(palabraBuscarTratado.toLowerCase()) ||
+            atleta.data.nacionalidad.toLowerCase().includes(palabraBuscarTratado.toLowerCase()) ||
+            (parseInt(atleta.data.mundiales_participados) === parseInt(palabraBuscarTratado)) ||
+            atleta.data.categoría.toLowerCase().includes(palabraBuscarTratado.toLowerCase())
+            )
+
+        expect(vectorFiltrado.length).toBe(0);
+    });
+});
+
+describe("setNombre", function () {
+
+it("debería actualizar la información del atleta en la tabla",
+async function () {
+    const ID = "361634138868941004";
+    const nombre = "Nuevo nombre";
+    spyOn(window, 'fetch').and.returnValue(Promise.resolve({json: () => ({
+        ref: {
+            "@ref": {
+                "id": "361634138868941004",
+            }
+        },
+        data: {
+            "nombre": "Nuevo nombre",
+            "fecha_nacimiento": {
+                "dia": 20,
+                "mes": 7,
+                "año": 1995
+            },
+            "nacionalidad": "España",
+            "mundiales_participados": 2,
+            "años_mundiales": [
+                2017,
+                2019
+            ],
+            "categoría": "Salto de altura"
+        }
+    })}));
+
+    spyOn(Frontend.Article, 'actualizar');
+
+    await Atletas.setNombre(ID, nombre);
+
+    expect(Frontend.Article.actualizar).toHaveBeenCalledWith(
+        "Atleta modificado",
+        jasmine.stringMatching(`<td><em>${nombre}</em></td>`)
+    );
+});
+
+it("debería mostrar un mensaje de error si no se puede acceder al API Gateway",
+async function () {
+    spyOn(window, 'fetch').and.throwError("Failed to fetch");
+
+    spyOn(window, 'alert');
+
+    const ID = "361634138868941004";
+    const nombre = "Nuevo nombre";
+    await Atletas.setNombre(ID, nombre);
+
+    expect(window.alert).toHaveBeenCalledWith("Error: No se han podido acceder al API Gateway");
+});
+});
 
 /*
 IMPORTANTE

@@ -101,7 +101,37 @@ const CB_MODEL_SELECTS = {
         } catch (error) {
             CORS(res).status(500).json({ error: error.description })
         }
-    }
+    },
+
+    /**
+    * Método para cambiar el nombre de un jugador
+    * @param {*} req Objeto con los parámetros que se han pasado en la llamada a esta URL 
+    * @param {*} res Objeto Response con las respuesta que se va a dar a la petición recibida
+    */
+    setNombre: async (req, res) => {        
+        try {
+            const id = req.body.id
+            const nombre = req.body.nombre
+    
+            console.log(id + nombre)
+    
+            //Actualiza al atleta con el id asignado con el nuevo nombre
+            const atleta = await client.query(
+                q.Update(q.Ref(q.Collection("Atletas"), id), {
+                    data: {
+                        nombre: nombre
+                    }
+                })
+            );
+    
+            CORS(res)
+                .status(200)
+                .json(atleta)
+    
+        } catch (error) {
+            CORS(res).status(500).json({ error: error.description })
+        }
+    }    
 }
 
 
