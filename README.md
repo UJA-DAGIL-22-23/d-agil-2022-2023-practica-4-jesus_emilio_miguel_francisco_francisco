@@ -29,3 +29,11 @@
 
 ### Captura inicial del tablero
 ![captura_inicial_trello](assets/img/Inicio_Trello.png)
+
+# Documentación de las Historias de Usuario
+
+### 3. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Francisco Javier Jiménez Aznar
+Al igual que con el resto de compañeros, en la página principal se muestra un botón, que al pulsarlo, despliega las funcionalidades de mi práctica. Todas ellas siguen funcionando correctamente.
+![image](assets/img/HU03_1.png)
+![image](assets/img/HU03_2.png)
+![image](assets/img/HU03_3.png)
