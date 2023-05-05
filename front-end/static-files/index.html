@@ -15,6 +15,7 @@
     <!-- Cargamos nuestros CSS -->
     <link rel="stylesheet" href="css/front-end.css">
     <link rel="stylesheet" href="css/futbolsala.css">
+    <link rel="stylesheet" href="css/tenis.css">
 
 
 </head>
@@ -51,6 +52,14 @@
             nombres</a>
         <a href="javascript:Criquet.procesarListar()" id="btn-criquet-listado" class="opcion-principal ocultar"
             title="Crea una lista con todos los jugadores de criquet de la base de datos">Listado de jugadores</a>
+        <a href="javascript:Frontend.mostrarOpcionesTenis()" id="btn-tenis" class="opcion-principal mostrar"
+            title="Muestra los botones de la aplicación de tenis">Mostrar opciones Tenis</a>
+            <a href="javascript:Tenis.procesarHome()" id="btn-tenis-home" class="opcion-principal ocultar"
+            title="Llama a la ruta / del MS Tenis">Home</a>
+        <a href="javascript:Tenis.procesarAcercaDe()" id="btn-tenis-acercade" class="opcion-principal ocultar"
+            title="Llama a la ruta /acercade del MS Tenis">Acerca de</a>
+        <a href="javascript:Tenis.listar()" id="btn-tenis-listar" class="opcion-principal ocultar"
+            title="Realiza un listado de todos los tenistas que hay en la BBDD">Listar tenistas</a>
     </nav>
 
     <!-- 
@@ -77,11 +86,14 @@
     <script src="js/front-end.js"></script>
     <script src="js/futbolsala.js"></script>
     <script src="js/criquet.js"></script>
+    <script src="js/ms-tenis.js"></script>
+
 
     <!-- Cargamos ficheros spec con los tests -->
     <script src="js/front-end-spec.js"></script>
     <script src="js/futbolsala-spec.js"></script>
     <script src="js/criquet-spec.js"></script>
+    <script src="js/ms-tenis-spec.js"></script>
 
 </body>
 

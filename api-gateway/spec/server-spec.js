@@ -195,3 +195,62 @@ describe('API Gateway: rutas estáticas', () => {
 
 
 
+describe('API Gateway: rutas estáticas TENIS', () => {
+  describe('Rutas estáticas de MS TENIS', () => {
+    it('Devuelve MS Plantilla Home Page', (done) => {
+      supertest(app)
+        .get('/tenis/')
+        .expect(200)
+        .expect('Content-Type', /json/)
+        .expect(function (res) {
+          //console.log( res.body ); // Para comprobar qué contiene exactamente res.body
+          assert(res.body.hasOwnProperty('mensaje'));
+          assert(res.body.mensaje === "Microservicio MS Plantilla: home");
+
+        })
+        .end((error) => { error ? done.fail(error) : done() })
+    });
+    it('Devuelve MS Plantilla Acerca De', (done) => {
+      supertest(app)
+        .get('/tenis/acercade')
+        .expect(200)
+        .expect('Content-Type', /json/)
+        .expect(function (res) {
+          //console.log( "BODY ACERCA DE ", res.body ); // Para comprobar qué contiene exactamente res.body
+          assert(res.body.hasOwnProperty('mensaje'));
+          assert(res.body.mensaje === "Microservicio MS Plantilla: acerca de");
+
+        })
+        .end((error) => { error ? done.fail(error) : done() })
+    });
+
+    it('Devuelve un vector de tamaño 10 al consultar mediante /tenis/getTodos', (done) => {
+      supertest(app)
+        .get('/tenis/getTodos')
+        .expect(200)
+        .expect('Content-Type', /json/)
+        .expect(function (res) {
+          // console.log( res.body ); // Para comprobar qué contiene exactamente res.body
+          assert(res.body.data.length === 10);
+        })
+        .end((error) => { error ? done.fail(error) : done(); }
+        );
+    });
+
+    it('Devuelve Daniel Hernandez al recuperar los datos de la Persona con id 361531285110259916 mediante /tenis/getPorId', (done) => {
+      supertest(app)
+        .get('/tenis/getPorId/361531285110259916')
+        .expect(200)
+        .expect('Content-Type', /json/)
+        .expect(function (res) {
+          //console.log( res.body ); // Para comprobar qué contiene exactamente res.body
+          assert(res.body.data.hasOwnProperty('nombre'));
+          assert(res.body.data.nombre === "Daniel");
+          assert(res.body.data.hasOwnProperty('apellidos'));
+          assert(res.body.data.apellidos === "Hernandez");
+        })
+        .end((error) => { error ? done.fail(error) : done(); }
+        );
+    });
+  })
+});

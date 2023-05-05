@@ -226,7 +226,7 @@ const CB_OTHERS = {
     acercaDe: async (req, res) => {
         try {
             CORS(res).status(200).json({
-                mensaje: "Microservicio MS Plantilla: acerca de",
+                mensaje: "Microservicio FÚTBOL SALA: acerca de",
                 autor: "Francisco José Jordán Jiménez",
                 email: "fjjj0001@red.ujaen.es",
                 fecha: "08/04/2023"

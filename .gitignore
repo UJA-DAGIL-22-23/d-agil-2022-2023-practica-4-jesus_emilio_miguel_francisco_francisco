@@ -6836,3 +6836,7 @@ ms-plantilla/node_modules/send/node_modules/mime/README.md
 ms-plantilla/node_modules/send/node_modules/mime/types.json
 ms-plantilla/node_modules/send/node_modules/mime/src/build.js
 ms-plantilla/node_modules/send/node_modules/mime/src/test.js
+
+assets/.DS_Store
+**/node_modules
+.DS_Store

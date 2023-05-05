@@ -65,6 +65,34 @@ Frontend.ocultarOpcionesCriquet = function () {
 }
 
 
+Frontend.mostrarOpcionesTenis = function (){
+    document.getElementById("btn-tenis").classList.remove("mostrar")
+    document.getElementById("btn-tenis-listar").classList.remove("ocultar")
+    document.getElementById("btn-tenis-acercade").classList.remove("ocultar")
+    document.getElementById("btn-tenis-home").classList.remove("ocultar")
+
+    document.getElementById("btn-tenis").classList.add("ocultar")
+    document.getElementById("btn-tenis-listar").classList.add("mostrar")
+    document.getElementById("btn-tenis-acercade").classList.add("mostrar")
+    document.getElementById("btn-tenis-home").classList.add("mostrar")
+}
+
+Frontend.ocultarOpcionesTenis = function () {
+    document.getElementById("btn-tenis").classList.remove("ocultar")
+    document.getElementById("btn-tenis-listar").classList.remove("mostrar")
+    document.getElementById("btn-tenis-acercade").classList.remove("mostrar")
+    document.getElementById("btn-tenis-home").classList.remove("mostrar")
+
+    document.getElementById("btn-tenis").classList.add("mostrar")
+    document.getElementById("btn-tenis-listar").classList.add("ocultar")
+    document.getElementById("btn-tenis-acercade").classList.add("ocultar")
+    document.getElementById("btn-tenis-home").classList.add("ocultar")
+}
+
+
+
+
+
 /// Dirección del MS que funciona como API_GATEWAY
 Frontend.API_GATEWAY = "http://localhost:8001"
 
@@ -92,4 +120,25 @@ Frontend.Article.actualizar = function (titulo, contenido) {
     document.getElementById( Frontend.ID_SECCION_PRINCIPAL_TITULO ).innerHTML = titulo
     document.getElementById( Frontend.ID_SECCION_PRINCIPAL_CONTENIDO ).innerHTML = contenido
     return this;
+}
+
+/**
+ * Añade una nueva cadena al contenido del article
+ * @param {String} contenido INformacion para el contenido del article
+ * @returns El propio Article para concatenar llamadas
+ */
+Frontend.Article.añadirContenido = function (contenido) {
+    // Si son nulos, los sustituyo por la cadena vacía
+    contenido = contenido || ""
+
+    // Sustituyo el título y el contenido del articulo
+    document.getElementById( Frontend.ID_SECCION_PRINCIPAL_CONTENIDO ).innerHTML += contenido
+    return this;
+}
+
+/**
+ * 
+ */
+Frontend.mostrarTodosAcercaDe = function () {
+    //
 }
