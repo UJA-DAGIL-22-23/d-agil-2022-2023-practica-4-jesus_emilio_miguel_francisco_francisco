@@ -144,4 +144,5 @@ Frontend.mostrarTodosAcercaDe = function () {
     document.getElementById( Frontend.ID_SECCION_PRINCIPAL_TITULO ).innerHTML = "Datos de los estudiantes"
     FSala.procesarAcercaDe();
     Criquet.procesarAcercaDe();
+    Tenis.procesarAcercaDe();
 }
