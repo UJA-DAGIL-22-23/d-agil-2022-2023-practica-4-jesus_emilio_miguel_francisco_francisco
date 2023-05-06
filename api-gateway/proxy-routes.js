@@ -28,6 +28,16 @@ const ROUTES = [
         }
     },
     {
+        url: '/atletas',
+        proxy: {
+            target: "http://localhost:8005",
+            changeOrigin: true,
+            pathRewrite: {
+                [`^/atletas`]: '',
+            },
+        },
+    },
+    {
         url: '/tenis',
         proxy: {
             target: "http://localhost:8006",

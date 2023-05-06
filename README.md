@@ -51,6 +51,30 @@ Al igual que con el resto de compañeros, en la página principal se muestra un 
 ![image](assets/img/HU03_2.png)
 ![image](assets/img/HU03_3.png)
 
+### 4. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Emilio Martínez Conchillo
+La página muestra un botón que al pulsarlo lista todos los atletas y otro botón que muestra la información del alumno: Emilio Martínez Conchillo
+
+![Alt text](assets/img/4_1-Home-Atletas.png)
+![Alt text](assets/img/4_2-Listar-Atletas.png)
+
+Pulsando sobre los nombres de las columnas podemos ordenarlas, cambiando su orden cada vez que se pulsa.
+
+![Alt text](assets/img/4_3-Nombres-Ordenados.png) 
+![Alt text](assets/img/4_4-Fechas-Ordenados.png) 
+![Alt text](assets/img/4_5-Nombres-Ordenados.png) 
+![Alt text](assets/img/4_6-NumMundiales-Ordenados.png)
+![Alt text](assets/img/4_7-Mundiales-Ordenados.png)
+
+Escribiendo en la columna de cambiar nombre, podremos modificar el nombre de ese atleta en la base de datos, mostrándose los datos del atleta despues de pulsar el botón.
+
+![Alt text](assets/img/4_9-Cambiar-Nombre.png)
+
+![Alt text](assets/img/4_10-Nombre-Cambiado.png)
+
+También podemos filtrar los atletas escribiendo en el buscador. Por ejemplo, escribiendo España, solo saldrán aquellos atletas de nacionalidad española.
+
+![Alt text](assets/img/4_11-Buscador.png)
+
 ### 5. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Miguel Ángel Hurtado Molina
 Al igual que mi compañero Francisco José, la página muestra un botón que al pulsarlo despliega los botones de mi práctica:
 ![image](https://user-images.githubusercontent.com/124782259/235898836-e8568743-9223-4b6e-9e2e-eb067df9643f.png)
