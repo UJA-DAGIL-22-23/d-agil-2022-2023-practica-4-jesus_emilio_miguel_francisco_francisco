@@ -145,4 +145,5 @@ Frontend.mostrarTodosAcercaDe = function () {
     FSala.procesarAcercaDe();
     Criquet.procesarAcercaDe();
     Tenis.procesarAcercaDe();
+    Atletas.procesarAcercaDe();
 }
