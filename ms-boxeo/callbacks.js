@@ -134,7 +134,7 @@ const CB_OTHERS = {
     acercaDe: async (req, res) => {
         try {
             CORS(res).status(200).json({
-                mensaje: "Microservicio MS Plantilla: acerca de",
+                mensaje: "Microservicio BOXEO: acerca de",
                 autor: "Jesús Morales Villegas",
                 email: "jmv00037@red.ujaen.es",
                 fecha: new Date().toLocaleDateString("en-US")

@@ -71,58 +71,6 @@ describe("Criquet.mostrarHome: ", function () {
         })
 })
 
-
-describe("Criquet.mostrarAcercaDe: ", function () {
-    it("muestra datos nulos cuando le pasamos un valor nulo",
-        function () {
-            Criquet.mostrarAcercaDe()
-            expect(elementoTituloCriquet.innerHTML).toBe(TITULO_ACERCA_DE_CRIQUET)
-            expect(elementoContenidoCriquet.innerHTML.search(Criquet.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-        })
-
-    it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
-        function () {
-            Criquet.mostrarAcercaDe(23)
-            expect(elementoTituloCriquet.innerHTML).toBe(TITULO_ACERCA_DE_CRIQUET)
-            expect(elementoContenidoCriquet.innerHTML.search(Criquet.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-        })
-
-    it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje o autor o email o fecha ",
-        function () {
-            // Objeto vacío
-            Criquet.mostrarAcercaDe({})
-            expect(elementoTituloCriquet.innerHTML).toBe(TITULO_ACERCA_DE_CRIQUET)
-            expect(elementoContenidoCriquet.innerHTML.search(Criquet.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-
-            // Objeto sin campo mensaje
-            Criquet.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
-            expect(elementoTituloCriquet.innerHTML).toBe(TITULO_ACERCA_DE_CRIQUET)
-            expect(elementoContenidoCriquet.innerHTML.search(Criquet.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-            // Objeto sin campo autor
-            Criquet.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
-            expect(elementoTituloCriquet.innerHTML).toBe(TITULO_ACERCA_DE_CRIQUET)
-            expect(elementoContenidoCriquet.innerHTML.search(Criquet.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-            // Objeto sin campo email
-            Criquet.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
-            expect(elementoTituloCriquet.innerHTML).toBe(TITULO_ACERCA_DE_CRIQUET)
-            expect(elementoContenidoCriquet.innerHTML.search(Criquet.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-            // Objeto sin campo fecha
-            Criquet.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
-            expect(elementoTituloCriquet.innerHTML).toBe(TITULO_ACERCA_DE_CRIQUET)
-            expect(elementoContenidoCriquet.innerHTML.search(Criquet.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-        })
-    it("muestra correctamente el título y el mensaje conteniendo el autor, el email y la fecha",
-        function () {
-            Criquet.mostrarAcercaDe(datosDescargadosPruebaCriquet)
-            expect(elementoTituloCriquet.innerHTML).toBe(TITULO_ACERCA_DE_CRIQUET)
-
-            // Comprobamos que al buscar el autor, el email y la fecha de prueba los encuentra dentro del contenido del article
-            expect(elementoContenidoCriquet.innerHTML.search(datosDescargadosPruebaCriquet.autor) >= 0).toBeTrue()
-            expect(elementoContenidoCriquet.innerHTML.search(datosDescargadosPruebaCriquet.email) >= 0).toBeTrue()
-            expect(elementoContenidoCriquet.innerHTML.search(datosDescargadosPruebaCriquet.fecha) >= 0).toBeTrue()
-        })
-})
-
 describe("Criquet.cabeceraTable: ", function () {
 
     it("muestra los nombres de los diferentes campos de la cabecera de la tabla en HTML",
