@@ -286,6 +286,7 @@ Criquet.mostrarAcercaDe = function (datosDescargados) {
  * Función principal para responder al evento de elegir la opción "Home"
  */
 Criquet.procesarHome = function () {
+    Frontend.ocultarOpcionesCriquet()
     this.descargarRuta("/criquet/", this.mostrarHome);
 }
 

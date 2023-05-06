@@ -6840,3 +6840,6 @@ ms-criquet/node_modules
 ms-futbolsala/node_modules
 api-gateway/node_modules
 front-end/node_modules
+assets/.DS_Store
+**/node_modules
+.DS_Store

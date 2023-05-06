@@ -30,6 +30,8 @@
 ### Captura inicial del tablero
 ![captura_inicial_trello](assets/img/Inicio_Trello.png)
 
+# Documentación de las Historias de Usuario
+
 ### 2. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Francisco José Jordán Jiménez
 La página muestra un botón que al pulsarlo despliega los botones de mi práctica
 ![image](https://user-images.githubusercontent.com/114186139/235651384-99753eee-6c0c-48ae-a6ed-9fbc047969de.png)
@@ -43,8 +45,21 @@ Las funcionalidades siguen funcionando correctamente
 ![image](https://user-images.githubusercontent.com/114186139/235651753-34862183-2cea-4766-bc36-576d86197ee6.png)
 ![image](https://user-images.githubusercontent.com/114186139/235651850-2394dd40-b8ff-4c15-bb60-64358d455647.png)
 
+### 3. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Francisco Javier Jiménez Aznar
+Al igual que con el resto de compañeros, en la página principal se muestra un botón, que al pulsarlo, despliega las funcionalidades de mi práctica. Todas ellas siguen funcionando correctamente.
+![image](assets/img/HU03_1.png)
+![image](assets/img/HU03_2.png)
+![image](assets/img/HU03_3.png)
 
+### 5. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Miguel Ángel Hurtado Molina
+Al igual que mi compañero Francisco José, la página muestra un botón que al pulsarlo despliega los botones de mi práctica:
+![image](https://user-images.githubusercontent.com/124782259/235898836-e8568743-9223-4b6e-9e2e-eb067df9643f.png)
+![image](https://user-images.githubusercontent.com/124782259/235898893-63f7b72c-e969-4d87-8c71-3b5c5de2e489.png)
 
-
-
-
+Como podemos comprobar, las funcionalidades siguen funcionando correctamente:
+![image](https://user-images.githubusercontent.com/124782259/235899028-b98ef333-6c5b-4678-9cde-334693309381.png)
+![image](https://user-images.githubusercontent.com/124782259/235899076-1c31a15d-5f08-4923-8a11-f372dd7f8126.png)
+![image](https://user-images.githubusercontent.com/124782259/235899109-9dfd22ce-36c0-4c6f-8cc5-d84c385095ad.png)
+![image](https://user-images.githubusercontent.com/124782259/235899149-5751155e-5daf-493f-94d8-1cc2b50d8f2c.png)
+![image](https://user-images.githubusercontent.com/124782259/235899189-9b02d7d4-f6d7-4449-957e-35fbfafd66cf.png)
+![image](https://user-images.githubusercontent.com/124782259/235899289-1c11ab4d-1b0c-40de-8058-3dccddc1222a.png)

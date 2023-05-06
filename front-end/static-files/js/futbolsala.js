@@ -892,6 +892,7 @@ FSala.listar = function () {
  * Función principal para responder al evento de elegir la opción "Home"
  */
 FSala.procesarHome = function () {
+    Frontend.ocultarOpcionesCriquet()
     Frontend.ocultarOpcionesFSala()
     this.descargarRuta("/futbolsala/", this.mostrarHome);
 }
