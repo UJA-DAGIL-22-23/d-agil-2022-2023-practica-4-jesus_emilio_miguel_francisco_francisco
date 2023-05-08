@@ -1,0 +1,41 @@
+/**
+ * @file ms-plantilla.css
+ * @description Estilos aplicables a la visualización de elementos relacionados con el MS Plantilla
+ * @author Víctor M. Rivas Santos <vrivas@ujaen.es>
+ * @date 03-Feb-2023
+ */
+ table.listado-tenistas {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 100, 0.8);
+}
+
+table.listado-tenistas thead th {
+    margin: 3px;
+    height: 2.5em;
+    background-color: rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+
+}
+
+table.listado-tenistas tbody td {
+    padding: 0.5em;
+    text-align: center;
+}
+
+table.listado-tenistas tbody tr {
+    margin: 3px;
+    height: 2em;
+    background-color: rgba(0, 0, 100, 0.1)
+}
+
+table.listado-tenistas thead,
+table.listado-tenistas tbody,
+table.listado-tenistas tr,
+table.listado-tenistas td {
+    text-align: center;
+    margin: 0 auto 0 auto;
+}
+
+table.listado-tenistas {
+    width: 100%;
+}

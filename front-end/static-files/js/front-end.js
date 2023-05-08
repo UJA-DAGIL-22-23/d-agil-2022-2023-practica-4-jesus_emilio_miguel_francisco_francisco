@@ -9,7 +9,7 @@
 let Frontend = {};
 
 // Estos dos métodos muestran los botones de la aplicación de fútbol sala. Al pulsar sobre el botón 'Home'
-// se vuelve a mostrar el botón con id 'brn-fsala' y es ocultan todos los demás
+// se vuelve a mostrar el botón con id 'btn-fsala' y es ocultan todos los demás
 Frontend.mostrarOpcionesFSala = function (){
     document.getElementById("btn-fsala").classList.remove("mostrar")
     document.getElementById("btn-fsala-listado").classList.remove("ocultar")
@@ -37,6 +37,61 @@ Frontend.ocultarOpcionesFSala = function () {
     document.getElementById("btn-fsala-nombresorden").classList.add("ocultar")
     document.getElementById("btn-fsala-añadir").classList.add("ocultar")
 }
+
+/**
+ * Muestra los botones de la aplicación de críquet. 
+ */
+Frontend.mostrarOpcionesCriquet = function (){
+    document.getElementById("btn-criquet").classList.remove("mostrar")
+    document.getElementById("btn-criquet-listado").classList.remove("ocultar")
+    document.getElementById("btn-criquet-nombres").classList.remove("ocultar")
+
+    document.getElementById("btn-criquet").classList.add("ocultar")
+    document.getElementById("btn-criquet-listado").classList.add("mostrar")
+    document.getElementById("btn-criquet-nombres").classList.add("mostrar")
+}
+
+/**
+ * Al pulsar sobre el botón 'Home' se vuleve a mostrar el botón con id 'btn-criquet' y se ocultan los demás.
+ */
+Frontend.ocultarOpcionesCriquet = function () {
+    document.getElementById("btn-criquet").classList.remove("ocultar")
+    document.getElementById("btn-criquet-listado").classList.remove("mostrar")
+    document.getElementById("btn-criquet-nombres").classList.remove("mostrar")
+
+    document.getElementById("btn-criquet").classList.add("mostrar")
+    document.getElementById("btn-criquet-listado").classList.add("ocultar")
+    document.getElementById("btn-criquet-nombres").classList.add("ocultar")
+}
+
+
+Frontend.mostrarOpcionesTenis = function (){
+    document.getElementById("btn-tenis").classList.remove("mostrar")
+    document.getElementById("btn-tenis-listar").classList.remove("ocultar")
+    document.getElementById("btn-tenis-acercade").classList.remove("ocultar")
+    document.getElementById("btn-tenis-home").classList.remove("ocultar")
+
+    document.getElementById("btn-tenis").classList.add("ocultar")
+    document.getElementById("btn-tenis-listar").classList.add("mostrar")
+    document.getElementById("btn-tenis-acercade").classList.add("mostrar")
+    document.getElementById("btn-tenis-home").classList.add("mostrar")
+}
+
+Frontend.ocultarOpcionesTenis = function () {
+    document.getElementById("btn-tenis").classList.remove("ocultar")
+    document.getElementById("btn-tenis-listar").classList.remove("mostrar")
+    document.getElementById("btn-tenis-acercade").classList.remove("mostrar")
+    document.getElementById("btn-tenis-home").classList.remove("mostrar")
+
+    document.getElementById("btn-tenis").classList.add("mostrar")
+    document.getElementById("btn-tenis-listar").classList.add("ocultar")
+    document.getElementById("btn-tenis-acercade").classList.add("ocultar")
+    document.getElementById("btn-tenis-home").classList.add("ocultar")
+}
+
+
+
+
 
 /// Dirección del MS que funciona como API_GATEWAY
 Frontend.API_GATEWAY = "http://localhost:8001"
