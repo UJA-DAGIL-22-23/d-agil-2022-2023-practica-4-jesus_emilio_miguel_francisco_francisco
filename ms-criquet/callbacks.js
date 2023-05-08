@@ -1,10 +1,10 @@
 /**
  * @file callbacks.js
- * @description Callbacks para el MS Plantilla.
+ * @description Callbacks para el MS Criquet.
  * Los callbacks son las funciones que se llaman cada vez que se recibe una petición a través de la API.
  * Las peticiones se reciben en las rutas definidas en routes.js, pero se procesan aquí.
- * @author Víctor M. Rivas <vrivas@ujaen.es>
- * @date 03-feb-2023
+ * @author Francisco Javier Jiménez Aznar <fjja0004@red.ujaen.es>
+ * @date 29-abr-2023
  */
 
 
@@ -14,10 +14,10 @@ const faunadb = require('faunadb'),
     q = faunadb.query;
 
 const client = new faunadb.Client({
-    secret: 'fnAFBGvUS-AAzd733DgCSfJRgPGbIZQ35Asuk6tp',
+    secret: 'fnAFBM0LMPAAzaY_HnWiwjteqwdYuZ-4yr08c1Dt',
 });
 
-const COLLECTION = "Jugadores"
+const COLLECTION = "derbyshire"
 
 // CALLBACKS DEL MODELO
 
@@ -62,49 +62,27 @@ const CB_MODEL_SELECTS = {
     },
 
     /**
-     * Método para obtener todos los tenistas de la BBDD.
-     * @param {*} req Objeto con los parámetros que se han pasado en la llamada a esta URL 
-     * @param {*} res Objeto Response con las respuesta que se va a dar a la petición recibida
-     */
-    getTodos: async (req, res) => {
+    * Método para obtener todos los jugadores de la BBDD
+    * @param {*} req Objeto con los parámetros que se han pasado en la llamada a esta URL 
+    * @param {*} res Objeto Response con las respuesta que se va a dar a la petición recibida
+    */
+    getTodosJugadores: async (req, res) => {
         try {
-            let tenistas = await client.query(
+            let jugadores = await client.query(
                 q.Map(
                     q.Paginate(q.Documents(q.Collection(COLLECTION))),
                     q.Lambda("X", q.Get(q.Var("X")))
                 )
             )
-            // console.log( tenistas ) // Para comprobar qué se ha devuelto en tenistas
+
             CORS(res)
                 .status(200)
-                .json(tenistas)
+                .json(jugadores)
         } catch (error) {
             CORS(res).status(500).json({ error: error.description })
         }
     },
-
-    /**
-    * Método para obtener un tenista de la BBDD a partir de su ID
-    * @param {*} req Objeto con los parámetros que se han pasado en la llamada a esta URL 
-    * @param {*} res Objeto Response con las respuesta que se va a dar a la petición recibida
-    */
-    getPorId: async (req, res) => {
-        try {
-            // console.log( "getPorId req", req.params.idTenista ) // req.params contiene todos los parámetros de la llamada
-            let tenista = await client.query(
-                q.Get(q.Ref(q.Collection('Jugadores'), req.params.idTenista))
-            )
-            // console.log( tenista ) // Para comprobar qué se ha devuelto en tenista
-            CORS(res)
-                .status(200)
-                .json(tenista)
-        } catch (error) {
-            CORS(res).status(500).json({ error: error.description })
-        }
-    },
-
 }
-
 
 
 // CALLBACKS ADICIONALES
@@ -120,7 +98,7 @@ const CB_OTHERS = {
      */
     home: async (req, res) => {
         try {
-            CORS(res).status(200).json({ mensaje: "Microservicio MS Plantilla: home" });
+            CORS(res).status(200).json({ mensaje: "Microservicio MS Criquet: home" });
         } catch (error) {
             CORS(res).status(500).json({ error: error.description })
         }
@@ -134,10 +112,10 @@ const CB_OTHERS = {
     acercaDe: async (req, res) => {
         try {
             CORS(res).status(200).json({
-                mensaje: "Microservicio TENIS: acerca de",
-                autor: "Miguel Ángel Hurtado Molina",
-                email: "mahm0010@red.ujaen.es",
-                fecha: "09/04/2023"
+                mensaje: "Microservicio CRIQUET: acerca de",
+                autor: "Francisco Javier Jiménez Aznar",
+                email: "fjja0004@red.ujaen.es",
+                fecha: "Abril de 2023"
             });
         } catch (error) {
             CORS(res).status(500).json({ error: error.description })
@@ -150,3 +128,5 @@ const CB_OTHERS = {
 // MUY IMPORTANTE: No debe haber callbacks con el mismo nombre en los distintos objetos, porque si no
 //                 el último que haya SOBREESCRIBE a todos los anteriores.
 exports.callbacks = { ...CB_MODEL_SELECTS, ...CB_OTHERS }
+
+//CB_MODEL_SELECTS.getTodosJugadores();

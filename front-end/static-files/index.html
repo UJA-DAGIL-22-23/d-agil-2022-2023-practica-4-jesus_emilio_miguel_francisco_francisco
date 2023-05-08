@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="css/front-end.css">
     <link rel="stylesheet" href="css/futbolsala.css">
     <link rel="stylesheet" href="css/atletismo.css">
-    <link rel="stylesheet" href="css/tenis.css">
 
 
 </head>
@@ -27,9 +26,7 @@
     <nav>
         <a href="javascript:FSala.procesarHome()" id="btn-frontend-home" class="opcion-principal"
             title="Llama a la ruta / del MS Plantilla">Home</a>
-        
-            
-        <a href="javascript:FSala.procesarAcercaDe()" class="opcion-principal"
+        <a href="javascript:Frontend.mostrarTodosAcercaDe()" class="opcion-principal"
             title="Llama a la ruta /acercade del MS Plantilla">Acerca de</a>
 
         <a href="javascript:Frontend.mostrarOpcionesFSala()" id="btn-fsala" class="opcion-principal mostrar"
@@ -44,28 +41,15 @@
             title="Realiza un listado del nombre de los jugadores que hay en la BBDD ordenados alfabéticamente">Listar
             nombres ordenados</a>
         <a href="javascript:FSala.listar()" class="opcion-principal ocultar" id="btn-fsala-listado"
-            title="Realiza un listado de todos los jugadores que hay en la BBDD">Listar jugadores</a>
+            title="Realiza un listado de todos los jugadores dque hay en la BBDD">Listar jugadores</a>
         <a href="javascript:FSala.mostrarFormAñadir()" id="btn-fsala-añadir" class="opcion-principal ocultar"
             title="Muestra el formulario para añadir un jugador a la base de datos">Añadir jugador</a>
-            
-        <a href="javascript:Atletas.listar()" class="opcion-principal mostrar"
-            title="Realiza un listado de todas los atletas que hay en la BBDD">Listar atletas</a>
-        <a href="javascript:Atletas.procesarAcercaDe()" class="opcion-principal"
-            title="Llama a la ruta /acercade del MS ATLETISMO">Acerca de</a>
 
         <a href="javascript:Criquet.procesarNombres()" id="btn-criquet-nombres" class="opcion-principal ocultar"
             title="Crea una lista con todos los nombres de los jugadores de criquet de la base de datos">Listado de
             nombres</a>
-        <a href="javascript:Criquet.procesarListar()" id="btn-criquet-listado" class="opcion-principal ocultar"
+        <a href="javascript:Criquet.procesarListar()" class="opcion-principal"
             title="Crea una lista con todos los jugadores de criquet de la base de datos">Listado de jugadores</a>
-        <a href="javascript:Frontend.mostrarOpcionesTenis()" id="btn-tenis" class="opcion-principal mostrar"
-            title="Muestra los botones de la aplicación de tenis">Mostrar opciones Tenis</a>
-            <a href="javascript:Tenis.procesarHome()" id="btn-tenis-home" class="opcion-principal ocultar"
-            title="Llama a la ruta / del MS Tenis">Home</a>
-        <a href="javascript:Tenis.procesarAcercaDe()" id="btn-tenis-acercade" class="opcion-principal ocultar"
-            title="Llama a la ruta /acercade del MS Tenis">Acerca de</a>
-        <a href="javascript:Tenis.listar()" id="btn-tenis-listar" class="opcion-principal ocultar"
-            title="Realiza un listado de todos los tenistas que hay en la BBDD">Listar tenistas</a>
     </nav>
 
     <!-- 
@@ -95,14 +79,12 @@
     <script src="js/criquet.js"></script>
     <script src="js/ms-tenis.js"></script>
 
-
     <!-- Cargamos ficheros spec con los tests -->
     <script src="js/front-end-spec.js"></script>
     <script src="js/futbolsala-spec.js"></script>
     <script src="js/atletismo-spec.js"></script>
     <script src="js/criquet-spec.js"></script>
     <script src="js/ms-tenis-spec.js"></script>
-
 </body>
 
 </html>

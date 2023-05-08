@@ -163,7 +163,7 @@ const CB_OTHERS = {
     acercaDe: async (req, res) => {
         try {
             CORS(res).status(200).json({
-                mensaje: "Microservicio MS Plantilla: acerca de",
+                mensaje: "Microservicio ATLETISMO: acerca de",
                 autor: "Emilio Martínez Conchillo",
                 email: "emc00073@red.ujaen.es",
                 fecha: "10/04/2023"

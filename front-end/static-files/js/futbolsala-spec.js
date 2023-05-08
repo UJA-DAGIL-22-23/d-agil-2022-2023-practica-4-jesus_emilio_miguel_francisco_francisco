@@ -160,58 +160,6 @@ describe("FSala.mostrarHome: ", function () {
 })
 
 
-describe("FSala.mostrarAcercaDe: ", function () {
-    it("muestra datos nulos cuando le pasamos un valor nulo",
-        function () {
-            FSala.mostrarAcercaDe()
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(FSala.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-        })
-
-    it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
-        function () {
-            FSala.mostrarAcercaDe(23)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(FSala.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-        })
-
-    it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje o autor o email o fecha ",
-        function () {
-            // Objeto vacío
-            FSala.mostrarAcercaDe({})
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(FSala.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-
-            // Objeto sin campo mensaje
-            FSala.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(FSala.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-            // Objeto sin campo autor
-            FSala.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(FSala.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-            // Objeto sin campo email
-            FSala.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(FSala.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-            // Objeto sin campo fecha
-            FSala.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(FSala.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-        })
-    it("muestra correctamente el título y el mensaje conteniendo el autor, el email y la fecha",
-        function () {
-            FSala.mostrarAcercaDe(datosDescargadosPrueba)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-
-            // Comprobamos que al buscar el autor, el email y la fecha de prueba los encuentra dentro del contenido del article
-            expect(elementoContenido.innerHTML.search(datosDescargadosPrueba.autor) >= 0).toBeTrue()
-            expect(elementoContenido.innerHTML.search(datosDescargadosPrueba.email) >= 0).toBeTrue()
-            expect(elementoContenido.innerHTML.search(datosDescargadosPrueba.fecha) >= 0).toBeTrue()
-        })
-})
-
-
 /*
 IMPORTANTE
 ==========
@@ -435,24 +383,6 @@ describe("FSala.siguiente: ", function () {
             expect(indices_prueba).toHaveSize(1)
         })
 
-})
-
-describe("FSala.filtraVector: ", function () {
-    let vector_prueba = []
-    it("si no se pasa nada el array que devuelve tiene tamaño 0",
-        function () {
-            vector_prueba = FSala.filtraVector()
-            expect(vector_prueba).toHaveSize(0)
-        })
-
-    it("si no se pasa una variable de tipo object el array que devuelve tiene tamaño 0",
-        function () {
-            vector_prueba = FSala.filtraVector(33)
-            expect(vector_prueba).toHaveSize(0)
-        })
-
-    // No puedo probar si se le pasa un array normal ya que document.getElementById("busqueda").value aún no está cargado
-    // y por lo tanto su valor es undefined
 })
 
 describe("FSala.imprimeJugadores.ordenado: ", function () {

@@ -182,58 +182,6 @@ describe("Atletas.mostrarHome: ", function () {
         })
 })
 
-
-describe("Atletas.mostrarAcercaDe: ", function () {
-    it("muestra datos nulos cuando le pasamos un valor nulo",
-        function () {
-            Atletas.mostrarAcercaDe()
-            expect(elementoTituloAtletismo.innerHTML).toBe(TITULO_ACERCA_DE_ATLETISMO)
-            expect(elementoContenidoAtletismo.innerHTML.search(Atletas.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-        })
-
-    it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
-        function () {
-            Atletas.mostrarAcercaDe(23)
-            expect(elementoTituloAtletismo.innerHTML).toBe(TITULO_ACERCA_DE_ATLETISMO)
-            expect(elementoContenidoAtletismo.innerHTML.search(Atletas.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-        })
-
-    it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje o autor o email o fecha ",
-        function () {
-            // Objeto vacío
-            Atletas.mostrarAcercaDe({})
-            expect(elementoTituloAtletismo.innerHTML).toBe(TITULO_ACERCA_DE_ATLETISMO)
-            expect(elementoContenidoAtletismo.innerHTML.search(Atletas.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-
-            // Objeto sin campo mensaje
-            Atletas.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
-            expect(elementoTituloAtletismo.innerHTML).toBe(TITULO_ACERCA_DE_ATLETISMO)
-            expect(elementoContenidoAtletismo.innerHTML.search(Atletas.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-            // Objeto sin campo autor
-            Atletas.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
-            expect(elementoTituloAtletismo.innerHTML).toBe(TITULO_ACERCA_DE_ATLETISMO)
-            expect(elementoContenidoAtletismo.innerHTML.search(Atletas.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-            // Objeto sin campo email
-            Atletas.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
-            expect(elementoTituloAtletismo.innerHTML).toBe(TITULO_ACERCA_DE_ATLETISMO)
-            expect(elementoContenidoAtletismo.innerHTML.search(Atletas.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-            // Objeto sin campo fecha
-            Atletas.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
-            expect(elementoTituloAtletismo.innerHTML).toBe(TITULO_ACERCA_DE_ATLETISMO)
-            expect(elementoContenidoAtletismo.innerHTML.search(Atletas.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-        })
-    it("muestra correctamente el título y el mensaje conteniendo el autor, el email y la fecha",
-        function () {
-            Atletas.mostrarAcercaDe(datosDescargadosPruebaAtletismo)
-            expect(elementoTituloAtletismo.innerHTML).toBe(TITULO_ACERCA_DE_ATLETISMO)
-
-            // Comprobamos que al buscar el autor, el email y la fecha de prueba los encuentra dentro del contenido del article
-            expect(elementoContenidoAtletismo.innerHTML.search(datosDescargadosPruebaAtletismo.autor) >= 0).toBeTrue()
-            expect(elementoContenidoAtletismo.innerHTML.search(datosDescargadosPruebaAtletismo.email) >= 0).toBeTrue()
-            expect(elementoContenidoAtletismo.innerHTML.search(datosDescargadosPruebaAtletismo.fecha) >= 0).toBeTrue()
-        })
-})  
-
 describe("Atletas.imprimeOrdenadoNombre: ", function () {
     it("debe ordenar el vector en orden ascendente correctamente", () => {
         const vector = [

@@ -5,6 +5,44 @@
  * @date 03-feb-2023
  */
 
+// Constantes
+const TITULO_TODOS_ACERCA_DE = "Datos de los estudiantes"
+
+const datosCriquet = {
+    mensaje: "Microservicio CRIQUET: acerca de",
+    autor: "Francisco Javier Jiménez Aznar",
+    email: "fjja0004@red.ujaen.es",
+    fecha: "Abril de 2023"
+}
+
+const datosFsala = {
+    mensaje: "Microservicio FÚTBOL SALA: acerca de",
+    autor: "Francisco José Jordán Jiménez",
+    email: "fjjj0001@red.ujaen.es",
+    fecha: "08/04/2023"
+}
+
+const datosTenis = {
+    mensaje: "Microservicio TENIS: acerca de",
+    autor: "Miguel Ángel Hurtado Molina",
+    email: "mahm0010@red.ujaen.es",
+    fecha: "09/04/2023"
+}
+
+const datosAtletismo = {
+    mensaje: "Mensaje de prueba descargado",
+    autor: "Prueba de autor",
+    email: "Prueba de email",
+    fecha: "00/00/0000"
+}
+
+const datosBoxeo = {
+    mensaje: "Microservicio BOXEO: acerca de",
+    autor: "Jesús Morales Villegas",
+    email: "jmv00037@red.ujaen.es",
+    fecha: new Date().toLocaleDateString("en-US")
+}
+
 // SPECS para Jasmine
 describe("Frontend.Article.actualizar: ", function () {
     const elementoTitulo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO)
@@ -58,6 +96,46 @@ describe("Frontend.Article.actualizar: ", function () {
             expect(Frontend.Article.actualizar()).toBe(Frontend.Article) 
             expect(Frontend.Article.actualizar(tituloPrueba)).toBe(Frontend.Article)
             expect(Frontend.Article.actualizar(tituloPrueba, contenidoPrueba)).toBe(Frontend.Article)
+        })
+
+})
+
+describe("Frontend.Article.añadirContenido: ", function () {
+    const elementoContenido = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO)
+    const contenidoPrueba = "Contenido de prueba"
+    it("Para contenidos nulos, debe dejar vacíos las correspondientes secciones del article",
+        function () {
+            // Borramos lo que haya de antes
+            elementoContenido.innerHTML = ""
+
+            // Probamos valores nulos
+            Frontend.Article.añadirContenido(null)
+            expect(elementoContenido.innerHTML).toBe("")
+
+            // Probamos valores vacíos
+            Frontend.Article.añadirContenido("")
+            expect(elementoContenido.innerHTML).toBe("")
+        })
+
+        it("Para contenidos no nulos, debe añadir el contenido a la correspondiente zona del article",
+        function () {
+            // Borramos lo que haya de antes
+            elementoContenido.innerHTML = ""
+
+            // Probamos valores normales
+            Frontend.Article.añadirContenido(contenidoPrueba)
+            expect(elementoContenido.innerHTML).toBe(contenidoPrueba)
+        })
+
+})
+
+describe("Frontend.mostrarTodosAcercaDe: ", function () {
+    const elementoContenido = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO)
+    const elementoTitulo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO)
+    it("Se muestra correctamente el título",
+        function () {
+            Frontend.mostrarTodosAcercaDe()
+            expect(elementoTitulo.innerHTML).toBe(TITULO_TODOS_ACERCA_DE)
         })
 
 })

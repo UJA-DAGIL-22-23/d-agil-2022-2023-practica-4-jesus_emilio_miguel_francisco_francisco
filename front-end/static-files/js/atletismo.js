@@ -406,8 +406,6 @@ Atletas.buscar = async function () {
 Atletas.setNombre = async function (ID, nombre) {
     let response = null
 
-    console.log("setNombre" + ID + nombre)
-
     try {
         const url = Frontend.API_GATEWAY + "/atletas/setNombre";
         response = await fetch(url, {
@@ -425,8 +423,6 @@ Atletas.setNombre = async function (ID, nombre) {
         alert("Error: No se han podido acceder al API Gateway");
         console.error(error);
     }
-
-    console.log(response)
 
     let atleta = null
     if (response) {
@@ -478,7 +474,6 @@ Atletas.cabeceraTable = function () {
  */
 Atletas.cuerpoTr = function (a) {
     const d = a.data
-    console.log(a)
 
     return `<tr title="${a.ref['@ref'].id}">
             <td><em>${d.nombre}</em></td>
@@ -577,7 +572,7 @@ Atletas.mostrarAcercaDe = function (datosDescargados) {
     </ul>
     </div>
     `;
-    Frontend.Article.actualizar("ATLETISMO Acerca de", mensajeAMostrar)
+    Frontend.Article.añadirContenido(mensajeAMostrar)
 }
 
 

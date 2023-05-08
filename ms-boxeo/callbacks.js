@@ -14,10 +14,10 @@ const faunadb = require('faunadb'),
     q = faunadb.query;
 
 const client = new faunadb.Client({
-    secret: 'fnAFBGvUS-AAzd733DgCSfJRgPGbIZQ35Asuk6tp',
+    secret: 'fnAE-c7rRYACWvGCplgNJvhVvs3gv1DgzZGPX8ST',
 });
 
-const COLLECTION = "Jugadores"
+const COLLECTION = "Atleta"
 
 // CALLBACKS DEL MODELO
 
@@ -62,42 +62,42 @@ const CB_MODEL_SELECTS = {
     },
 
     /**
-     * Método para obtener todos los tenistas de la BBDD.
+     * Método para obtener todas las personas de la BBDD.
      * @param {*} req Objeto con los parámetros que se han pasado en la llamada a esta URL 
      * @param {*} res Objeto Response con las respuesta que se va a dar a la petición recibida
      */
-    getTodos: async (req, res) => {
+    getTodas: async (req, res) => {
         try {
-            let tenistas = await client.query(
+            let personas = await client.query(
                 q.Map(
                     q.Paginate(q.Documents(q.Collection(COLLECTION))),
                     q.Lambda("X", q.Get(q.Var("X")))
                 )
             )
-            // console.log( tenistas ) // Para comprobar qué se ha devuelto en tenistas
+            //console.log( personas ) // Para comprobar qué se ha devuelto en personas
             CORS(res)
                 .status(200)
-                .json(tenistas)
+                .json(personas)
         } catch (error) {
             CORS(res).status(500).json({ error: error.description })
         }
     },
 
     /**
-    * Método para obtener un tenista de la BBDD a partir de su ID
+    * Método para obtener una persona de la BBDD a partir de su ID
     * @param {*} req Objeto con los parámetros que se han pasado en la llamada a esta URL 
     * @param {*} res Objeto Response con las respuesta que se va a dar a la petición recibida
     */
     getPorId: async (req, res) => {
         try {
-            // console.log( "getPorId req", req.params.idTenista ) // req.params contiene todos los parámetros de la llamada
-            let tenista = await client.query(
-                q.Get(q.Ref(q.Collection('Jugadores'), req.params.idTenista))
+            //console.log( "getPorId req", req.params.idPersona ) // req.params contiene todos los parámetros de la llamada
+            let persona = await client.query(
+                q.Get(q.Ref(q.Collection(COLLECTION), req.params.idPersona))
             )
-            // console.log( tenista ) // Para comprobar qué se ha devuelto en tenista
+            //console.log( persona.data ) // Para comprobar qué se ha devuelto en persona
             CORS(res)
                 .status(200)
-                .json(tenista)
+                .json(persona)
         } catch (error) {
             CORS(res).status(500).json({ error: error.description })
         }
@@ -134,15 +134,17 @@ const CB_OTHERS = {
     acercaDe: async (req, res) => {
         try {
             CORS(res).status(200).json({
-                mensaje: "Microservicio TENIS: acerca de",
-                autor: "Miguel Ángel Hurtado Molina",
-                email: "mahm0010@red.ujaen.es",
-                fecha: "09/04/2023"
+                mensaje: "Microservicio BOXEO: acerca de",
+                autor: "Jesús Morales Villegas",
+                email: "jmv00037@red.ujaen.es",
+                fecha: new Date().toLocaleDateString("en-US")
             });
         } catch (error) {
             CORS(res).status(500).json({ error: error.description })
         }
     },
+
+   
 
 }
 

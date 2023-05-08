@@ -314,58 +314,6 @@ describe("Tenis.mostrarHome: ", function () {
 })
 
 
-describe("Tenis.mostrarAcercaDe: ", function () {
-    it("muestra datos nulos cuando le pasamos un valor nulo",
-        function () {
-            Tenis.mostrarAcercaDe()
-            expect(elementoTituloTenis.innerHTML).toBe(TITULO_ACERCA_DE_TENIS)
-            expect(elementoContenidoTenis.innerHTML.search(Tenis.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-        })
-
-    it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
-        function () {
-            Tenis.mostrarAcercaDe(23)
-            expect(elementoTituloTenis.innerHTML).toBe(TITULO_ACERCA_DE_TENIS)
-            expect(elementoContenidoTenis.innerHTML.search(Tenis.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-        })
-
-    it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje o autor o email o fecha ",
-        function () {
-            // Objeto vacío
-            Tenis.mostrarAcercaDe({})
-            expect(elementoTituloTenis.innerHTML).toBe(TITULO_ACERCA_DE_TENIS)
-            expect(elementoContenidoTenis.innerHTML.search(Tenis.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-
-            // Objeto sin campo mensaje
-            Tenis.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
-            expect(elementoTituloTenis.innerHTML).toBe(TITULO_ACERCA_DE_TENIS)
-            expect(elementoContenidoTenis.innerHTML.search(Tenis.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-            // Objeto sin campo autor
-            Tenis.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
-            expect(elementoTituloTenis.innerHTML).toBe(TITULO_ACERCA_DE_TENIS)
-            expect(elementoContenidoTenis.innerHTML.search(Tenis.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-            // Objeto sin campo email
-            Tenis.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
-            expect(elementoTituloTenis.innerHTML).toBe(TITULO_ACERCA_DE_TENIS)
-            expect(elementoContenidoTenis.innerHTML.search(Tenis.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-            // Objeto sin campo fecha
-            Tenis.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
-            expect(elementoTituloTenis.innerHTML).toBe(TITULO_ACERCA_DE_TENIS)
-            expect(elementoContenidoTenis.innerHTML.search(Tenis.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
-        })
-    it("muestra correctamente el título y el mensaje conteniendo el autor, el email y la fecha",
-        function () {
-            Tenis.mostrarAcercaDe(datosDescargadosPruebaTenis)
-            expect(elementoTituloTenis.innerHTML).toBe(TITULO_ACERCA_DE_TENIS)
-
-            // Comprobamos que al buscar el autor, el email y la fecha de prueba los encuentra dentro del contenido del article
-            expect(elementoContenidoTenis.innerHTML.search(datosDescargadosPruebaTenis.autor) >= 0).toBeTrue()
-            expect(elementoContenidoTenis.innerHTML.search(datosDescargadosPruebaTenis.email) >= 0).toBeTrue()
-            expect(elementoContenidoTenis.innerHTML.search(datosDescargadosPruebaTenis.fecha) >= 0).toBeTrue()
-        })
-})
-
-
 /*
 IMPORTANTE
 ==========
