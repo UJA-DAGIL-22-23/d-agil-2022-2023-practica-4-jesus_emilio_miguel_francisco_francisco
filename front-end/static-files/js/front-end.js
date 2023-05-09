@@ -89,10 +89,6 @@ Frontend.ocultarOpcionesTenis = function () {
     document.getElementById("btn-tenis-home").classList.add("ocultar")
 }
 
-
-
-
-
 /// Dirección del MS que funciona como API_GATEWAY
 Frontend.API_GATEWAY = "http://localhost:8001"
 
@@ -146,4 +142,16 @@ Frontend.mostrarTodosAcercaDe = function () {
     Criquet.procesarAcercaDe();
     Tenis.procesarAcercaDe();
     Atletas.procesarAcercaDe();
+}
+
+/**
+ * Función principal para recuperar los nombres de todos los jugadores desde el MS y, posteriormente, imprimirlos.
+ */
+Frontend.procesarNombresCompleto = function () {
+    document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO).innerHTML = ""
+    document.getElementById( Frontend.ID_SECCION_PRINCIPAL_TITULO ).innerHTML = "Datos de los estudiantes"
+    FSala.procesarListadoDeNombres();
+    Criquet.procesarNombres();
+    Tenis.procesarNombres();
+    Atletas.procesarNombres();
 }
