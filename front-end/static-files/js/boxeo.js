@@ -174,6 +174,7 @@ Boxeo.descargarRuta = async function (ruta, callBackFn) {
     // Intento conectar con el microservicio Plantilla
     try {
         const url = Frontend.API_GATEWAY + ruta
+        console.log(url)
         response = await fetch(url)
 
     } catch (error) {
@@ -241,14 +242,14 @@ Boxeo.mostrarAcercaDe = function (datosDescargados) {
  * Función principal para responder al evento de elegir la opción "Home"
  */
 Boxeo.procesarHome = function () {
-    this.descargarRuta("/plantilla/", this.mostrarHome);
+    this.descargarRuta("/boxeo/", this.mostrarHome);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Acerca de"
  */
 Boxeo.procesarAcercaDe = function () {
-    this.descargarRuta("/plantilla/acercade", this.mostrarAcercaDe);
+    this.descargarRuta("/boxeo/acercade", this.mostrarAcercaDe);
 }
 
 /**
@@ -259,7 +260,7 @@ Boxeo.procesarAcercaDe = function () {
  */
 Boxeo.recuperaUnaPersona = async function (idPersona, callBackFn) {
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getPorId/" + idPersona
+        const url = Frontend.API_GATEWAY + "/boxeo/getPorId/" + idPersona
         const response = await fetch(url);
         if (response) {
             const persona = await response.json()
@@ -365,7 +366,7 @@ Boxeo.recupera = async function (callBackFn) {//NO SE HACE TEST PORQUE LLAMA A U
 
     // Intento conectar con el microservicio personas
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodas"
+        const url = Frontend.API_GATEWAY + "/boxeo/getTodas"
         response = await fetch(url)
 
     } catch (error) {
