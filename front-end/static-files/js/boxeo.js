@@ -234,7 +234,7 @@ Boxeo.mostrarAcercaDe = function (datosDescargados) {
     </ul>
     </div>
     `;
-    Frontend.Article.actualizar("Plantilla Acerca de", mensajeAMostrar)
+    Frontend.Article.añadirContenido(mensajeAMostrar)
 }
 
 

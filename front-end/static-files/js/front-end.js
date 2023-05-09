@@ -146,4 +146,5 @@ Frontend.mostrarTodosAcercaDe = function () {
     Criquet.procesarAcercaDe();
     Tenis.procesarAcercaDe();
     Atletas.procesarAcercaDe();
+    Boxeo.procesarAcercaDe();
 }
