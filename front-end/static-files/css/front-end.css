@@ -39,7 +39,7 @@
 .opcion-principal:hover,
 .opcion-secundaria:hover,
 .opcion-secundaria:hover  {
-    background-color: rgba(100, 100, 100, 0.3);
+    background-color: rgba(255, 255, 255, 0.3);
 }
 .opcion-principal {
     margin: 0 .5em 0 .5em;
@@ -57,4 +57,9 @@
 
 .boton-siguiente {
     float: right;
+}
+
+.fondo{
+    background-color: black;
+    color: rgb(30, 255, 0);
 }
