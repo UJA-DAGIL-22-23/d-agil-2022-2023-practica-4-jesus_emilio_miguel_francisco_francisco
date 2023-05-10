@@ -10,7 +10,7 @@ let Frontend = {};
 
 // Estos dos métodos muestran los botones de la aplicación de fútbol sala. Al pulsar sobre el botón 'Home'
 // se vuelve a mostrar el botón con id 'btn-fsala' y es ocultan todos los demás
-Frontend.mostrarOpcionesFSala = function (){
+Frontend.mostrarOpcionesFSala = function () {
     document.getElementById("btn-fsala").classList.remove("mostrar")
     document.getElementById("btn-fsala-listado").classList.remove("ocultar")
     document.getElementById("btn-fsala-nombres").classList.remove("ocultar")
@@ -41,7 +41,7 @@ Frontend.ocultarOpcionesFSala = function () {
 /**
  * Muestra los botones de la aplicación de críquet. 
  */
-Frontend.mostrarOpcionesCriquet = function (){
+Frontend.mostrarOpcionesCriquet = function () {
     document.getElementById("btn-criquet").classList.remove("mostrar")
     document.getElementById("btn-criquet-listado").classList.remove("ocultar")
     document.getElementById("btn-criquet-nombres").classList.remove("ocultar")
@@ -65,7 +65,7 @@ Frontend.ocultarOpcionesCriquet = function () {
 }
 
 
-Frontend.mostrarOpcionesTenis = function (){
+Frontend.mostrarOpcionesTenis = function () {
     document.getElementById("btn-tenis").classList.remove("mostrar")
     document.getElementById("btn-tenis-listar").classList.remove("ocultar")
     document.getElementById("btn-tenis-acercade").classList.remove("ocultar")
@@ -113,8 +113,8 @@ Frontend.Article.actualizar = function (titulo, contenido) {
     titulo = titulo || ""
     contenido = contenido || ""
     // Sustituyo el título y el contenido del articulo
-    document.getElementById( Frontend.ID_SECCION_PRINCIPAL_TITULO ).innerHTML = titulo
-    document.getElementById( Frontend.ID_SECCION_PRINCIPAL_CONTENIDO ).innerHTML = contenido
+    document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO).innerHTML = titulo
+    document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO).innerHTML = contenido
     return this;
 }
 
@@ -128,7 +128,7 @@ Frontend.Article.añadirContenido = function (contenido) {
     contenido = contenido || ""
 
     // Sustituyo el título y el contenido del articulo
-    document.getElementById( Frontend.ID_SECCION_PRINCIPAL_CONTENIDO ).innerHTML += contenido
+    document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO).innerHTML += contenido
     return this;
 }
 
@@ -137,7 +137,7 @@ Frontend.Article.añadirContenido = function (contenido) {
  */
 Frontend.mostrarTodosAcercaDe = function () {
     document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO).innerHTML = ""
-    document.getElementById( Frontend.ID_SECCION_PRINCIPAL_TITULO ).innerHTML = "Datos de los estudiantes"
+    document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO).innerHTML = "Datos de los estudiantes"
     FSala.procesarAcercaDe();
     Criquet.procesarAcercaDe();
     Tenis.procesarAcercaDe();
@@ -147,11 +147,85 @@ Frontend.mostrarTodosAcercaDe = function () {
 /**
  * Función principal para recuperar los nombres de todos los jugadores desde el MS y, posteriormente, imprimirlos.
  */
-Frontend.procesarNombresCompleto = function () {
+/*Frontend.procesarNombresCompleto = function () {
     document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO).innerHTML = ""
     document.getElementById( Frontend.ID_SECCION_PRINCIPAL_TITULO ).innerHTML = "Datos de los estudiantes"
     FSala.procesarListadoDeNombres();
     Criquet.procesarNombres();
-    Tenis.procesarNombres();
-    Atletas.procesarNombres();
+    //Tenis.procesarNombres();
+    //Atletas.procesarNombres();
+}*/
+
+/**
+ * Función principal para recuperar los nombres de los jugadores desde el MS y, posteriormente, imprimirlos.
+ */
+Frontend.procesarNombresCompleto = function () {
+    this.recupera(this.imprimeNombres);
+}
+
+/**
+ * Función que recupera todos los jugadores llamando al MS
+ * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
+ */
+Frontend.recupera = async function (callBackFn) {
+    let response = null
+    let vectorJugadores = null
+
+    const urlsMicroservicios = [
+        Frontend.API_GATEWAY + "/criquet/getTodosJugadores",
+    ];
+
+    try {
+        for (const url of urlsMicroservicios) {
+            response = await fetch(url);
+
+            if (response) {
+                const data = await response.json();
+
+                if (data) {
+                    vectorJugadores = vectorJugadores.concat(data);
+                }
+            }
+        }
+
+        callBackFn(vectorJugadores);
+
+
+    } catch (error) {
+        alert("Error: No se han podido acceder al API Gateway")
+        console.error(error)
+        //throw error
+    }
+}
+
+/**
+ * Función para mostrar en pantalla todos los nombres de los jugadores que se han recuperado de la BBDD.
+ * @param {vector_de_jugadores} vector Vector con los nombres de los jugadores a mostrar
+ */
+
+Frontend.imprimeNombres = function (vector) {
+
+    let msj = "";
+    msj += Frontend.cabeceraTableNombres();
+    vector.forEach(e => msj += Frontend.cuerpoTrNombres(e))
+    msj += Frontend.pieTable();
+
+    // Borro toda la info de Article y la sustituyo por la que me interesa
+    Frontend.Article.actualizar("Listado de nombres", msj)
+}
+
+/**
+ * Crea la cabecera para mostrar la info como tabla
+ * @returns Cabecera de la tabla
+ */
+Frontend.cabeceraTableNombres = function () {
+    return `<table class="listado-jugadores">
+        <thead>
+                <th>Nombre</th>
+        </thead>
+        <tbody>
+        <a href="javascript:Criquet.listarAlf()" 
+            class="opcion-principal mostrar
+                "title="Listar todos los nombres de los jugadores orden alfabético">Ordenar alfabéticamente</a>
+    `;
 }
