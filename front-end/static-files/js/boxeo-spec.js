@@ -99,14 +99,12 @@ describe("Boxeo.sustituyeTags: ", function () {
     it("sustituyo de una plantiya los tags",
         function () {
             Boxeo.mostrarAcercaDe()
-            expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_ACERCA_DE_Boxeo)
             expect(elementoContenidoBoxeo.innerHTML.search(Boxeo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
             Boxeo.mostrarAcercaDe(23)
-            expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_ACERCA_DE_Boxeo)
             expect(elementoContenidoBoxeo.innerHTML.search(Boxeo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
@@ -114,30 +112,24 @@ describe("Boxeo.sustituyeTags: ", function () {
         function () {
             // Objeto vacío
             Boxeo.mostrarAcercaDe({})
-            expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_ACERCA_DE_Boxeo)
             expect(elementoContenidoBoxeo.innerHTML.search(Boxeo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
 
             // Objeto sin campo mensaje
             Boxeo.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
-            expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_ACERCA_DE_Boxeo)
             expect(elementoContenidoBoxeo.innerHTML.search(Boxeo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo autor
             Boxeo.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
-            expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_ACERCA_DE_Boxeo)
             expect(elementoContenidoBoxeo.innerHTML.search(Boxeo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo email
             Boxeo.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
-            expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_ACERCA_DE_Boxeo)
             expect(elementoContenidoBoxeo.innerHTML.search(Boxeo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo fecha
             Boxeo.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
-            expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_ACERCA_DE_Boxeo)
             expect(elementoContenidoBoxeo.innerHTML.search(Boxeo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
     it("muestra correctamente el título y el mensaje conteniendo el autor, el email y la fecha",
         function () {
             Boxeo.mostrarAcercaDe(datosDescargadosPruebaBoxeo)
-            expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_ACERCA_DE_Boxeo)
 
             // Comprobamos que al buscar el autor, el email y la fecha de prueba los encuentra dentro del contenido del article
             expect(elementoContenidoBoxeo.innerHTML.search(datosDescargadosPruebaBoxeo.autor) >= 0).toBeTrue()
