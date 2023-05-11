@@ -174,7 +174,7 @@ Boxeo.descargarRuta = async function (ruta, callBackFn) {
     // Intento conectar con el microservicio Plantilla
     try {
         const url = Frontend.API_GATEWAY + ruta
-        console.log(url)
+        //console.log(url)
         response = await fetch(url)
 
     } catch (error) {
