@@ -8,17 +8,17 @@
 // SPECS para Jasmine
 
 // Constantes para usar en las pruebas
-const elementoTitulo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO)
-const elementoContenido = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO)
+const elementoTituloBoxeo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO)
+const elementoContenidoBoxeo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO)
 
-const TITULO_HOME = "Plantilla Home"
-const TITULO_ACERCA_DE = "Plantilla Acerca de"
+const TITULO_HOME_Boxeo = "Plantilla Home"
+const TITULO_ACERCA_DE_Boxeo = "Plantilla Acerca de"
 const TITULO_LISTADO_PERSONAS = "Listado de personas"
-const TITULO_LISTADO_NOMBRES = "Listado de nombres"
+const TITULO_LISTADO_NOMBRES_BOXEO = "Listado de nombres"
 const TITULO_MOSTRAR_PERSONA = "Mostrar una persona"
 const TITULO_BUSCAR = "Mostrar busqueda"
 
-const datosDescargadosPrueba = {
+const datosDescargadosPruebaBoxeo = {
     mensaje: "Mensaje de prueba descargado",
     autor: "Prueba de autor",
     email: "Prueba de email",
@@ -62,35 +62,35 @@ describe("Boxeo.mostrarHome: ", function () {
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
             Boxeo.mostrarHome()
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Boxeo.datosDescargadosNulos.mensaje)
+            expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_HOME_Boxeo)
+            expect(elementoContenidoBoxeo.innerHTML).toBe(Boxeo.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
             Boxeo.mostrarHome(23)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Boxeo.datosDescargadosNulos.mensaje)
+            expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_HOME_Boxeo)
+            expect(elementoContenidoBoxeo.innerHTML).toBe(Boxeo.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje",
         function () {
             // Objeto vacío
             Boxeo.mostrarHome({})
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Boxeo.datosDescargadosNulos.mensaje)
+            expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_HOME_Boxeo)
+            expect(elementoContenidoBoxeo.innerHTML).toBe(Boxeo.datosDescargadosNulos.mensaje)
 
             // Objeto sin campo mensaje
             Boxeo.mostrarHome({ foo: "bar" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Boxeo.datosDescargadosNulos.mensaje)
+            expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_HOME_Boxeo)
+            expect(elementoContenidoBoxeo.innerHTML).toBe(Boxeo.datosDescargadosNulos.mensaje)
         })
 
     it("muestra correctamente el título y el mensaje",
         function () {
-            Boxeo.mostrarHome(datosDescargadosPrueba)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(datosDescargadosPrueba.mensaje)
+            Boxeo.mostrarHome(datosDescargadosPruebaBoxeo)
+            expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_HOME_Boxeo)
+            expect(elementoContenidoBoxeo.innerHTML).toBe(datosDescargadosPruebaBoxeo.mensaje)
         })
 })
 
@@ -99,50 +99,50 @@ describe("Boxeo.sustituyeTags: ", function () {
     it("sustituyo de una plantiya los tags",
         function () {
             Boxeo.mostrarAcercaDe()
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Boxeo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_ACERCA_DE_Boxeo)
+            expect(elementoContenidoBoxeo.innerHTML.search(Boxeo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
             Boxeo.mostrarAcercaDe(23)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Boxeo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_ACERCA_DE_Boxeo)
+            expect(elementoContenidoBoxeo.innerHTML.search(Boxeo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje o autor o email o fecha ",
         function () {
             // Objeto vacío
             Boxeo.mostrarAcercaDe({})
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Boxeo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_ACERCA_DE_Boxeo)
+            expect(elementoContenidoBoxeo.innerHTML.search(Boxeo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
 
             // Objeto sin campo mensaje
             Boxeo.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Boxeo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_ACERCA_DE_Boxeo)
+            expect(elementoContenidoBoxeo.innerHTML.search(Boxeo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo autor
             Boxeo.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Boxeo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_ACERCA_DE_Boxeo)
+            expect(elementoContenidoBoxeo.innerHTML.search(Boxeo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo email
             Boxeo.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Boxeo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_ACERCA_DE_Boxeo)
+            expect(elementoContenidoBoxeo.innerHTML.search(Boxeo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo fecha
             Boxeo.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Boxeo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_ACERCA_DE_Boxeo)
+            expect(elementoContenidoBoxeo.innerHTML.search(Boxeo.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
     it("muestra correctamente el título y el mensaje conteniendo el autor, el email y la fecha",
         function () {
-            Boxeo.mostrarAcercaDe(datosDescargadosPrueba)
-            expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
+            Boxeo.mostrarAcercaDe(datosDescargadosPruebaBoxeo)
+            expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_ACERCA_DE_Boxeo)
 
             // Comprobamos que al buscar el autor, el email y la fecha de prueba los encuentra dentro del contenido del article
-            expect(elementoContenido.innerHTML.search(datosDescargadosPrueba.autor) >= 0).toBeTrue()
-            expect(elementoContenido.innerHTML.search(datosDescargadosPrueba.email) >= 0).toBeTrue()
-            expect(elementoContenido.innerHTML.search(datosDescargadosPrueba.fecha) >= 0).toBeTrue()
+            expect(elementoContenidoBoxeo.innerHTML.search(datosDescargadosPruebaBoxeo.autor) >= 0).toBeTrue()
+            expect(elementoContenidoBoxeo.innerHTML.search(datosDescargadosPruebaBoxeo.email) >= 0).toBeTrue()
+            expect(elementoContenidoBoxeo.innerHTML.search(datosDescargadosPruebaBoxeo.fecha) >= 0).toBeTrue()
         })
 })
 
@@ -207,16 +207,16 @@ describe("Boxeo.imprimeMuchasPersonas: ", () =>{
     let vector = [personaParaPruebas];
     it("Se cambia el titulo", ()=>{
         Boxeo.imprimeMuchasPersonas(vector)
-        expect(elementoTitulo.innerHTML).toBe(TITULO_LISTADO_PERSONAS)
+        expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_LISTADO_PERSONAS)
     })
 
     it("Se cambia el contenido del cuerpo", ()=>{ 
         Boxeo.imprimeMuchasPersonas(vector)
-        //console.log(elementoContenido.innerHTML)
-        expect(elementoContenido.innerHTML.includes(personaParaPruebas.data.nombre)).toBeTrue()
-        expect(elementoContenido.innerHTML.includes(personaParaPruebas.data.categoria)).toBeTrue()
-        expect(elementoContenido.innerHTML.includes(personaParaPruebas.data.derrotas)).toBeTrue()
-        expect(elementoContenido.innerHTML.includes(personaParaPruebas.data.titulos)).toBeTrue()
+        //console.log(elementoContenidoBoxeo.innerHTML)
+        expect(elementoContenidoBoxeo.innerHTML.includes(personaParaPruebas.data.nombre)).toBeTrue()
+        expect(elementoContenidoBoxeo.innerHTML.includes(personaParaPruebas.data.categoria)).toBeTrue()
+        expect(elementoContenidoBoxeo.innerHTML.includes(personaParaPruebas.data.derrotas)).toBeTrue()
+        expect(elementoContenidoBoxeo.innerHTML.includes(personaParaPruebas.data.titulos)).toBeTrue()
 
     })
 })
@@ -226,13 +226,13 @@ describe("Boxeo.agregarNombres: ", () =>{
     let vector = [personaParaPruebas];
     it("Se cambia el titulo", ()=>{
         Boxeo.agregarNombres(vector)
-        expect(elementoTitulo.innerHTML).toBe(TITULO_LISTADO_NOMBRES)
+        expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_LISTADO_NOMBRES_BOXEO)
     })
 
     it("Se cambia el contenido del cuerpo", ()=>{ 
         Boxeo.agregarNombres(vector)
-        //console.log(elementoContenido.innerHTML)
-        expect(elementoContenido.innerHTML.includes(cuerpo)).toBeTrue()
+        //console.log(elementoContenidoBoxeo.innerHTML)
+        expect(elementoContenidoBoxeo.innerHTML.includes(cuerpo)).toBeTrue()
     })
 })
 
@@ -329,23 +329,23 @@ describe("Boxeo.ordenarColumna: ", () =>{
 describe("Boxeo.imprimeUnaPersona: ", () =>{
     it("Se cambia el titulo", ()=>{
         Boxeo.imprimeUnaPersona(personaParaPruebas)
-        expect(elementoTitulo.innerHTML).toBe(TITULO_MOSTRAR_PERSONA)
+        expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_MOSTRAR_PERSONA)
     })
 
     it("Se cambia el contenido del cuerpo si se le pasa una persona", ()=>{
         Boxeo.imprimeUnaPersona(personaParaPruebas)
-        //console.log(elementoContenido.innerHTML)
-        expect(elementoContenido.innerHTML.includes(personaParaPruebas.data.nombre)).toBeTrue()
-        expect(elementoContenido.innerHTML.includes(personaParaPruebas.data.categoria)).toBeTrue()
-        expect(elementoContenido.innerHTML.includes(personaParaPruebas.data.victorias)).toBeTrue()
+        //console.log(elementoContenidoBoxeo.innerHTML)
+        expect(elementoContenidoBoxeo.innerHTML.includes(personaParaPruebas.data.nombre)).toBeTrue()
+        expect(elementoContenidoBoxeo.innerHTML.includes(personaParaPruebas.data.categoria)).toBeTrue()
+        expect(elementoContenidoBoxeo.innerHTML.includes(personaParaPruebas.data.victorias)).toBeTrue()
     })
 
     it("si no se le pasa nada como argumento devuelve una plantilla por defecto", ()=>{
         Boxeo.imprimeUnaPersona()
-        //console.log(elementoContenido.innerHTML)
-        expect(elementoContenido.innerHTML.includes(Boxeo.plantillaTags.ID)).toBeTrue()
-        expect(elementoContenido.innerHTML.includes(Boxeo.plantillaTags.NOMBRE)).toBeTrue()
-        expect(elementoContenido.innerHTML.includes(Boxeo.plantillaTags.CATEGORIA)).toBeTrue()
+        //console.log(elementoContenidoBoxeo.innerHTML)
+        expect(elementoContenidoBoxeo.innerHTML.includes(Boxeo.plantillaTags.ID)).toBeTrue()
+        expect(elementoContenidoBoxeo.innerHTML.includes(Boxeo.plantillaTags.NOMBRE)).toBeTrue()
+        expect(elementoContenidoBoxeo.innerHTML.includes(Boxeo.plantillaTags.CATEGORIA)).toBeTrue()
     })
 })
 
@@ -353,8 +353,8 @@ describe("Boxeo.buscar: ", () =>{
     
     it("Se cambia el titulo y se crea un buscador", ()=>{
         Boxeo.buscar()
-        expect(elementoTitulo.innerHTML).toBe(TITULO_BUSCAR)
-        expect(elementoContenido.innerHTML.includes('input type="text"')).toBeTrue()
+        expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_BUSCAR)
+        expect(elementoContenidoBoxeo.innerHTML.includes('input type="text"')).toBeTrue()
     })
 })
 
@@ -363,15 +363,15 @@ describe("Boxeo.mostrarPersonaNombreBuscador: ", () =>{
     it("Si se busca 'jack' da como resultada una lista con solamente Jackie Chan ", ()=>{
         nombreBuscar = "jack"
         Boxeo.mostrarPersonaNombreBuscador(vector)
-        expect(elementoTitulo.innerHTML).toBe(TITULO_BUSCAR)
-        expect(elementoContenido.innerHTML.includes(personaParaPruebas.data.nombre)).toBeTrue()
+        expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_BUSCAR)
+        expect(elementoContenidoBoxeo.innerHTML.includes(personaParaPruebas.data.nombre)).toBeTrue()
     })
 
     it("Si se busca la cadena vacia da como resultada una lista con todas las personas ", ()=>{
         nombreBuscar = ""
         Boxeo.mostrarPersonaNombreBuscador(vector)
-        expect(elementoTitulo.innerHTML).toBe(TITULO_BUSCAR)
-        expect(elementoContenido.innerHTML.includes(personaParaPruebas.data.nombre)).toBeTrue()
+        expect(elementoTituloBoxeo.innerHTML).toBe(TITULO_BUSCAR)
+        expect(elementoContenidoBoxeo.innerHTML.includes(personaParaPruebas.data.nombre)).toBeTrue()
     })
 })
 
