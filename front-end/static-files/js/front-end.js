@@ -169,32 +169,23 @@ Frontend.procesarNombresCompleto = function () {
  */
 Frontend.recupera = async function (callBackFn) {
     let response = null
-    let vectorJugadores = null
 
-    const urlsMicroservicios = [
-        Frontend.API_GATEWAY + "/criquet/getTodosJugadores",
-    ];
-
+    // Intento conectar con el microservicio jugadores
     try {
-        for (const url of urlsMicroservicios) {
-            response = await fetch(url);
-
-            if (response) {
-                const data = await response.json();
-
-                if (data) {
-                    vectorJugadores = vectorJugadores.concat(data);
-                }
-            }
-        }
-
-        callBackFn(vectorJugadores);
-
+        const url = Frontend.API_GATEWAY + "/criquet/getTodosJugadores"
+        response = await fetch(url)
 
     } catch (error) {
         alert("Error: No se han podido acceder al API Gateway")
         console.error(error)
         //throw error
+    }
+
+    // Muestro todos los jugadores que se han descargado
+    let vectorjugadores = null
+    if (response) {
+        vectorjugadores = await response.json()
+        callBackFn(vectorjugadores.data)
     }
 }
 
@@ -221,11 +212,29 @@ Frontend.imprimeNombres = function (vector) {
 Frontend.cabeceraTableNombres = function () {
     return `<table class="listado-jugadores">
         <thead>
-                <th>Nombre</th>
+            <th>Nombre</th>
         </thead>
         <tbody>
-        <a href="javascript:Criquet.listarAlf()" 
-            class="opcion-principal mostrar
-                "title="Listar todos los nombres de los jugadores orden alfabético">Ordenar alfabéticamente</a>
     `;
+}
+
+/**
+ * Muestra el nombre de cada jugador en un elemento TR con sus correspondientes TD
+ * @param {jugador} a Nombre del jugador a mostrar
+ * @returns Cadena conteniendo todo el elemento TR que muestra el jugador.
+ */
+Frontend.cuerpoTrNombres = function (a) {
+    const d = a.data
+
+    return `<tr title="${a.ref['@ref'].id}">
+            <td><em>${d.nombre}</em></td>
+            </tr>`;
+}
+
+/**
+ * Pie de la tabla en la que se muestran los jugadores
+ * @returns Cadena con el pie de la tabla
+ */
+Frontend.pieTable = function () {
+    return "</tbody></table>";
 }
