@@ -160,7 +160,7 @@ Frontend.mostrarTodosAcercaDe = function () {
  * Función principal para recuperar los nombres de los jugadores desde el MS y, posteriormente, imprimirlos.
  */
 Frontend.procesarNombresCompleto = function () {
-    this.recupera(this.imprimeNombres);
+    this.recupera2(this.imprimeNombres);
 }
 
 /**
@@ -188,6 +188,31 @@ Frontend.recupera = async function (callBackFn) {
         callBackFn(vectorjugadores.data)
     }
 }
+
+Frontend.recupera2 = async function (callBackFn) {
+    try {
+        const urlCriquet = Frontend.API_GATEWAY + "/criquet/getTodosJugadores"
+        const urlFutbolsala = Frontend.API_GATEWAY + "/futbolsala/get-Todos"
+
+        const responseCriquet = await fetch(urlCriquet);
+        const responseFutbolsala = await fetch(urlFutbolsala);
+
+        const dataCriquet = await responseCriquet.json();
+        const dataFutbolsala = await responseFutbolsala.json();
+
+        const vectorJugadores = [
+            ...dataCriquet.data,
+            ...dataFutbolsala.data
+            
+          ];
+
+        callBackFn(vectorJugadores);
+    } catch (error) {
+        alert("Error: No se han podido acceder a los microservicios");
+        console.error(error);
+        //throw error
+    }
+};
 
 /**
  * Función para mostrar en pantalla todos los nombres de los jugadores que se han recuperado de la BBDD.
