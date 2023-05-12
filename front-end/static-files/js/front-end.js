@@ -38,6 +38,7 @@ Frontend.ocultarOpcionesFSala = function () {
     document.getElementById("btn-fsala-añadir").classList.add("ocultar")
 }
 
+
 /**
  * Muestra los botones de la aplicación de críquet. 
  */
@@ -90,7 +91,35 @@ Frontend.ocultarOpcionesTenis = function () {
 }
 
 
+/**
+ * Muestra los botones de boxeo. 
+ */
+Frontend.mostrarOpcionesBoxeo = function (){
+    document.getElementById("btn-boxeo").classList.remove("mostrar")
+    document.getElementById("btn-box-listar").classList.remove("ocultar")
+    document.getElementById("btn-box-listar-nombre").classList.remove("ocultar")
+    document.getElementById("btn-box-buscar").classList.remove("ocultar")
 
+    document.getElementById("btn-boxeo").classList.add("ocultar")
+    document.getElementById("btn-box-listar").classList.add("mostrar")
+    document.getElementById("btn-box-listar-nombre").classList.add("mostrar")
+    document.getElementById("btn-box-buscar").classList.add("mostrar")
+}
+
+/**
+ * Al pulsar sobre el botón 'Home' se vuleve a mostrar el botón con id 'btn-criquet' y se ocultan los demás.
+ */
+Frontend.ocultarOpcionesBoxeo = function () {
+    document.getElementById("btn-boxeo").classList.remove("ocultar")
+    document.getElementById("btn-box-listar").classList.remove("mostrar")
+    document.getElementById("btn-box-listar-nombre").classList.remove("mostrar")
+    document.getElementById("btn-box-buscar").classList.remove("mostrar")
+
+    document.getElementById("btn-boxeo").classList.add("mostrar")
+    document.getElementById("btn-box-listar").classList.add("ocultar")
+    document.getElementById("btn-box-listar-nombre").classList.add("ocultar")
+    document.getElementById("btn-box-buscar").classList.add("ocultar")
+}
 
 
 /// Dirección del MS que funciona como API_GATEWAY

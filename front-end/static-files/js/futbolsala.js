@@ -894,6 +894,7 @@ FSala.listar = function () {
 FSala.procesarHome = function () {
     Frontend.ocultarOpcionesCriquet()
     Frontend.ocultarOpcionesFSala()
+    Frontend.ocultarOpcionesBoxeo()
     this.descargarRuta("/futbolsala/", this.mostrarHome);
 }
 
