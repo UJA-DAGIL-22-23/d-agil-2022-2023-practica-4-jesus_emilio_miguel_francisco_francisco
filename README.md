@@ -41,6 +41,9 @@ Al pulsar sobre Listar boxeadores por nombre aparece lo siguiente, y si se pulsa
 ![image](assets/img/HU1_3.png)
 Aqui ordenado
 ![image](assets/img/HU1_4.png)
+Al pulsar sobre buscar boxeadores por nombre aparece el buscador
+![image](assets/img/HU1_5.png)
+Si se introduce en el buscador la cadena de texto "Canelo" aparece lo siguiente
 
 ### HU 2. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Francisco José Jordán Jiménez
 La página muestra un botón que al pulsarlo despliega los botones de mi práctica
