@@ -179,18 +179,6 @@ Frontend.mostrarTodosAcercaDe = function () {
 }
 
 /**
- * Función principal para recuperar los nombres de todos los jugadores desde el MS y, posteriormente, imprimirlos.
- */
-/*Frontend.procesarNombresCompleto = function () {
-    document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO).innerHTML = ""
-    document.getElementById( Frontend.ID_SECCION_PRINCIPAL_TITULO ).innerHTML = "Datos de los estudiantes"
-    FSala.procesarListadoDeNombres();
-    Criquet.procesarNombres();
-    //Tenis.procesarNombres();
-    //Atletas.procesarNombres();
-}*/
-
-/**
  * Función principal para recuperar los nombres de los jugadores desde el MS y, posteriormente, imprimirlos.
  */
 Frontend.procesarNombresCompleto = function () {
@@ -203,22 +191,26 @@ Frontend.recupera2 = async function (callBackFn) {
         const urlFutbolsala = Frontend.API_GATEWAY + "/futbolsala/get-Todos"
         const urlTenis = Frontend.API_GATEWAY + "/tenis/getTodos"
         const urlAtletas = Frontend.API_GATEWAY + "/atletas/getTodos"
+        const urlBoxeo = Frontend.API_GATEWAY + "/boxeo/getTodas"
 
         const responseCriquet = await fetch(urlCriquet);
         const responseFutbolsala = await fetch(urlFutbolsala);
         const responseTenis = await fetch(urlTenis);
         const responseAtletas = await fetch(urlAtletas);
+        const responseBoxeo = await fetch(urlBoxeo);
 
         const dataCriquet = await responseCriquet.json();
         const dataFutbolsala = await responseFutbolsala.json();
         const dataTenis = await responseTenis.json();
         const dataAtletas = await responseAtletas.json();
+        const dataBoxeo= await responseBoxeo.json();
 
         const vectorJugadores = [
             ...dataCriquet.data,
             ...dataFutbolsala.data,
             ...dataTenis.data,
-            ...dataAtletas.data
+            ...dataAtletas.data,
+            ...dataBoxeo.data
             
           ];
 
