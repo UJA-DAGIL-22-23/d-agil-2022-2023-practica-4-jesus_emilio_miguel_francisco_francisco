@@ -163,46 +163,28 @@ Frontend.procesarNombresCompleto = function () {
     this.recupera2(this.imprimeNombres);
 }
 
-/**
- * Función que recupera todos los jugadores llamando al MS
- * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
- */
-Frontend.recupera = async function (callBackFn) {
-    let response = null
-
-    // Intento conectar con el microservicio jugadores
-    try {
-        const url = Frontend.API_GATEWAY + "/criquet/getTodosJugadores"
-        response = await fetch(url)
-
-    } catch (error) {
-        alert("Error: No se han podido acceder al API Gateway")
-        console.error(error)
-        //throw error
-    }
-
-    // Muestro todos los jugadores que se han descargado
-    let vectorjugadores = null
-    if (response) {
-        vectorjugadores = await response.json()
-        callBackFn(vectorjugadores.data)
-    }
-}
-
 Frontend.recupera2 = async function (callBackFn) {
     try {
         const urlCriquet = Frontend.API_GATEWAY + "/criquet/getTodosJugadores"
         const urlFutbolsala = Frontend.API_GATEWAY + "/futbolsala/get-Todos"
+        const urlTenis = Frontend.API_GATEWAY + "/tenis/getTodos"
+        const urlAtletas = Frontend.API_GATEWAY + "/atletas/getTodos"
 
         const responseCriquet = await fetch(urlCriquet);
         const responseFutbolsala = await fetch(urlFutbolsala);
+        const responseTenis = await fetch(urlTenis);
+        const responseAtletas = await fetch(urlAtletas);
 
         const dataCriquet = await responseCriquet.json();
         const dataFutbolsala = await responseFutbolsala.json();
+        const dataTenis = await responseTenis.json();
+        const dataAtletas = await responseAtletas.json();
 
         const vectorJugadores = [
             ...dataCriquet.data,
-            ...dataFutbolsala.data
+            ...dataFutbolsala.data,
+            ...dataTenis.data,
+            ...dataAtletas.data
             
           ];
 
