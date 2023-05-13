@@ -35,6 +35,8 @@
 ### 1. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Jesús Morales Villegas
 Para acceder a las funcionalidades hay que pulsar el boton de mostrar opciones de boxeo
 ![image](assets/img/HU1_1.png)
+Al pulsar sobre Listar boxeadores aparece lo siguiente, las funcionalidades siguen funcionando
+![image](assets/img/HU1_2.png)
 
 ### 2. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Francisco José Jordán Jiménez
 La página muestra un botón que al pulsarlo despliega los botones de mi práctica
