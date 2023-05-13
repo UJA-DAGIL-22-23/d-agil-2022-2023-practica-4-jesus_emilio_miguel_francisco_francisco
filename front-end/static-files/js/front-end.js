@@ -169,6 +169,7 @@ Frontend.Article.añadirContenido = function (contenido) {
  * 
  */
 Frontend.mostrarTodosAcercaDe = function () {
+    
     document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO).innerHTML = ""
     document.getElementById( Frontend.ID_SECCION_PRINCIPAL_TITULO ).innerHTML = "Datos de los estudiantes"
     FSala.procesarAcercaDe();
@@ -176,4 +177,5 @@ Frontend.mostrarTodosAcercaDe = function () {
     Tenis.procesarAcercaDe();
     Atletas.procesarAcercaDe();
     Boxeo.procesarAcercaDe();
+
 }

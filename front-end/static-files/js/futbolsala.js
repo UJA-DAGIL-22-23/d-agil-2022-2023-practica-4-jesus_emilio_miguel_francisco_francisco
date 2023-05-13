@@ -528,7 +528,7 @@ FSala.mostrarAcercaDe = function (datosDescargados) {
         typeof datosDescargados.fecha === "undefined"
     ) datosDescargados = this.datosDescargadosNulos
 
-    const mensajeAMostrar = `<div>
+    const mensajeAMostrar = `<div id="acercade-futbolsala">
     <p>${datosDescargados.mensaje}</p>
     <ul>
         <li><b>Autor/a</b>: ${datosDescargados.autor}</li>
