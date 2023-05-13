@@ -61,8 +61,23 @@
 
 .alto-contraste {
     background-color: black;
-    color: greenyellow;
+    color: rgb(30, 255, 0);
 }
+
+.alto-contraste .form-persona-elemento:disabled {
+    color: rgb(30, 255, 0);
+    border-width: 0px;
+    text-align: center;
+}
+
+.alto-contraste .form-persona-elemento:enabled:required {
+    color: rgb(30, 255, 0);
+}
+
+.alto-contraste .form-persona-elemento:enabled {
+    background-color:rgba(0, 0, 0);
+}
+
 
 .alto-contraste .opcion-principal,
 .opcion-secundaria,

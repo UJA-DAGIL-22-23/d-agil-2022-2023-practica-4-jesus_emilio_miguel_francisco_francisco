@@ -131,7 +131,7 @@ FSala.plantillaFormularioJugador.formulario = `
                 <td><p class="form-persona-elemento"
                         id="form-jugador-trayectoria" name="equipos-jugados-jugador">${FSala.plantillaTags.EQUIPOS_JUGADOS}</p></td>
                 <td>
-                    <div><a href="javascript:FSala.editar()" id="editar-btn" onclick="FSala.mostrarBotonesEdicion()" class="opcion-secundaria mostrar">Editar</a></div>
+                    <div><a href="javascript:FSala.editar()" id="fsala-editar-btn" onclick="FSala.mostrarBotonesEdicion()" class="opcion-secundaria mostrar">Editar</a></div>
                     <div><a href="javascript:FSala.guardar()" id="guardar-btn" class="opcion-terciaria editar ocultar">Guardar</a></div>
                     <div><a href="javascript:FSala.mostrar('${FSala.plantillaTags.ID}')" id="cancelar-btn" class="opcion-terciaria editar ocultar">Cancelar</a></div>
                 </td>
@@ -222,12 +222,10 @@ FSala.mostrarBotonesEdicion = function () {
     // Cambiar la clase de los botones de ocultar a mostrar
     document.getElementById("guardar-btn").classList.remove("ocultar");
     document.getElementById("cancelar-btn").classList.remove("ocultar");
-    document.getElementById("editar-btn").classList.remove("mostrar");
-    document.getElementById("borrar-btn").classList.remove("mostrar");
+    document.getElementById("fsala-editar-btn").classList.remove("mostrar");
     document.getElementById("guardar-btn").classList.add("mostrar");
     document.getElementById("cancelar-btn").classList.add("mostrar");
-    document.getElementById("editar-btn").classList.add("ocultar");
-    document.getElementById("borrar-btn").classList.add("ocultar");
+    document.getElementById("fsala-editar-btn").classList.add("ocultar");
 
 }
 

@@ -181,4 +181,9 @@ Frontend.mostrarTodosAcercaDe = function () {
 }
 
 Frontend.cambiarContraste = function () {
+    if(document.getElementById(Frontend.ID_BODY).classList.length > 0)
+        document.getElementById(Frontend.ID_BODY).classList.remove('alto-contraste')
+    else {
+        document.getElementById(Frontend.ID_BODY).classList.add('alto-contraste')
+    }
 }

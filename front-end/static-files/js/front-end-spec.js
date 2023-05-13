@@ -145,11 +145,11 @@ describe("Frontend.cambiarContraste: ", function () {
     it("Al pulsar el botón, se le añade al body la 'alto-contraste'",
         function () {
             Frontend.cambiarContraste()
-            expect(elementoPrincipal.classList == 'alto-contraste').toBeTrue()
+            expect(elementoPrincipal.classList.contains('alto-contraste')).toBeTrue()
         })
     it("Al pulsarlo otra vez, se le quita la clase al body",
         function () {
             Frontend.cambiarContraste()
-            expect(elementoPrincipal.classList == "").toBeTrue()
+            expect(elementoPrincipal.classList.contains('alto-contraste')).toBeFalse()
         })
 })
