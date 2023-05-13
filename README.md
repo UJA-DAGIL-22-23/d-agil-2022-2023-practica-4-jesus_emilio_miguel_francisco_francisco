@@ -37,6 +37,8 @@ Para acceder a las funcionalidades hay que pulsar el boton de mostrar opciones d
 ![image](assets/img/HU1_1.png)
 Al pulsar sobre Listar boxeadores aparece lo siguiente, las funcionalidades siguen funcionando
 ![image](assets/img/HU1_2.png)
+Al pulsar sobre mostrar aparece lo siguiente
+![image](assets/img/HU1_7.png)
 Al pulsar sobre Listar boxeadores por nombre aparece lo siguiente, y si se pulsa en ordenar ordena alfabéticamente
 ![image](assets/img/HU1_3.png)
 Aqui ordenado
@@ -44,6 +46,7 @@ Aqui ordenado
 Al pulsar sobre buscar boxeadores por nombre aparece el buscador
 ![image](assets/img/HU1_5.png)
 Si se introduce en el buscador la cadena de texto "Canelo" aparece lo siguiente
+![image](assets/img/HU1_6.png)
 
 ### HU 2. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Francisco José Jordán Jiménez
 La página muestra un botón que al pulsarlo despliega los botones de mi práctica
