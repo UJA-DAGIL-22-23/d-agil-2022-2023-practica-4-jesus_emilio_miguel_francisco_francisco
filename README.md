@@ -32,13 +32,17 @@
 
 # Documentación de las Historias de Usuario
 
-### 1. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Jesús Morales Villegas
+### HU 1. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Jesús Morales Villegas
 Para acceder a las funcionalidades hay que pulsar el boton de mostrar opciones de boxeo
 ![image](assets/img/HU1_1.png)
 Al pulsar sobre Listar boxeadores aparece lo siguiente, las funcionalidades siguen funcionando
 ![image](assets/img/HU1_2.png)
+Al pulsar sobre Listar boxeadores por nombre aparece lo siguiente, y si se pulsa en ordenar ordena alfabéticamente
+![image](assets/img/HU1_3.png)
+Aqui ordenado
+![image](assets/img/HU1_4.png)
 
-### 2. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Francisco José Jordán Jiménez
+### HU 2. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Francisco José Jordán Jiménez
 La página muestra un botón que al pulsarlo despliega los botones de mi práctica
 ![image](https://user-images.githubusercontent.com/114186139/235651384-99753eee-6c0c-48ae-a6ed-9fbc047969de.png)
 ![image](https://user-images.githubusercontent.com/114186139/235651426-fe2c42c9-7534-48f8-a2af-1948ed688292.png)
@@ -51,13 +55,13 @@ Las funcionalidades siguen funcionando correctamente
 ![image](https://user-images.githubusercontent.com/114186139/235651753-34862183-2cea-4766-bc36-576d86197ee6.png)
 ![image](https://user-images.githubusercontent.com/114186139/235651850-2394dd40-b8ff-4c15-bb60-64358d455647.png)
 
-### 3. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Francisco Javier Jiménez Aznar
+### HU 3. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Francisco Javier Jiménez Aznar
 Al igual que con el resto de compañeros, en la página principal se muestra un botón, que al pulsarlo, despliega las funcionalidades de mi práctica. Todas ellas siguen funcionando correctamente.
 ![image](assets/img/HU03_1.png)
 ![image](assets/img/HU03_2.png)
 ![image](assets/img/HU03_3.png)
 
-### 4. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Emilio Martínez Conchillo
+### HU 4. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Emilio Martínez Conchillo
 La página muestra un botón que al pulsarlo lista todos los atletas y otro botón que muestra la información del alumno: Emilio Martínez Conchillo
 
 ![Alt text](assets/img/4_1-Home-Atletas.png)
@@ -81,7 +85,7 @@ También podemos filtrar los atletas escribiendo en el buscador. Por ejemplo, es
 
 ![Alt text](assets/img/4_11-Buscador.png)
 
-### 5. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Miguel Ángel Hurtado Molina
+### HU 5. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Miguel Ángel Hurtado Molina
 Al igual que mi compañero Francisco José, la página muestra un botón que al pulsarlo despliega los botones de mi práctica:
 ![image](https://user-images.githubusercontent.com/124782259/235898836-e8568743-9223-4b6e-9e2e-eb067df9643f.png)
 ![image](https://user-images.githubusercontent.com/124782259/235898893-63f7b72c-e969-4d87-8c71-3b5c5de2e489.png)
