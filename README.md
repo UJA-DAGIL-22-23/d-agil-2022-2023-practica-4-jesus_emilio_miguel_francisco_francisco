@@ -103,3 +103,8 @@ Como podemos comprobar, las funcionalidades siguen funcionando correctamente:
 ![image](https://user-images.githubusercontent.com/124782259/235899149-5751155e-5daf-493f-94d8-1cc2b50d8f2c.png)
 ![image](https://user-images.githubusercontent.com/124782259/235899189-9b02d7d4-f6d7-4449-957e-35fbfafd66cf.png)
 ![image](https://user-images.githubusercontent.com/124782259/235899289-1c11ab4d-1b0c-40de-8058-3dccddc1222a.png)
+
+### HU 6. Ver en una sola página la información de todos los autores de la aplicación al pulsar en el botón “Acerca de”
+![image](https://github.com/UJA-DAGIL-22-23/d-agil-2022-2023-practica-4-jesus_emilio_miguel_francisco_francisco/assets/114186139/15394a64-634f-4564-8b6a-152ea4d292e7)
+![image](https://github.com/UJA-DAGIL-22-23/d-agil-2022-2023-practica-4-jesus_emilio_miguel_francisco_francisco/assets/114186139/89a85bf6-52da-4ac1-926c-fc29ceede856)
+
