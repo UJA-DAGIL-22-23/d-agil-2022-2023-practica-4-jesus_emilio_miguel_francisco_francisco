@@ -33,6 +33,8 @@
             title="Muestra los botones de la aplicación de fútbol sala">Mostrar opciones Fútbol Sala</a>
         <a href="javascript:Frontend.mostrarOpcionesCriquet()" id="btn-criquet" class="opcion-principal mostrar"
             title="Muestra los botones de la aplicación de críquet">Mostrar opciones Críquet</a>
+        <a href="javascript:Frontend.mostrarOpcionesBoxeo()" id="btn-boxeo" class="opcion-principal mostrar"
+            title="Muestra los botones de la aplicación de críquet">Mostrar opciones Boxeo</a>
 
         <a href="javascript:FSala.procesarListadoDeNombres()" id="btn-fsala-nombres" class="opcion-principal ocultar"
             title="Realiza un listado del nombre de los jugadores que hay en la BBDD">Listar jugadores solo nombre</a>
@@ -48,8 +50,16 @@
         <a href="javascript:Criquet.procesarNombres()" id="btn-criquet-nombres" class="opcion-principal ocultar"
             title="Crea una lista con todos los nombres de los jugadores de criquet de la base de datos">Listado de
             nombres</a>
-        <a href="javascript:Criquet.procesarListar()" id="btn-criquet-listado" class="opcion-principal"
+        <a href="javascript:Criquet.procesarListar()" id="btn-criquet-listado" class="opcion-principal ocultar"
             title="Crea una lista con todos los jugadores de criquet de la base de datos">Listado de jugadores</a>
+        <!--BOTONES DE BOXEO-->
+        <a href="javascript:Boxeo.listar()" class="opcion-principal ocultar" id="btn-box-listar"
+            title="Realiza un listado de todas las personas que hay en la BBDD">Listar Boxeadores</a>
+        <a href="javascript:Boxeo.mostrarSoloNombres()" class="opcion-principal ocultar" id="btn-box-listar-nombre"
+            title="Realiza un listado con los nombres de todas las personas que hay en la BBDD">Listar boxeadores por nombre</a>
+        <a href="javascript:Boxeo.buscar()" class="opcion-principal ocultar" id="btn-box-buscar"
+            title="Busca una persona por su nombre">Buscar boxeadores por nombre</a>
+        
     </nav>
 
     <!-- 
@@ -78,6 +88,7 @@
     <script src="js/atletismo.js"></script>
     <script src="js/criquet.js"></script>
     <script src="js/ms-tenis.js"></script>
+    <script src="js/boxeo.js"></script>
 
     <!-- Cargamos ficheros spec con los tests -->
     <script src="js/front-end-spec.js"></script>
@@ -85,6 +96,8 @@
     <script src="js/atletismo-spec.js"></script>
     <script src="js/criquet-spec.js"></script>
     <script src="js/ms-tenis-spec.js"></script>
+    <script src="js/boxeo-spec.js"></script>
+    
 </body>
 
 </html>

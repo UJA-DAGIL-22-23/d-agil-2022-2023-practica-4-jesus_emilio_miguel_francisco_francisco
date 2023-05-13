@@ -135,7 +135,7 @@ describe("Frontend.mostrarTodosAcercaDe: ", function () {
     it("Se muestra correctamente el título",
         function () {
             Frontend.mostrarTodosAcercaDe()
-            expect(elementoTitulo.innerHTML).toBe(TITULO_TODOS_ACERCA_DE)
+            expect(elementoTitulo.innerHTML).toBe(TITULO_TODOS_ACERCA_DE)            
         })
 
 })
