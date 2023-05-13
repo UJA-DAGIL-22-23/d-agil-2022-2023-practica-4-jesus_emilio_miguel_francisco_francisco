@@ -129,6 +129,7 @@ Frontend.API_GATEWAY = "http://localhost:8001"
 Frontend.ID_SECCION_PRINCIPAL = "seccion-principal"
 Frontend.ID_SECCION_PRINCIPAL_TITULO = "seccion-principal-titulo"
 Frontend.ID_SECCION_PRINCIPAL_CONTENIDO = "seccion-principal-contenido"
+Frontend.ID_BODY = "cuerpo-aplicacion"
 
 
 /// Objeto Article dentro Frontend para tratar con el contenido del elemento Article del DOM
@@ -177,5 +178,7 @@ Frontend.mostrarTodosAcercaDe = function () {
     Tenis.procesarAcercaDe();
     Atletas.procesarAcercaDe();
     Boxeo.procesarAcercaDe();
+}
 
+Frontend.cambiarContraste = function () {
 }

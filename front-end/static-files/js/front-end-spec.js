@@ -139,3 +139,17 @@ describe("Frontend.mostrarTodosAcercaDe: ", function () {
         })
 
 })
+
+describe("Frontend.cambiarContraste: ", function () {
+    const elementoPrincipal = document.getElementById(Frontend.ID_BODY)
+    it("Al pulsar el botón, se le añade al body la 'alto-contraste'",
+        function () {
+            Frontend.cambiarContraste()
+            expect(elementoPrincipal.classList == 'alto-contraste').toBeTrue()
+        })
+    it("Al pulsarlo otra vez, se le quita la clase al body",
+        function () {
+            Frontend.cambiarContraste()
+            expect(elementoPrincipal.classList == "").toBeTrue()
+        })
+})

@@ -39,7 +39,7 @@
 .opcion-principal:hover,
 .opcion-secundaria:hover,
 .opcion-secundaria:hover  {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(100, 100, 100, 0.3);
 }
 .opcion-principal {
     margin: 0 .5em 0 .5em;
@@ -59,7 +59,19 @@
     float: right;
 }
 
-.fondo{
+.alto-contraste {
     background-color: black;
-    color: rgb(30, 255, 0);
+    color: greenyellow;
+}
+
+.alto-contraste .opcion-principal,
+.opcion-secundaria,
+.opcion-terciaria {
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.alto-contraste .opcion-principal:hover,
+.opcion-secundaria:hover,
+.opcion-secundaria:hover {
+    background-color: rgba(224, 224, 224, 0.3);
 }
