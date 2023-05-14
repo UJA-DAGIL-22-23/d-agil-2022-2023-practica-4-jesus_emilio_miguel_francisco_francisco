@@ -108,3 +108,17 @@ Como podemos comprobar, las funcionalidades siguen funcionando correctamente:
 ![image](https://github.com/UJA-DAGIL-22-23/d-agil-2022-2023-practica-4-jesus_emilio_miguel_francisco_francisco/assets/114186139/15394a64-634f-4564-8b6a-152ea4d292e7)
 ![image](https://github.com/UJA-DAGIL-22-23/d-agil-2022-2023-practica-4-jesus_emilio_miguel_francisco_francisco/assets/114186139/89a85bf6-52da-4ac1-926c-fc29ceede856)
 
+### HU 7. Ver un listado solo con los nombres de todos los jugadores/equipos de todos los deportes incluidos en la app.
+Se ha añadido un botón a la página principal con el nombre "Nombres de todos los jugadores". Al pulsarlo aparecerá una tabla en la que se
+listan los nombres de todos los jugadores/deportistas de la aplicación.
+
+![image](assets/img/HU07_1.png)
+![image](assets/img/HU07_2.png)
+
+Se ha realizado añadiendo algunas funciones similares a las que se implementaron en la práctica anterior, para crear la tabla, recuperar
+los datos de los jugadores, etc.
+
+![image](assets/img/HU07_3.png)
+![image](assets/img/HU07_5.png)
+![image](assets/img/HU07_4.png)
+
