@@ -78,6 +78,22 @@
     background-color:rgba(0, 0, 0);
 }
 
+.alto-contraste table.listado-personas{
+    width: 100%;
+    border: 1px solid rgba(30, 255, 0);
+}
+
+.alto-contraste thead th{
+    border: 1px solid rgba(30, 255, 0);
+}
+
+.alto-contraste tbody td{
+    border: 1px solid rgba(30, 255, 0);
+}
+
+.alto-contraste tbody tr{
+    border: 1px solid rgba(30, 255, 0);
+}
 
 .alto-contraste .opcion-principal,
 .opcion-secundaria,
