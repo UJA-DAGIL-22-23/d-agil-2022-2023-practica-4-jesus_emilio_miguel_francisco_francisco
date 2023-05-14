@@ -103,3 +103,17 @@ Como podemos comprobar, las funcionalidades siguen funcionando correctamente:
 ![image](https://user-images.githubusercontent.com/124782259/235899149-5751155e-5daf-493f-94d8-1cc2b50d8f2c.png)
 ![image](https://user-images.githubusercontent.com/124782259/235899189-9b02d7d4-f6d7-4449-957e-35fbfafd66cf.png)
 ![image](https://user-images.githubusercontent.com/124782259/235899289-1c11ab4d-1b0c-40de-8058-3dccddc1222a.png)
+
+### HU 7. Ver un listado solo con los nombres de todos los jugadores/equipos de todos los deportes incluidos en la app.
+Se ha añadido un botón a la página principal con el nombre "Nombres de todos los jugadores". Al pulsarlo aparecerá una tabla en la que se
+listan los nombres de todos los jugadores/deportistas de la aplicación.
+
+![image](assets/img/HU07_1.png)
+![image](assets/img/HU07_2.png)
+
+Se ha realizado añadiendo algunas funciones similares a las que se implementaron en la práctica anterior, para crear la tabla, recuperar
+los datos de los jugadores, etc.
+
+![image](assets/img/HU07_3.png)
+![image](assets/img/HU07_5.png)
+![image](assets/img/HU07_4.png)

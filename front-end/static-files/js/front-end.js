@@ -93,7 +93,7 @@ Frontend.ocultarOpcionesTenis = function () {
 /**
  * Muestra los botones de boxeo. 
  */
-Frontend.mostrarOpcionesBoxeo = function (){
+Frontend.mostrarOpcionesBoxeo = function () {
     document.getElementById("btn-boxeo").classList.remove("mostrar")
     document.getElementById("btn-box-listar").classList.remove("ocultar")
     document.getElementById("btn-box-listar-nombre").classList.remove("ocultar")
@@ -203,7 +203,7 @@ Frontend.recupera2 = async function (callBackFn) {
         const dataFutbolsala = await responseFutbolsala.json();
         const dataTenis = await responseTenis.json();
         const dataAtletas = await responseAtletas.json();
-        const dataBoxeo= await responseBoxeo.json();
+        const dataBoxeo = await responseBoxeo.json();
 
         const vectorJugadores = [
             ...dataCriquet.data,
@@ -211,8 +211,8 @@ Frontend.recupera2 = async function (callBackFn) {
             ...dataTenis.data,
             ...dataAtletas.data,
             ...dataBoxeo.data
-            
-          ];
+
+        ];
 
         callBackFn(vectorJugadores);
     } catch (error) {
@@ -235,7 +235,7 @@ Frontend.imprimeNombres = function (vector) {
     msj += Frontend.pieTable();
 
     // Borro toda la info de Article y la sustituyo por la que me interesa
-    Frontend.Article.actualizar("Listado de nombres", msj)
+    Frontend.Article.actualizar("Listado de nombres completo", msj)
 }
 
 /**
