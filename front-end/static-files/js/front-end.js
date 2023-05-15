@@ -252,7 +252,7 @@ Frontend.imprimeNombres = function (vector) {
  */
 Frontend.cabeceraTableNombres = function () {
     return `<table class="listado-jugadores">
-        <thead onClick="Frontend.ordenar()" >
+        <thead style="cursor: pointer;" onClick="Frontend.ordenar()" >
             <th>Nombre</th>
         </thead>
         <tbody>
