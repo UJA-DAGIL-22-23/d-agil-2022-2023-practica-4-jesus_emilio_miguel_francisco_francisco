@@ -8,6 +8,8 @@
 /// Espacio de nombres
 let Frontend = {};
 
+Frontend.nombresOrdenados = false;
+
 // Estos dos métodos muestran los botones de la aplicación de fútbol sala. Al pulsar sobre el botón 'Home'
 // se vuelve a mostrar el botón con id 'btn-fsala' y es ocultan todos los demás
 Frontend.mostrarOpcionesFSala = function () {
@@ -246,7 +248,7 @@ Frontend.imprimeNombres = function (vector) {
  */
 Frontend.cabeceraTableNombres = function () {
     return `<table class="listado-jugadores">
-        <thead>
+        <thead onClick="" >
             <th>Nombre</th>
         </thead>
         <tbody>
@@ -273,3 +275,4 @@ Frontend.cuerpoTrNombres = function (a) {
 Frontend.pieTable = function () {
     return "</tbody></table>";
 }
+
