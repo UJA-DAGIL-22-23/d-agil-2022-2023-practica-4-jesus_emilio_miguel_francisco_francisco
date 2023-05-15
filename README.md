@@ -122,3 +122,7 @@ los datos de los jugadores, etc.
 ![image](assets/img/HU07_5.png)
 ![image](assets/img/HU07_4.png)
 
+### HU 8. Ver un listado solo con los nombres de todos los jugadores/equipos ordenados alfabéticamente de todos los deportes incluidos en la app. (Todos los nombres aparecerán ordenados en una sola tabla).
+Se ha implementado do forma que al pulsar sobre la cabecera de la tabla de nombres se ordene.
+En la imagen vemos como aparecen los nombres sin ordenar
+![image](assets/img/HU8_1.png)
