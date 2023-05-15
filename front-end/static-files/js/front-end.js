@@ -276,3 +276,7 @@ Frontend.pieTable = function () {
     return "</tbody></table>";
 }
 
+Frontend.ordenar = function (){
+    Frontend.nombresOrdenados = !Frontend.nombresOrdenados;
+    this.recupera2(this.imprimeNombres);
+}
