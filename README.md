@@ -126,3 +126,5 @@ los datos de los jugadores, etc.
 Se ha implementado do forma que al pulsar sobre la cabecera de la tabla de nombres se ordene.
 En la imagen vemos como aparecen los nombres sin ordenar
 ![image](assets/img/HU8_1.png)
+Despues de hacer click sobre la cabecera de la table vemos como se ordenan.
+![image](assets/img/HU8_2.png)
