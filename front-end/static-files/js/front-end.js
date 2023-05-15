@@ -233,6 +233,10 @@ Frontend.recupera2 = async function (callBackFn) {
 
 Frontend.imprimeNombres = function (vector) {
 
+    if(Frontend.nombresOrdenados){
+        vector.sort((a, b) => (a.data.nombre > b.data.nombre) ? 1 : ((b.data.nombre > a.data.nombre) ? -1 : 0))
+    }
+
     let msj = "";
     msj += Frontend.cabeceraTableNombres();
     vector.forEach(e => msj += Frontend.cuerpoTrNombres(e))
@@ -248,7 +252,7 @@ Frontend.imprimeNombres = function (vector) {
  */
 Frontend.cabeceraTableNombres = function () {
     return `<table class="listado-jugadores">
-        <thead onClick="" >
+        <thead onClick="Frontend.ordenar()" >
             <th>Nombre</th>
         </thead>
         <tbody>
