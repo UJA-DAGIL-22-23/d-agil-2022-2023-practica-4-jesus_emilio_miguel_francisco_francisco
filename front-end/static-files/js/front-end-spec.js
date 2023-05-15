@@ -145,7 +145,7 @@ describe("Frontend.cabeceraTableNombres: ", function () {
     it("muestra los nombres de los diferentes campos de la cabecera de la tabla en HTML",
         function () {
             expect(Frontend.cabeceraTableNombres()).toBe(`<table class="listado-jugadores">
-        <thead>
+        <thead style="cursor: pointer;" onClick="Frontend.ordenar()" >
             <th>Nombre</th>
         </thead>
         <tbody>
