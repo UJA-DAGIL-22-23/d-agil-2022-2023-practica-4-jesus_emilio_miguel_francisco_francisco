@@ -334,6 +334,22 @@ Frontend.imprimeNombres = function (vector) {
 }
 
 /**
+ * Función para mostrar en pantalla todos los nombres y deportes de los jugadores que se han recuperado de la BBDD.
+ * @param {vector_de_jugadores} vector Vector con los nombres y deportes de los jugadores a mostrar
+ */
+
+Frontend.imprimeFiltrados = function (vector) {
+
+    let msj = "";
+    msj += Frontend.cabeceraTableNombres();
+    vector.forEach(e => msj += Frontend.cuerpoTrNombres(e))
+    msj += Frontend.pieTable();
+
+    // Borro toda la info de Article y la sustituyo por la que me interesa
+    Frontend.Article.actualizar("Listado de nombres filtrados", msj)
+}
+
+/**
  * Crea la cabecera para mostrar la info como tabla
  * @returns Cabecera de la tabla
  */
@@ -341,6 +357,20 @@ Frontend.cabeceraTableNombres = function () {
     return `<table class="listado-jugadores">
         <thead style="cursor: pointer;" onClick="Frontend.ordenar()" >
             <th>Nombre</th>
+        </thead>
+        <tbody>
+    `;
+}
+
+/**
+ * Crea la cabecera para mostrar la info como tabla
+ * @returns Cabecera de la tabla
+ */
+Frontend.cabeceraTableFiltrados = function () {
+    return `<table class="listado-jugadores">
+        <thead>
+            <th>Nombre</th>
+            <th>Deporte</th>
         </thead>
         <tbody>
     `;
