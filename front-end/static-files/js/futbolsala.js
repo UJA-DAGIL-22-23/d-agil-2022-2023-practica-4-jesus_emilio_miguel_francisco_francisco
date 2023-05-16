@@ -698,8 +698,8 @@ FSala.filtraVector = function (vector) {
 FSala.plantillaTablaPersonas.cabecera = `<table width="100%" class="listado-personas">
 <div>
   <label for="busqueda">Buscar:</label>
-  <input type="text" id="busqueda" name="busqueda">
-  <button onclick="FSala.buscar()">Buscar</button>
+  <input type="text" id="busqueda" class="busqueda" name="busqueda">
+  <button onclick="FSala.buscar()" class="opcion-principal">Buscar</button>
 </div>
 <div>
     <h4>Haga click sobre los títulos para ordenar la tabla</h4> 

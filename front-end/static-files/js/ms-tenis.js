@@ -52,15 +52,15 @@ Tenis.cabeceraTable = function () {
     return `<table class="listado-tenistas">
     <div>
         <label for="busqueda">Buscar:</label>
-        <input type="text" id="busqueda" name="busqueda">
-        <button onclick="Tenis.buscar()">Buscar</button>
+        <input type="text" id="busqueda" name="busqueda" class="busqueda">
+        <button onclick="Tenis.buscar()" class="opcion-principal">Buscar</button>
     </div>
         <thead>
-        <th><a href="#" id="ordenar-nombre">Nombre</a></th>
-        <th><a href="#" id="ordenar-apellidos">Apellidos</a></th>
-        <th><a href="#" id="ordenar-fechaNac">Fecha de nacimiento</a></th>
-        <th><a href="#" id="ordenar-partMundial">Participaciones mundiales</a></th>
-        <th><a href="#" id="ordenar-numMedallas">Número de medallas</a></th>
+        <th><a href="#" id="ordenar-nombre" class="enlace">Nombre</a></th>
+        <th><a href="#" id="ordenar-apellidos" class="enlace">Apellidos</a></th>
+        <th><a href="#" id="ordenar-fechaNac" class="enlace">Fecha de nacimiento</a></th>
+        <th><a href="#" id="ordenar-partMundial" class="enlace">Participaciones mundiales</a></th>
+        <th><a href="#" id="ordenar-numMedallas" class="enlace">Número de medallas</a></th>
         <th>Acciones</th>
         </thead>
         <tbody>

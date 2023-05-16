@@ -74,6 +74,10 @@
     color: rgb(30, 255, 0);
 }
 
+.alto-contraste .enlace {
+    color: rgb(30, 255, 0);
+}
+
 .alto-contraste .form-persona-elemento:enabled {
     background-color:rgba(0, 0, 0);
 }
@@ -93,6 +97,16 @@
 
 .alto-contraste tbody tr{
     border: 1px solid rgba(30, 255, 0);
+}
+
+.alto-contraste tbody th a{
+    border: 1px solid rgba(30, 255, 0);
+}
+
+.alto-contraste .busqueda{
+    border: 1px solid rgb(255, 255, 255);
+    background-color: black;
+    color:rgb(30, 255, 0);
 }
 
 .alto-contraste .opcion-principal,
