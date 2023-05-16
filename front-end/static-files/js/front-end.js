@@ -254,11 +254,16 @@ Frontend.recuperaYfiltra = async function (callBackFn) {
         const dataBoxeo = await responseBoxeo.json();
 
         const vectorJugadores = [];
-        const cadenaBusqueda = "Sofia";
+        const inputFiltrado = document.getElementById('filtrado');
+
+        let cadenaBusqueda = "";
+        if(inputFiltrado != null)
+            if(inputFiltrado.value != null)
+                cadenaBusqueda = inputFiltrado.value.toLowerCase();
 
         // Recorre los datos de criquet y busca coincidencias con la cadena de búsqueda
         dataCriquet.data.forEach(persona => {
-            if (persona.data.nombre.includes(cadenaBusqueda) || cadenaBusqueda === '') {
+            if (persona.data.nombre.toLowerCase().includes(cadenaBusqueda) || cadenaBusqueda === '') {
                 const deportista = {
                     nombre: persona.data.nombre,
                     deporte: "Criquet"
@@ -273,7 +278,7 @@ Frontend.recuperaYfiltra = async function (callBackFn) {
 
         // Repite el mismo proceso para los datos de fútbol sala
         dataFutbolsala.data.forEach(persona => {
-            if (persona.data.nombre.includes(cadenaBusqueda) || cadenaBusqueda === '') {
+            if (persona.data.nombre.toLowerCase().includes(cadenaBusqueda) || cadenaBusqueda === '') {
                 const deportista = {
                     nombre: persona.data.nombre,
                     deporte: "Fútbol Sala"
@@ -288,7 +293,7 @@ Frontend.recuperaYfiltra = async function (callBackFn) {
 
         // Repite el mismo proceso para los datos de tenis
         dataTenis.data.forEach(persona => {
-            if (persona.data.nombre.includes(cadenaBusqueda) || cadenaBusqueda === '') {
+            if (persona.data.nombre.toLowerCase().includes(cadenaBusqueda) || cadenaBusqueda === '') {
                 const deportista = {
                     nombre: persona.data.nombre,
                     deporte: "Tenis"
@@ -303,7 +308,7 @@ Frontend.recuperaYfiltra = async function (callBackFn) {
 
         // Repite el mismo proceso para los datos de atletas
         dataAtletas.data.forEach(persona => {
-            if (persona.data.nombre.includes(cadenaBusqueda) || cadenaBusqueda === '') {
+            if (persona.data.nombre.toLowerCase().includes(cadenaBusqueda) || cadenaBusqueda === '') {
                 const deportista = {
                     nombre: persona.data.nombre,
                     deporte: "Atletas"
@@ -318,7 +323,7 @@ Frontend.recuperaYfiltra = async function (callBackFn) {
 
         // Repite el mismo proceso para los datos de boxeo
         dataBoxeo.data.forEach(persona => {
-            if (persona.data.nombre.includes(cadenaBusqueda) || cadenaBusqueda === '') {
+            if (persona.data.nombre.toLowerCase().includes(cadenaBusqueda) || cadenaBusqueda === '') {
                 const deportista = {
                     nombre: persona.data.nombre,
                     deporte: "Boxeo"
@@ -395,6 +400,12 @@ Frontend.cabeceraTableNombres = function () {
  */
 Frontend.cabeceraTableFiltrados = function () {
     return `<table class="listado-jugadores">
+        <div>
+            <label for="filtrado">Filtrar:</label>
+            <input type="text" id="filtrado" name="filtrado">
+            <button onclick="Frontend.procesarFiltrarDeportistas()">Filtrar</button>
+        </div>
+        <br></br>
         <thead>
             <th>Nombre</th>
             <th>Deporte</th>
