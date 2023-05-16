@@ -7,19 +7,27 @@
 
 class Cola {
     constructor(maxTam) {
-      this.cola = [];
-      this.maxTam = maxTam;
+        this.cola = [];
+        this.maxTam = maxTam;
     }
   
     encolar(data) {
-      if (this.cola.length === this.maxTam) {
-        this.cola.shift(); // Eliminar el primer elemento si la cola está llena
-      }
-      this.cola.push(data);
+        if (this.cola.length === this.maxTam) {
+            this.cola.shift(); // Eliminar el primer elemento si la cola está llena
+        }
+        this.cola.push(data);
     }
   
     desencolar() {
-      return this.cola.shift(); // Devolver y eliminar el primer elemento de la cola
+        return this.cola.shift(); // Devolver y eliminar el primer elemento de la cola
+    }
+
+    tam() {
+        return this.cola.length;
+    }
+    
+    estaVacia() {
+        return this.cola.length === 0;
     }
   }
   
