@@ -128,3 +128,14 @@ En la imagen vemos como aparecen los nombres sin ordenar
 ![image](assets/img/HU8_1.png)
 Despues de hacer click sobre la cabecera de la table vemos como se ordenan.
 ![image](assets/img/HU8_2.png)
+
+### HU 10. Modificar la visualización de la app con un modo ALTO CONTRASTE.
+Se ha añadido un botón a la página principal
+![image](https://github.com/UJA-DAGIL-22-23/d-agil-2022-2023-practica-4-jesus_emilio_miguel_francisco_francisco/assets/114186139/e268afb4-131a-452a-ba6b-18d98609e9da)
+
+Al pulsarlo, se modifica el estilo de la página para que aparezca en alto contraste
+![image](https://github.com/UJA-DAGIL-22-23/d-agil-2022-2023-practica-4-jesus_emilio_miguel_francisco_francisco/assets/114186139/e6b7a1da-e814-44c5-aaf9-181ae83abb76)
+
+Ejemplo del alto contraste en una tabla
+![image](https://github.com/UJA-DAGIL-22-23/d-agil-2022-2023-practica-4-jesus_emilio_miguel_francisco_francisco/assets/114186139/71591dad-c4f2-42c0-8c6b-2e2dc5e534e0)
+
