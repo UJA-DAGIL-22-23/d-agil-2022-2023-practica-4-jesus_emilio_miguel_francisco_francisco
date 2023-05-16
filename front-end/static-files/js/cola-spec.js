@@ -4,6 +4,9 @@
  * @author Miguel Ángel Hurtado Molina <mahm0010@red.ujaen.es>
  */
 
+
+// SPECS a probar
+
 describe('Cola', function () {
     let cola;
   

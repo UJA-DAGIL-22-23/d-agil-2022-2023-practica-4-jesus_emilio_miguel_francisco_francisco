@@ -29,5 +29,13 @@ class Cola {
     estaVacia() {
         return this.cola.length === 0;
     }
+
+    obtenerElementos() {
+        return [...this.cola];
+    }
+
+    borrar() {
+        this.cola = [];
+    }
   }
   
