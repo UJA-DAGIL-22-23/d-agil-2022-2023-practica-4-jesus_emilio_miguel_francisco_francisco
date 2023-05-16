@@ -32,4 +32,12 @@ describe('Cola', () => {
         expect(cola.tam()).toBe(1);
       });
 
+    it('debería verificar si la cola está vacía correctamente', () => {
+        expect(cola.estaVacia()).toBe(true);
+        cola.encolar('Elemento 1');
+        expect(cola.estaVacia()).toBe(false);
+        cola.desencolar();
+        expect(cola.estaVacia()).toBe(true);
+    });
+
 });
