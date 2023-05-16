@@ -143,7 +143,7 @@ describe("Frontend.mostrarTodosAcercaDe: ", function () {
 describe("Frontend.cambiarContraste: ", function () {
     const elementoPrincipal = document.getElementById(Frontend.ID_BODY)
     it("Al pulsar el botón, se le añade al body la 'alto-contraste'",
-        function () {
+        function () { 
             Frontend.cambiarContraste()
             expect(elementoPrincipal.classList.contains('alto-contraste')).toBeTrue()
         })
