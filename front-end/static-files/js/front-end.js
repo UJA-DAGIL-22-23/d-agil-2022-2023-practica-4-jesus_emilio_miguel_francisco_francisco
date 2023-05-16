@@ -193,7 +193,7 @@ Frontend.procesarNombresCompleto = function () {
  * Función principal para recuperar los nombres de los jugadores desde el MS y, posteriormente, imprimirlos.
  */
 Frontend.procesarFiltrarDeportistas = function () {
-    this.recuperaYfiltra();
+    this.recuperaYfiltra(this.imprimeFiltrados);
 }
 
 Frontend.recupera2 = async function (callBackFn) {
@@ -254,56 +254,83 @@ Frontend.recuperaYfiltra = async function (callBackFn) {
         const dataBoxeo = await responseBoxeo.json();
 
         const vectorJugadores = [];
+        const cadenaBusqueda = "Sofia";
 
         // Recorre los datos de criquet y busca coincidencias con la cadena de búsqueda
         dataCriquet.data.forEach(persona => {
-            if (persona.nombre.includes(cadenaBusqueda) || cadenaBusqueda === '') {
-                vectorJugadores.push({
-                    nombre: persona.nombre,
+            if (persona.data.nombre.includes(cadenaBusqueda) || cadenaBusqueda === '') {
+                const deportista = {
+                    nombre: persona.data.nombre,
                     deporte: "Criquet"
-                });
+                };
+        
+                // Copia todos los atributos de la persona al deportista
+                Object.assign(deportista, persona);
+        
+                vectorJugadores.push(deportista);
             }
         });
 
-        // Recorre los datos de fútbol sala y busca coincidencias con la cadena de búsqueda
+        // Repite el mismo proceso para los datos de fútbol sala
         dataFutbolsala.data.forEach(persona => {
-            if (persona.nombre.includes(cadenaBusqueda) || cadenaBusqueda === '') {
-                vectorJugadores.push({
-                    nombre: persona.nombre,
+            if (persona.data.nombre.includes(cadenaBusqueda) || cadenaBusqueda === '') {
+                const deportista = {
+                    nombre: persona.data.nombre,
                     deporte: "Fútbol Sala"
-                });
+                };
+
+                // Copia todos los atributos de la persona al deportista
+                Object.assign(deportista, persona);
+
+                vectorJugadores.push(deportista);
             }
         });
 
-        // Recorre los datos de tenis y busca coincidencias con la cadena de búsqueda
+        // Repite el mismo proceso para los datos de tenis
         dataTenis.data.forEach(persona => {
-            if (persona.nombre.includes(cadenaBusqueda) || cadenaBusqueda === '') {
-                vectorJugadores.push({
-                    nombre: persona.nombre,
+            if (persona.data.nombre.includes(cadenaBusqueda) || cadenaBusqueda === '') {
+                const deportista = {
+                    nombre: persona.data.nombre,
                     deporte: "Tenis"
-                });
+                };
+
+                // Copia todos los atributos de la persona al deportista
+                Object.assign(deportista, persona);
+
+                vectorJugadores.push(deportista);
             }
         });
 
-        // Recorre los datos de atletas y busca coincidencias con la cadena de búsqueda
+        // Repite el mismo proceso para los datos de atletas
         dataAtletas.data.forEach(persona => {
-            if (persona.nombre.includes(cadenaBusqueda) || cadenaBusqueda === '') {
-                vectorJugadores.push({
-                    nombre: persona.nombre,
+            if (persona.data.nombre.includes(cadenaBusqueda) || cadenaBusqueda === '') {
+                const deportista = {
+                    nombre: persona.data.nombre,
                     deporte: "Atletas"
-                });
+                };
+
+                // Copia todos los atributos de la persona al deportista
+                Object.assign(deportista, persona);
+
+                vectorJugadores.push(deportista);
             }
         });
 
-        // Recorre los datos de boxeo y busca coincidencias con la cadena de búsqueda
+        // Repite el mismo proceso para los datos de boxeo
         dataBoxeo.data.forEach(persona => {
-            if (persona.nombre.includes(cadenaBusqueda) || cadenaBusqueda === '') {
-                vectorJugadores.push({
-                    nombre: persona.nombre,
+            if (persona.data.nombre.includes(cadenaBusqueda) || cadenaBusqueda === '') {
+                const deportista = {
+                    nombre: persona.data.nombre,
                     deporte: "Boxeo"
-                });
+                };
+
+                // Copia todos los atributos de la persona al deportista
+                Object.assign(deportista, persona);
+
+                vectorJugadores.push(deportista);
             }
         });
+
 
         callBackFn(vectorJugadores);
     } catch (error) {
@@ -341,12 +368,12 @@ Frontend.imprimeNombres = function (vector) {
 Frontend.imprimeFiltrados = function (vector) {
 
     let msj = "";
-    msj += Frontend.cabeceraTableNombres();
-    vector.forEach(e => msj += Frontend.cuerpoTrNombres(e))
+    msj += Frontend.cabeceraTableFiltrados();
+    vector.forEach(e => msj += Frontend.cuerpoTrFiltrados(e))
     msj += Frontend.pieTable();
 
     // Borro toda la info de Article y la sustituyo por la que me interesa
-    Frontend.Article.actualizar("Listado de nombres filtrados", msj)
+    Frontend.Article.actualizar("Listado de deportistas filtrados", msj)
 }
 
 /**
@@ -386,6 +413,20 @@ Frontend.cuerpoTrNombres = function (a) {
 
     return `<tr title="${a.ref['@ref'].id}">
             <td><em>${d.nombre}</em></td>
+            </tr>`;
+}
+
+/**
+ * Muestra el nombre y deporte de cada jugador en un elemento TR con sus correspondientes TD
+ * @param {jugador} a Nombre del jugador a mostrar
+ * @returns Cadena conteniendo todo el elemento TR que muestra el jugador.
+ */
+Frontend.cuerpoTrFiltrados = function (a) {
+    const d = a.data
+
+    return `<tr title="${a.ref['@ref'].id}">
+            <td><em>${d.nombre}</em></td>
+            <td><em>${a.deporte}</em></td>
             </tr>`;
 }
 
