@@ -8,8 +8,8 @@
 // Constantes
 const TITULO_TODOS_ACERCA_DE = "Datos de los estudiantes"
 
-const datosCriquet = {
-    mensaje: "Microservicio CRIQUET: acerca de",
+const datosFrontend = {
+    mensaje: "Microservicio Frontend: acerca de",
     autor: "Francisco Javier Jiménez Aznar",
     email: "fjja0004@red.ujaen.es",
     fecha: "Abril de 2023"
@@ -93,7 +93,7 @@ describe("Frontend.Article.actualizar: ", function () {
     it("Debe devolver el propio objeto",
         function () {
             // Probamos diversas llamadas con distintos parámetros
-            expect(Frontend.Article.actualizar()).toBe(Frontend.Article) 
+            expect(Frontend.Article.actualizar()).toBe(Frontend.Article)
             expect(Frontend.Article.actualizar(tituloPrueba)).toBe(Frontend.Article)
             expect(Frontend.Article.actualizar(tituloPrueba, contenidoPrueba)).toBe(Frontend.Article)
         })
@@ -117,7 +117,7 @@ describe("Frontend.Article.añadirContenido: ", function () {
             expect(elementoContenido.innerHTML).toBe("")
         })
 
-        it("Para contenidos no nulos, debe añadir el contenido a la correspondiente zona del article",
+    it("Para contenidos no nulos, debe añadir el contenido a la correspondiente zona del article",
         function () {
             // Borramos lo que haya de antes
             elementoContenido.innerHTML = ""
@@ -135,7 +135,50 @@ describe("Frontend.mostrarTodosAcercaDe: ", function () {
     it("Se muestra correctamente el título",
         function () {
             Frontend.mostrarTodosAcercaDe()
-            expect(elementoTitulo.innerHTML).toBe(TITULO_TODOS_ACERCA_DE)
+            expect(elementoTitulo.innerHTML).toBe(TITULO_TODOS_ACERCA_DE)            
         })
 
 })
+
+describe("Frontend.cabeceraTableNombres: ", function () {
+
+    it("muestra los nombres de los diferentes campos de la cabecera de la tabla en HTML",
+        function () {
+            expect(Frontend.cabeceraTableNombres()).toBe(`<table class="listado-jugadores">
+        <thead style="cursor: pointer;" onClick="Frontend.ordenar()" >
+            <th>Nombre</th>
+        </thead>
+        <tbody>
+    `);
+        });
+});
+
+describe("Frontend.cuerpoTrNombres ", function () {
+
+    //Datos
+    let d = {
+        ref: {
+            "@ref": {
+                id: "ref jugador 1"
+            }
+        },
+        data: {
+            nombre: "Wayne Madsen",
+        }
+    }
+
+    let msj = Frontend.cuerpoTrNombres(d)
+
+    //Expect
+    it("muestra una fila de tabla con el nombre del jugador",
+        function () {
+            expect(msj.includes(d.data.nombre)).toBeTrue();
+        });
+});
+
+describe("Frontend.pieTable", function () {
+    it("muestra las etiquetas HTML para el pie de tabla",
+        function () {
+            expect(Frontend.pieTable()).toBe("</tbody></table>");
+        });
+});

@@ -8,6 +8,16 @@
 
 const ROUTES = [
     {
+        url: '/boxeo',
+        proxy: {
+            target: "http://localhost:8002",
+            changeOrigin: true,
+            pathRewrite: {
+                [`^/boxeo`]: '',
+            },
+        }
+    },
+    {
         url: '/futbolsala',
         proxy: {
             target: "http://localhost:8003",
