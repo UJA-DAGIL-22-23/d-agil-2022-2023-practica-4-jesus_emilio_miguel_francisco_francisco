@@ -23,4 +23,13 @@ describe('Cola', () => {
       expect(cola.desencolar()).toBe('Elemento 3');
     });
 
+    it('debería devolver el tamaño correcto de la cola', () => {
+        expect(cola.tam()).toBe(0);
+        cola.encolar('Elemento 1');
+        cola.encolar('Elemento 2');
+        expect(cola.tam()).toBe(2);
+        cola.desencolar();
+        expect(cola.tam()).toBe(1);
+      });
+
 });
