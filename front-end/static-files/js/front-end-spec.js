@@ -30,10 +30,10 @@ const datosTenis = {
 }
 
 const datosAtletismo = {
-    mensaje: "Mensaje de prueba descargado",
-    autor: "Prueba de autor",
-    email: "Prueba de email",
-    fecha: "00/00/0000"
+    mensaje: "Microservicio ATLETISMO: acerca de",
+    autor: "Emilio Martínez Conchillo",
+    email: "emc00073@red.ujaen.es",
+    fecha: "10/04/2023"
 }
 
 const datosBoxeo = {

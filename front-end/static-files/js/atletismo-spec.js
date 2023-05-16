@@ -14,10 +14,10 @@ const TITULO_HOME_ATLETISMO = "ATLETISMO Home"
 const TITULO_ACERCA_DE_ATLETISMO = "ATLETISMO Acerca de"
 
 const datosDescargadosPruebaAtletismo = {
-    mensaje: "Mensaje de prueba descargado",
-    autor: "Prueba de autor",
-    email: "Prueba de email",
-    fecha: "00/00/0000"
+    mensaje: "Microservicio ATLETISMO: acerca de",
+    autor: "Emilio Martínez Conchillo",
+    email: "emc00073@red.ujaen.es",
+    fecha: "10/04/2023"
 }
 
 
