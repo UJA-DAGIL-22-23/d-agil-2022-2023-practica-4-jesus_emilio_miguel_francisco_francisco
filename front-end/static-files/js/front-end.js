@@ -189,6 +189,13 @@ Frontend.procesarNombresCompleto = function () {
     this.recupera2(this.imprimeNombres);
 }
 
+/**
+ * Función principal para recuperar los nombres de los jugadores desde el MS y, posteriormente, imprimirlos.
+ */
+Frontend.procesarFiltrarDeportistas = function () {
+    this.recuperaYfiltra();
+}
+
 Frontend.recupera2 = async function (callBackFn) {
     try {
         const urlCriquet = Frontend.API_GATEWAY + "/criquet/getTodosJugadores"
@@ -217,6 +224,86 @@ Frontend.recupera2 = async function (callBackFn) {
             ...dataBoxeo.data
 
         ];
+
+        callBackFn(vectorJugadores);
+    } catch (error) {
+        alert("Error: No se han podido acceder a los microservicios");
+        console.error(error);
+        //throw error
+    }
+};
+
+Frontend.recuperaYfiltra = async function (callBackFn) {
+    try {
+        const urlCriquet = Frontend.API_GATEWAY + "/criquet/getTodosJugadores"
+        const urlFutbolsala = Frontend.API_GATEWAY + "/futbolsala/get-Todos"
+        const urlTenis = Frontend.API_GATEWAY + "/tenis/getTodos"
+        const urlAtletas = Frontend.API_GATEWAY + "/atletas/getTodos"
+        const urlBoxeo = Frontend.API_GATEWAY + "/boxeo/getTodas"
+
+        const responseCriquet = await fetch(urlCriquet);
+        const responseFutbolsala = await fetch(urlFutbolsala);
+        const responseTenis = await fetch(urlTenis);
+        const responseAtletas = await fetch(urlAtletas);
+        const responseBoxeo = await fetch(urlBoxeo);
+
+        const dataCriquet = await responseCriquet.json();
+        const dataFutbolsala = await responseFutbolsala.json();
+        const dataTenis = await responseTenis.json();
+        const dataAtletas = await responseAtletas.json();
+        const dataBoxeo = await responseBoxeo.json();
+
+        const vectorJugadores = [];
+
+        // Recorre los datos de criquet y busca coincidencias con la cadena de búsqueda
+        dataCriquet.data.forEach(persona => {
+            if (persona.nombre.includes(cadenaBusqueda) || cadenaBusqueda === '') {
+                vectorJugadores.push({
+                    nombre: persona.nombre,
+                    deporte: "Criquet"
+                });
+            }
+        });
+
+        // Recorre los datos de fútbol sala y busca coincidencias con la cadena de búsqueda
+        dataFutbolsala.data.forEach(persona => {
+            if (persona.nombre.includes(cadenaBusqueda) || cadenaBusqueda === '') {
+                vectorJugadores.push({
+                    nombre: persona.nombre,
+                    deporte: "Fútbol Sala"
+                });
+            }
+        });
+
+        // Recorre los datos de tenis y busca coincidencias con la cadena de búsqueda
+        dataTenis.data.forEach(persona => {
+            if (persona.nombre.includes(cadenaBusqueda) || cadenaBusqueda === '') {
+                vectorJugadores.push({
+                    nombre: persona.nombre,
+                    deporte: "Tenis"
+                });
+            }
+        });
+
+        // Recorre los datos de atletas y busca coincidencias con la cadena de búsqueda
+        dataAtletas.data.forEach(persona => {
+            if (persona.nombre.includes(cadenaBusqueda) || cadenaBusqueda === '') {
+                vectorJugadores.push({
+                    nombre: persona.nombre,
+                    deporte: "Atletas"
+                });
+            }
+        });
+
+        // Recorre los datos de boxeo y busca coincidencias con la cadena de búsqueda
+        dataBoxeo.data.forEach(persona => {
+            if (persona.nombre.includes(cadenaBusqueda) || cadenaBusqueda === '') {
+                vectorJugadores.push({
+                    nombre: persona.nombre,
+                    deporte: "Boxeo"
+                });
+            }
+        });
 
         callBackFn(vectorJugadores);
     } catch (error) {
