@@ -71,25 +71,17 @@ Frontend.ocultarOpcionesCriquet = function () {
 Frontend.mostrarOpcionesTenis = function () {
     document.getElementById("btn-tenis").classList.remove("mostrar")
     document.getElementById("btn-tenis-listar").classList.remove("ocultar")
-    document.getElementById("btn-tenis-acercade").classList.remove("ocultar")
-    document.getElementById("btn-tenis-home").classList.remove("ocultar")
 
     document.getElementById("btn-tenis").classList.add("ocultar")
     document.getElementById("btn-tenis-listar").classList.add("mostrar")
-    document.getElementById("btn-tenis-acercade").classList.add("mostrar")
-    document.getElementById("btn-tenis-home").classList.add("mostrar")
 }
 
 Frontend.ocultarOpcionesTenis = function () {
     document.getElementById("btn-tenis").classList.remove("ocultar")
     document.getElementById("btn-tenis-listar").classList.remove("mostrar")
-    document.getElementById("btn-tenis-acercade").classList.remove("mostrar")
-    document.getElementById("btn-tenis-home").classList.remove("mostrar")
 
     document.getElementById("btn-tenis").classList.add("mostrar")
     document.getElementById("btn-tenis-listar").classList.add("ocultar")
-    document.getElementById("btn-tenis-acercade").classList.add("ocultar")
-    document.getElementById("btn-tenis-home").classList.add("ocultar")
 }
 
 /**
@@ -131,7 +123,7 @@ Frontend.API_GATEWAY = "http://localhost:8001"
 Frontend.ID_SECCION_PRINCIPAL = "seccion-principal"
 Frontend.ID_SECCION_PRINCIPAL_TITULO = "seccion-principal-titulo"
 Frontend.ID_SECCION_PRINCIPAL_CONTENIDO = "seccion-principal-contenido"
-
+Frontend.ID_BODY = "cuerpo-aplicacion"
 
 /// Objeto Article dentro Frontend para tratar con el contenido del elemento Article del DOM
 Frontend.Article = {}
@@ -447,4 +439,12 @@ Frontend.pieTable = function () {
 Frontend.ordenar = function (){
     Frontend.nombresOrdenados = !Frontend.nombresOrdenados;
     this.recupera2(this.imprimeNombres);
+}
+
+Frontend.cambiarContraste = function () {
+    if(document.getElementById(Frontend.ID_BODY).classList.length > 0)
+        document.getElementById(Frontend.ID_BODY).classList.remove('alto-contraste')
+    else {
+        document.getElementById(Frontend.ID_BODY).classList.add('alto-contraste')
+    }
 }

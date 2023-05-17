@@ -219,23 +219,23 @@ describe("Tenis.cuerpoTr: ", function () {
 
   describe("Tenis.cabeceraTable", function() {
     it("debería contener un th para el nombre", function() {
-      expect(Tenis.cabeceraTable()).toContain('<th><a href="#" id="ordenar-nombre">Nombre</a></th>');
+      expect(Tenis.cabeceraTable()).toContain('<th><a href="#" id="ordenar-nombre" class="enlace">Nombre</a></th>');
     });
   
     it("debería contener un th para los apellidos", function() {
-      expect(Tenis.cabeceraTable()).toContain('<th><a href="#" id="ordenar-apellidos">Apellidos</a></th>');
+      expect(Tenis.cabeceraTable()).toContain('<th><a href="#" id="ordenar-apellidos" class="enlace">Apellidos</a></th>');
     });
   
     it("debería contener un th para la fecha de nacimiento", function() {
-      expect(Tenis.cabeceraTable()).toContain('<th><a href="#" id="ordenar-fechaNac">Fecha de nacimiento</a></th>');
+      expect(Tenis.cabeceraTable()).toContain('<th><a href="#" id="ordenar-fechaNac" class="enlace">Fecha de nacimiento</a></th>');
     });
   
     it("debería contener un th para las participaciones mundiales", function() {
-      expect(Tenis.cabeceraTable()).toContain('<th><a href="#" id="ordenar-partMundial">Participaciones mundiales</a></th>');
+      expect(Tenis.cabeceraTable()).toContain('<th><a href="#" id="ordenar-partMundial" class="enlace">Participaciones mundiales</a></th>');
     });
   
     it("debería contener un th para el número de medallas", function() {
-      expect(Tenis.cabeceraTable()).toContain('<th><a href="#" id="ordenar-numMedallas">Número de medallas</a></th>');
+      expect(Tenis.cabeceraTable()).toContain('<th><a href="#" id="ordenar-numMedallas" class="enlace">Número de medallas</a></th>');
     });
   
     it("debería contener un th para las acciones", function() {
@@ -244,8 +244,8 @@ describe("Tenis.cuerpoTr: ", function () {
     it("debería contener un div con el formulario de búsqueda", function() {
       expect(Tenis.cabeceraTable()).toContain('<div>');
       expect(Tenis.cabeceraTable()).toContain('<label for="busqueda">Buscar:</label>');
-      expect(Tenis.cabeceraTable()).toContain('<input type="text" id="busqueda" name="busqueda">');
-      expect(Tenis.cabeceraTable()).toContain('<button onclick="Tenis.buscar()">Buscar</button>');
+      expect(Tenis.cabeceraTable()).toContain('<input type="text" id="busqueda" name="busqueda" class="busqueda">');
+      expect(Tenis.cabeceraTable()).toContain('<button onclick="Tenis.buscar()" class="opcion-principal">Buscar</button>');
       expect(Tenis.cabeceraTable()).toContain('</div>');
     });
   });
