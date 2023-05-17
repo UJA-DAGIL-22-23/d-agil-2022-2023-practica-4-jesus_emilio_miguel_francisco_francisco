@@ -128,3 +128,27 @@ En la imagen vemos como aparecen los nombres sin ordenar
 ![image](assets/img/HU8_1.png)
 Despues de hacer click sobre la cabecera de la table vemos como se ordenan.
 ![image](assets/img/HU8_2.png)
+
+### HU 9. Mostrar el nombre y el deporte de todos los jugadores/equipos que contengan una determinada cadena introducida por el usuario.
+Se ha añadido una nueva pestaña "Filtrar deportistas". 
+![Alt text](assets/img/9_1-Boton%20Filtrar.png)
+
+Una vez dentro, se mostrará el listado completo de deportistas, junto a su deporte. 
+![Alt text](assets/img/9_2-Listado%20inicial.png)
+
+Si escribimos una cadena en el buscador y pulsamos en el botón,
+![Alt text](assets/img/9_3-Buscador.png) 
+
+todo el listado se filtrará mostrando únicamente aquellos deportistas cuyo nombre incluya esta cadena.
+![Alt text](assets/img/9_4-Resultado%20filtrado.png)
+
+### HU 10. Modificar la visualización de la app con un modo ALTO CONTRASTE.
+Se ha añadido un botón a la página principal
+![image](https://github.com/UJA-DAGIL-22-23/d-agil-2022-2023-practica-4-jesus_emilio_miguel_francisco_francisco/assets/114186139/e268afb4-131a-452a-ba6b-18d98609e9da)
+
+Al pulsarlo, se modifica el estilo de la página para que aparezca en alto contraste
+![image](https://github.com/UJA-DAGIL-22-23/d-agil-2022-2023-practica-4-jesus_emilio_miguel_francisco_francisco/assets/114186139/e6b7a1da-e814-44c5-aaf9-181ae83abb76)
+
+Ejemplo del alto contraste en una tabla
+![image](https://github.com/UJA-DAGIL-22-23/d-agil-2022-2023-practica-4-jesus_emilio_miguel_francisco_francisco/assets/114186139/71591dad-c4f2-42c0-8c6b-2e2dc5e534e0)
+

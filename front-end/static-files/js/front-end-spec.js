@@ -30,10 +30,10 @@ const datosTenis = {
 }
 
 const datosAtletismo = {
-    mensaje: "Mensaje de prueba descargado",
-    autor: "Prueba de autor",
-    email: "Prueba de email",
-    fecha: "00/00/0000"
+    mensaje: "Microservicio ATLETISMO: acerca de",
+    autor: "Emilio Martínez Conchillo",
+    email: "emc00073@red.ujaen.es",
+    fecha: "10/04/2023"
 }
 
 const datosBoxeo = {
@@ -173,6 +173,57 @@ describe("Frontend.cuerpoTrNombres ", function () {
     it("muestra una fila de tabla con el nombre del jugador",
         function () {
             expect(msj.includes(d.data.nombre)).toBeTrue();
+        });
+});
+
+describe("Frontend.cabeceraTableFiltrados: ", function () {
+
+    it("muestra los nombres y el deporte de los diferentes campos de la cabecera de la tabla en HTML",
+        function () {
+            expect(Frontend.cabeceraTableFiltrados()).toBe(`<table class="listado-jugadores">
+        <div>
+            <label for="filtrado">Filtrar:</label>
+            <input type="text" id="filtrado" name="filtrado">
+            <button onclick="Frontend.procesarFiltrarDeportistas()">Filtrar</button>
+        </div>
+        <br></br>
+        <thead>
+            <th>Nombre</th>
+            <th>Deporte</th>
+        </thead>
+        <tbody>
+    `);
+        });
+});
+
+describe("Frontend.cuerpoTrFiltrados ", function () {
+
+    //Datos
+    let d = {
+        ref: {
+            "@ref": {
+                id: "ref jugador 1"
+            }
+        },
+        data: {
+            nombre: "Wayne Madsen",
+        }
+    }
+
+    const deportista = {
+        deporte: "Criquet"
+    };
+
+    // Copia todos los atributos de la persona al deportista
+    Object.assign(deportista, d);
+
+    let msj = Frontend.cuerpoTrFiltrados(deportista)
+
+    //Expect
+    it("muestra una fila de tabla con el nombre del jugador",
+        function () {
+            expect(msj.includes(d.data.nombre)).toBeTrue();
+            expect(msj.includes(deportista.deporte)).toBeTrue();
         });
 });
 

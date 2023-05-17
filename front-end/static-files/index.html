@@ -21,7 +21,7 @@
 
 </head>
 
-<body>
+<body id="cuerpo-aplicacion">
     <h1>Aplicación Microservicios de la Práctica 4 Desarrollo Ágil</h1>
     <!-- Barra de navegación de la aplicación -->
     <nav>
@@ -29,6 +29,8 @@
             title="Llama a la ruta / del MS Plantilla">Home</a>
         <a href="javascript:Frontend.mostrarTodosAcercaDe(); Frontend.guardarOpcionPulsada('Boton Acerca de')" class="opcion-principal"
             title="Llama a la ruta /acercade del MS Plantilla">Acerca de</a>
+        <a href="javascript:Frontend.cambiarContraste()" class="opcion-principal"
+            title="Cambiar el contraste de la aplicación">Cambiar contraste</a>
 
         <!--BOTON MOSTRAR OPCIONES PULSADAS-->
         <a href="javascript:Frontend.mostrarOpcionesPulsadas()" id="btn-mostrar-opciones-pulsadas" class="opcion-principal"
@@ -61,6 +63,9 @@
         <a href="javascript:FSala.mostrarFormAñadir(); Frontend.guardarOpcionPulsada('Boton Añadir jugador')" id="btn-fsala-añadir" class="opcion-principal ocultar"
             title="Muestra el formulario para añadir un jugador a la base de datos">Añadir jugador</a>
 
+        <!--BOTONES ATLETISMO-->
+        <a href="javascript:Atletas.listar()" class="opcion-principal mostrar"
+            title="Realiza un listado de todas los atletas que hay en la BBDD">Listar atletas</a>
 
         <!--BOTONES DE CRIQUET-->
         <a href="javascript:Criquet.procesarNombres(); Frontend.guardarOpcionPulsada('Boton Listado de
@@ -84,8 +89,11 @@
         <a href="javascript:Frontend.procesarNombresCompleto(); Frontend.guardarOpcionPulsada('Boton Nombres de todos los
         jugadores')" id="btn-nombres-completo"
             class="opcion-principal mostrar"
-            title="Crea una lista con todos los nombres de todos los jugadores de la base de datos">Nombres de todos los
-            jugadores</a>
+            title="Crea una lista con todos los nombres de todos los jugadores de la base de datos">Nombres de todos los jugadores</a>
+
+        <a href="javascript:Frontend.procesarFiltrarDeportistas()" id="btn-filtrar-deportistas"
+            class="opcion-principal mostrar"
+            title="Crea una lista con todos los deportistas de las bases de datos, mostrando los nombres y su deporte">Filtrar deportistas</a>
 
     </nav>
 

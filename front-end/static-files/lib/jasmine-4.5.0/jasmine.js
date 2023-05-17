@@ -8452,7 +8452,7 @@ getJasmineRequireObj().Runner = function(j$) {
       }
 
       const order = new j$.Order({
-        random: config.random,
+        random: false,
         seed: j$.isNumber_(config.seed) ? config.seed + '' : config.seed
       });
 

@@ -58,3 +58,65 @@
 .boton-siguiente {
     float: right;
 }
+
+.alto-contraste {
+    background-color: black;
+    color: rgb(30, 255, 0);
+}
+
+.alto-contraste .form-persona-elemento:disabled {
+    color: rgb(30, 255, 0);
+    border-width: 0px;
+    text-align: center;
+}
+
+.alto-contraste .form-persona-elemento:enabled:required {
+    color: rgb(30, 255, 0);
+}
+
+.alto-contraste .enlace {
+    color: rgb(30, 255, 0);
+}
+
+.alto-contraste .form-persona-elemento:enabled {
+    background-color:rgba(0, 0, 0);
+}
+
+.alto-contraste table.listado-personas{
+    width: 100%;
+    border: 1px solid rgba(30, 255, 0);
+}
+
+.alto-contraste thead th{
+    border: 1px solid rgba(30, 255, 0);
+}
+
+.alto-contraste tbody td{
+    border: 1px solid rgba(30, 255, 0);
+}
+
+.alto-contraste tbody tr{
+    border: 1px solid rgba(30, 255, 0);
+}
+
+.alto-contraste tbody th a{
+    border: 1px solid rgba(30, 255, 0);
+}
+
+.alto-contraste .busqueda{
+    border: 1px solid rgb(255, 255, 255);
+    background-color: black;
+    color:rgb(30, 255, 0);
+}
+
+.alto-contraste .opcion-principal,
+.opcion-secundaria,
+.opcion-terciaria {
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.alto-contraste .opcion-principal:hover,
+.opcion-secundaria:hover,
+.opcion-secundaria:hover {
+    background-color: rgba(224, 224, 224, 0.3);
+}
