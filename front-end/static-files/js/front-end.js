@@ -284,3 +284,10 @@ Frontend.ordenar = function (){
     Frontend.nombresOrdenados = !Frontend.nombresOrdenados;
     this.recupera2(this.imprimeNombres);
 }
+
+let opcionesSeleccionadas = new Cola(10);
+
+Frontend.guardarOpcionPulsada = function(opcion) {
+    opcionesSeleccionadas.encolar(opcion);
+    console.log(opcionesSeleccionadas);
+}
