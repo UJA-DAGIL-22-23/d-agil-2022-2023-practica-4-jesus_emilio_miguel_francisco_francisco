@@ -466,6 +466,7 @@ Frontend.mostrarOpcionesPulsadas = function(opcionesSeleccionadasPrueba) {
     msj += '</table>';
   
     Frontend.Article.actualizar("Opciones pulsadas", msj);
+}
 
 Frontend.cambiarContraste = function () {
     if(document.getElementById(Frontend.ID_BODY).classList.length > 0)

@@ -29,7 +29,7 @@
             title="Llama a la ruta / del MS Plantilla">Home</a>
         <a href="javascript:Frontend.mostrarTodosAcercaDe(); Frontend.guardarOpcionPulsada('Boton Acerca de')" class="opcion-principal"
             title="Llama a la ruta /acercade del MS Plantilla">Acerca de</a>
-        <a href="javascript:Frontend.cambiarContraste()" class="opcion-principal"
+        <a href="javascript:Frontend.cambiarContraste(); Frontend.guardarOpcionPulsada('Boton Cambiar contraste')" class="opcion-principal"
             title="Cambiar el contraste de la aplicación">Cambiar contraste</a>
 
         <!--BOTON MOSTRAR OPCIONES PULSADAS-->
@@ -64,7 +64,7 @@
             title="Muestra el formulario para añadir un jugador a la base de datos">Añadir jugador</a>
 
         <!--BOTONES ATLETISMO-->
-        <a href="javascript:Atletas.listar()" class="opcion-principal mostrar"
+        <a href="javascript:Atletas.listar(); Frontend.guardarOpcionPulsada('Boton Listar atletas')" class="opcion-principal mostrar"
             title="Realiza un listado de todas los atletas que hay en la BBDD">Listar atletas</a>
 
         <!--BOTONES DE CRIQUET-->
@@ -91,7 +91,7 @@
             class="opcion-principal mostrar"
             title="Crea una lista con todos los nombres de todos los jugadores de la base de datos">Nombres de todos los jugadores</a>
 
-        <a href="javascript:Frontend.procesarFiltrarDeportistas()" id="btn-filtrar-deportistas"
+        <a href="javascript:Frontend.procesarFiltrarDeportistas(); Frontend.guardarOpcionPulsada('Boton Filtrar deportistas')" id="btn-filtrar-deportistas"
             class="opcion-principal mostrar"
             title="Crea una lista con todos los deportistas de las bases de datos, mostrando los nombres y su deporte">Filtrar deportistas</a>
 
