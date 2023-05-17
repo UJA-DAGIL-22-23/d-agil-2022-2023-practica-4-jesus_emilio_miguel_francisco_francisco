@@ -128,3 +128,16 @@ En la imagen vemos como aparecen los nombres sin ordenar
 ![image](assets/img/HU8_1.png)
 Despues de hacer click sobre la cabecera de la table vemos como se ordenan.
 ![image](assets/img/HU8_2.png)
+
+### HU 9. Mostrar el nombre y el deporte de todos los jugadores/equipos que contengan una determinada cadena introducida por el usuario.
+Se ha añadido una nueva pestaña "Filtrar deportistas". 
+![Alt text](assets/img/9_1-Boton%20Filtrar.png)
+
+Una vez dentro, se mostrará el listado completo de deportistas, junto a su deporte. 
+![Alt text](assets/img/9_2-Listado%20inicial.png)
+
+Si escribimos una cadena en el buscador y pulsamos en el botón,
+![Alt text](assets/img/9_3-Buscador.png) 
+
+todo el listado se filtrará mostrando únicamente aquellos deportistas cuyo nombre incluya esta cadena.
+![Alt text](assets/img/9_4-Resultado%20filtrado.png)
