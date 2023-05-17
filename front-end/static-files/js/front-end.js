@@ -389,8 +389,8 @@ Frontend.cabeceraTableFiltrados = function () {
     return `<table class="listado-jugadores">
         <div>
             <label for="filtrado">Filtrar:</label>
-            <input type="text" id="filtrado" name="filtrado">
-            <button onclick="Frontend.procesarFiltrarDeportistas()">Filtrar</button>
+            <input class="busqueda" type="text" id="filtrado" name="filtrado">
+            <button class="opcion-principal" onclick="Frontend.procesarFiltrarDeportistas()">Filtrar</button>
         </div>
         <br></br>
         <thead>

@@ -449,8 +449,8 @@ Atletas.cabeceraTable = function () {
         <table class="listado-atletas">
         <div>
             <label for="busqueda">Buscar:</label>
-            <input type="text" id="busqueda" name="busqueda">
-            <button onclick="Atletas.buscar()">Buscar</button>
+            <input class="busqueda" type="text" id="busqueda" name="busqueda">
+            <button class="opcion-principal" onclick="Atletas.buscar()">Buscar</button>
         </div>
         </br>
             <thead>
@@ -483,12 +483,12 @@ Atletas.cuerpoTr = function (a) {
             <td>${d.años_mundiales.join(" / ")}</td>
             <td>${d.categoría}</td>
             <td>
-                <div><a href="javascript:Atletas.recuperaUnAtleta('${a.ref['@ref'].id}')">Mostrar</a></div>
+                <div><a class="enlace" href="javascript:Atletas.recuperaUnAtleta('${a.ref['@ref'].id}')">Mostrar</a></div>
             </td>
             <td>
                 <div>
-                    <input type="text" id="nombre-atleta-${a.ref['@ref'].id}" style="text-align: center;" placeholder="Nuevo nombre">
-                    <button onclick="Atletas.setNombre('${a.ref['@ref'].id}', document.getElementById('nombre-atleta-${a.ref['@ref'].id}').value)">Cambiar nombre</button>
+                    <input class="busqueda" type="text" id="nombre-atleta-${a.ref['@ref'].id}" style="text-align: center;" placeholder="Nuevo nombre">
+                    <button class="opcion-principal" onclick="Atletas.setNombre('${a.ref['@ref'].id}', document.getElementById('nombre-atleta-${a.ref['@ref'].id}').value)">Cambiar nombre</button>
                 </div>
             </td>
             </tr>`;

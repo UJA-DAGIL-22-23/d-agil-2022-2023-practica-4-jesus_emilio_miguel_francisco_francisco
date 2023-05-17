@@ -379,15 +379,15 @@ FSala.plantillaAddJugador.formulario = `
         </thead>
         <tbody>
             <tr>
-                <td><input type="text" class="form-persona-elemento editable" id="add-jugador-nombre" placeholder="Nombre"/></td>
-                <td><input type="text" class="form-persona-elemento editable" id="add-jugador-apellidos" placeholder="Apellidos"/></td>
-                <td><input type="text" class="form-persona-elemento editable" id="add-jugador-apodo" placeholder="Apodo"/></td>
-                <td><input type="number" class="form-persona-elemento editable" id="add-jugador-dia" placeholder="Día"/>-
-                    <input type="number" class="form-persona-elemento editable" id="add-jugador-mes" placeholder="Mes"/>-
-                    <input type="number" class="form-persona-elemento editable" id="add-jugador-anio" placeholder="Año"/></td>
-                <td><input type="number" class="form-persona-elemento editable" id="add-jugador-dorsal" placeholder="Dorsal"/></td>
-                <td><input type="text" class="form-persona-elemento editable" id="add-jugador-posicion" placeholder="Posición"/></td>
-                <td><textarea class="form-persona-elemento editable" id="add-jugador-trayectoria" placeholder="Equipos jugados"></textarea></td>
+                <td><input type="text" class="form-persona-elemento editable busqueda" id="add-jugador-nombre" placeholder="Nombre"/></td>
+                <td><input type="text" class="form-persona-elemento editable busqueda" id="add-jugador-apellidos" placeholder="Apellidos"/></td>
+                <td><input type="text" class="form-persona-elemento editable busqueda" id="add-jugador-apodo" placeholder="Apodo"/></td>
+                <td><input type="number" class="form-persona-elemento editable busqueda" id="add-jugador-dia" placeholder="Día"/>-
+                    <input type="number" class="form-persona-elemento editable busqueda" id="add-jugador-mes" placeholder="Mes"/>-
+                    <input type="number" class="form-persona-elemento editable busqueda" id="add-jugador-anio" placeholder="Año"/></td>
+                <td><input type="number" class="form-persona-elemento editable busqueda" id="add-jugador-dorsal" placeholder="Dorsal"/></td>
+                <td><input type="text" class="form-persona-elemento editable busqueda" id="add-jugador-posicion" placeholder="Posición"/></td>
+                <td><textarea class="form-persona-elemento editable busqueda" id="add-jugador-trayectoria" placeholder="Equipos jugados"></textarea></td>
                 <td>
                     <div><a href="javascript:FSala.añadir()" id="añadir-btn" class="opcion-secundaria mostrar">Guardar</a></div>
                 </td>

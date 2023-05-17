@@ -42,8 +42,8 @@ describe("Cabecera table ", function () {
         <table class="listado-atletas">
         <div>
             <label for="busqueda">Buscar:</label>
-            <input type="text" id="busqueda" name="busqueda">
-            <button onclick="Atletas.buscar()">Buscar</button>
+            <input class="busqueda" type="text" id="busqueda" name="busqueda">
+            <button class="opcion-principal" onclick="Atletas.buscar()">Buscar</button>
         </div>
         </br>
             <thead>
