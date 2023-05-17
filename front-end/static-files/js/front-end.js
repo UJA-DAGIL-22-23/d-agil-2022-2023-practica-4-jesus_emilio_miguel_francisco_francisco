@@ -189,6 +189,13 @@ Frontend.procesarNombresCompleto = function () {
     this.recupera2(this.imprimeNombres);
 }
 
+/**
+ * Función principal para recuperar los nombres de los jugadores desde el MS y, posteriormente, imprimirlos.
+ */
+Frontend.procesarFiltrarDeportistas = function () {
+    this.recuperaYfiltra(this.imprimeFiltrados);
+}
+
 Frontend.recupera2 = async function (callBackFn) {
     try {
         const urlCriquet = Frontend.API_GATEWAY + "/criquet/getTodosJugadores"
@@ -226,6 +233,113 @@ Frontend.recupera2 = async function (callBackFn) {
     }
 };
 
+Frontend.recuperaYfiltra = async function (callBackFn) {
+    try {
+        const urlCriquet = Frontend.API_GATEWAY + "/criquet/getTodosJugadores"
+        const urlFutbolsala = Frontend.API_GATEWAY + "/futbolsala/get-Todos"
+        const urlTenis = Frontend.API_GATEWAY + "/tenis/getTodos"
+        const urlAtletas = Frontend.API_GATEWAY + "/atletas/getTodos"
+        const urlBoxeo = Frontend.API_GATEWAY + "/boxeo/getTodas"
+
+        const responseCriquet = await fetch(urlCriquet);
+        const responseFutbolsala = await fetch(urlFutbolsala);
+        const responseTenis = await fetch(urlTenis);
+        const responseAtletas = await fetch(urlAtletas);
+        const responseBoxeo = await fetch(urlBoxeo);
+
+        const dataCriquet = await responseCriquet.json();
+        const dataFutbolsala = await responseFutbolsala.json();
+        const dataTenis = await responseTenis.json();
+        const dataAtletas = await responseAtletas.json();
+        const dataBoxeo = await responseBoxeo.json();
+
+        const vectorJugadores = [];
+        const inputFiltrado = document.getElementById('filtrado');
+
+        let cadenaBusqueda = "";
+        if(inputFiltrado != null)
+            if(inputFiltrado.value != null)
+                cadenaBusqueda = inputFiltrado.value.toLowerCase();
+
+        // Recorre los datos de criquet y busca coincidencias con la cadena de búsqueda
+        dataCriquet.data.forEach(persona => {
+            if (persona.data.nombre.toLowerCase().includes(cadenaBusqueda) || cadenaBusqueda === '') {
+                const deportista = {
+                    deporte: "Criquet"
+                };
+        
+                // Copia todos los atributos de la persona al deportista
+                Object.assign(deportista, persona);
+        
+                vectorJugadores.push(deportista);
+            }
+        });
+
+        // Repite el mismo proceso para los datos de fútbol sala
+        dataFutbolsala.data.forEach(persona => {
+            if (persona.data.nombre.toLowerCase().includes(cadenaBusqueda) || cadenaBusqueda === '') {
+                const deportista = {
+                    deporte: "Fútbol Sala"
+                };
+
+                // Copia todos los atributos de la persona al deportista
+                Object.assign(deportista, persona);
+
+                vectorJugadores.push(deportista);
+            }
+        });
+
+        // Repite el mismo proceso para los datos de tenis
+        dataTenis.data.forEach(persona => {
+            if (persona.data.nombre.toLowerCase().includes(cadenaBusqueda) || cadenaBusqueda === '') {
+                const deportista = {
+                    deporte: "Tenis"
+                };
+
+                // Copia todos los atributos de la persona al deportista
+                Object.assign(deportista, persona);
+
+                vectorJugadores.push(deportista);
+            }
+        });
+
+        // Repite el mismo proceso para los datos de atletas
+        dataAtletas.data.forEach(persona => {
+            if (persona.data.nombre.toLowerCase().includes(cadenaBusqueda) || cadenaBusqueda === '') {
+                const deportista = {
+                    deporte: "Atletas"
+                };
+
+                // Copia todos los atributos de la persona al deportista
+                Object.assign(deportista, persona);
+
+                vectorJugadores.push(deportista);
+            }
+        });
+
+        // Repite el mismo proceso para los datos de boxeo
+        dataBoxeo.data.forEach(persona => {
+            if (persona.data.nombre.toLowerCase().includes(cadenaBusqueda) || cadenaBusqueda === '') {
+                const deportista = {
+                    deporte: "Boxeo"
+                };
+
+                // Copia todos los atributos de la persona al deportista
+                Object.assign(deportista, persona);
+
+                vectorJugadores.push(deportista);
+            }
+        });
+
+
+        callBackFn(vectorJugadores);
+    } catch (error) {
+        alert("Error: No se han podido acceder a los microservicios");
+        console.error(error);
+        //throw error
+    }
+};
+
 /**
  * Función para mostrar en pantalla todos los nombres de los jugadores que se han recuperado de la BBDD.
  * @param {vector_de_jugadores} vector Vector con los nombres de los jugadores a mostrar
@@ -247,6 +361,22 @@ Frontend.imprimeNombres = function (vector) {
 }
 
 /**
+ * Función para mostrar en pantalla todos los nombres y deportes de los jugadores que se han recuperado de la BBDD.
+ * @param {vector_de_jugadores} vector Vector con los nombres y deportes de los jugadores a mostrar
+ */
+
+Frontend.imprimeFiltrados = function (vector) {
+
+    let msj = "";
+    msj += Frontend.cabeceraTableFiltrados();
+    vector.forEach(e => msj += Frontend.cuerpoTrFiltrados(e))
+    msj += Frontend.pieTable();
+
+    // Borro toda la info de Article y la sustituyo por la que me interesa
+    Frontend.Article.actualizar("Listado de deportistas filtrados", msj)
+}
+
+/**
  * Crea la cabecera para mostrar la info como tabla
  * @returns Cabecera de la tabla
  */
@@ -254,6 +384,26 @@ Frontend.cabeceraTableNombres = function () {
     return `<table class="listado-jugadores">
         <thead style="cursor: pointer;" onClick="Frontend.ordenar()" >
             <th>Nombre</th>
+        </thead>
+        <tbody>
+    `;
+}
+
+/**
+ * Crea la cabecera para mostrar la info como tabla
+ * @returns Cabecera de la tabla
+ */
+Frontend.cabeceraTableFiltrados = function () {
+    return `<table class="listado-jugadores">
+        <div>
+            <label for="filtrado">Filtrar:</label>
+            <input type="text" id="filtrado" name="filtrado">
+            <button onclick="Frontend.procesarFiltrarDeportistas()">Filtrar</button>
+        </div>
+        <br></br>
+        <thead>
+            <th>Nombre</th>
+            <th>Deporte</th>
         </thead>
         <tbody>
     `;
@@ -269,6 +419,20 @@ Frontend.cuerpoTrNombres = function (a) {
 
     return `<tr title="${a.ref['@ref'].id}">
             <td><em>${d.nombre}</em></td>
+            </tr>`;
+}
+
+/**
+ * Muestra el nombre y deporte de cada jugador en un elemento TR con sus correspondientes TD
+ * @param {jugador} a Nombre del jugador a mostrar
+ * @returns Cadena conteniendo todo el elemento TR que muestra el jugador.
+ */
+Frontend.cuerpoTrFiltrados = function (a) {
+    const d = a.data
+
+    return `<tr title="${a.ref['@ref'].id}">
+            <td><em>${d.nombre}</em></td>
+            <td><em>${a.deporte}</em></td>
             </tr>`;
 }
 
