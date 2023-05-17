@@ -265,7 +265,6 @@ Frontend.recuperaYfiltra = async function (callBackFn) {
         dataCriquet.data.forEach(persona => {
             if (persona.data.nombre.toLowerCase().includes(cadenaBusqueda) || cadenaBusqueda === '') {
                 const deportista = {
-                    nombre: persona.data.nombre,
                     deporte: "Criquet"
                 };
         
@@ -280,7 +279,6 @@ Frontend.recuperaYfiltra = async function (callBackFn) {
         dataFutbolsala.data.forEach(persona => {
             if (persona.data.nombre.toLowerCase().includes(cadenaBusqueda) || cadenaBusqueda === '') {
                 const deportista = {
-                    nombre: persona.data.nombre,
                     deporte: "Fútbol Sala"
                 };
 
@@ -295,7 +293,6 @@ Frontend.recuperaYfiltra = async function (callBackFn) {
         dataTenis.data.forEach(persona => {
             if (persona.data.nombre.toLowerCase().includes(cadenaBusqueda) || cadenaBusqueda === '') {
                 const deportista = {
-                    nombre: persona.data.nombre,
                     deporte: "Tenis"
                 };
 
@@ -310,7 +307,6 @@ Frontend.recuperaYfiltra = async function (callBackFn) {
         dataAtletas.data.forEach(persona => {
             if (persona.data.nombre.toLowerCase().includes(cadenaBusqueda) || cadenaBusqueda === '') {
                 const deportista = {
-                    nombre: persona.data.nombre,
                     deporte: "Atletas"
                 };
 
@@ -325,7 +321,6 @@ Frontend.recuperaYfiltra = async function (callBackFn) {
         dataBoxeo.data.forEach(persona => {
             if (persona.data.nombre.toLowerCase().includes(cadenaBusqueda) || cadenaBusqueda === '') {
                 const deportista = {
-                    nombre: persona.data.nombre,
                     deporte: "Boxeo"
                 };
 
