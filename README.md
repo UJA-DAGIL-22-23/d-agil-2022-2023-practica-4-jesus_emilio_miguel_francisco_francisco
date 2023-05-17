@@ -154,6 +154,7 @@ Ejemplo del alto contraste en una tabla
 
 ### HU 11. Mostrar un historial de las últimas 10 opciones que ha pulsado el usuario en nuestra app (desde que cargó/recargó la página web de la app).
 Se ha añadido un nuevo botón a la página principal.
+
 ![Alt text](assets/img/HU11_Btn.png)
 
 He implementado una nueva clase con la funcionalidad de una cola (queue).
