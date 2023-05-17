@@ -292,8 +292,8 @@ Frontend.guardarOpcionPulsada = function(opcion) {
     console.log(opcionesSeleccionadas);
 }
 
-Frontend.mostrarOpcionesPulsadas = function() {
-    const opcionesSeleccionadasArray = opcionesSeleccionadas.obtenerElementos();
+Frontend.mostrarOpcionesPulsadas = function(opcionesSeleccionadasPrueba) {
+    const opcionesSeleccionadasArray = opcionesSeleccionadasPrueba?.obtenerElementos() || opcionesSeleccionadas?.obtenerElementos()
     //console.log(opcionesSeleccionadas.obtenerElementos());
     let msj = '<table class="listado-jugadores">';
     msj += '<tr><th>Número</th><th>Opción</th></tr>';

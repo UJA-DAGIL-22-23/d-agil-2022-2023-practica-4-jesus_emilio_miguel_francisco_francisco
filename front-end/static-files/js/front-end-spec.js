@@ -186,14 +186,14 @@ describe("Frontend.pieTable", function () {
 describe('Frontend.mostrarOpcionesPulsadas', function() {
     beforeEach(function() {
         // Configurar el estado inicial de la cola
-        opcionesSeleccionadas = new Cola(5);
-        opcionesSeleccionadas.encolar('Opción 1');
-        opcionesSeleccionadas.encolar('Opción 2');
-        opcionesSeleccionadas.encolar('Opción 3');
+        opcionesSeleccionadasPrueba = new Cola(5);
+        opcionesSeleccionadasPrueba.encolar('Opción 1');
+        opcionesSeleccionadasPrueba.encolar('Opción 2');
+        opcionesSeleccionadasPrueba.encolar('Opción 3');
     });
     
     it('debería construir una tabla HTML con los elementos de la cola', function() {
-        Frontend.mostrarOpcionesPulsadas();
+        Frontend.mostrarOpcionesPulsadas(opcionesSeleccionadasPrueba);
     
         const contenidoActual = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO).innerHTML;
     
@@ -207,7 +207,7 @@ describe('Frontend.mostrarOpcionesPulsadas', function() {
     it('debería llamar al método Frontend.Article.actualizar con los parámetros correctos', function() {
         spyOn(Frontend.Article, 'actualizar');
     
-        Frontend.mostrarOpcionesPulsadas();
+        Frontend.mostrarOpcionesPulsadas(opcionesSeleccionadasPrueba);
     
         expect(Frontend.Article.actualizar).toHaveBeenCalledWith('Opciones pulsadas', jasmine.any(String));
     });
