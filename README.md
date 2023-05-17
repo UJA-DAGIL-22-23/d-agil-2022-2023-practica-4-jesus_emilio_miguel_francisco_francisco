@@ -152,3 +152,33 @@ Al pulsarlo, se modifica el estilo de la página para que aparezca en alto contr
 Ejemplo del alto contraste en una tabla
 ![image](https://github.com/UJA-DAGIL-22-23/d-agil-2022-2023-practica-4-jesus_emilio_miguel_francisco_francisco/assets/114186139/71591dad-c4f2-42c0-8c6b-2e2dc5e534e0)
 
+### HU 11. Mostrar un historial de las últimas 10 opciones que ha pulsado el usuario en nuestra app (desde que cargó/recargó la página web de la app).
+Se ha añadido un nuevo botón a la página principal.
+![Alt text](assets/img/HU11_Btn.png)
+
+He implementado una nueva clase con la funcionalidad de una cola (queue).
+![Alt text](assets/img/HU11_claseCola.png)
+
+Esta nueva estructura de datos almacenará cadenas de caracteres con los botones pulsados por el usuario. Almacenando un número
+máximo de 10 opciones pulsadas. Esto se hará cada vez que se pulse un botón desde el index.html.
+![Alt text](assets/img/HU11_LlamadaBotones.png)
+
+Se llamará a una nueva función del front-end que almacenará el texto en la cola. Por último se llamará a la función que construya
+la tabla con las opciones pulsadas al hacer clic sobre el botón Mostrar opciones pulsadas.
+
+A continuación muestro el resultado de la tabla en diferentes escenarios:
+
+Al no haber pulsado opciones antes:
+![Alt text](assets/img/HU11_1.png)
+
+Al haber pulsado 5 opciones antes:
+![Alt text](assets/img/HU11_2.png)
+
+Al haber pulsado 10 opciones:
+![Alt text](assets/img/HU11_3.png)
+
+Al pulsar 11 opciones vemos que se borra la primera y se almacena la última:
+![Alt text](assets/img/HU11_4.png)
+
+Al recargar la página se vacía la cola y por lo tanto empieza a contar desde cero:
+![Alt text](assets/img/HU11_Recarga.png)
