@@ -441,6 +441,32 @@ Frontend.ordenar = function (){
     this.recupera2(this.imprimeNombres);
 }
 
+
+let opcionesSeleccionadas = new Cola(10);
+
+Frontend.guardarOpcionPulsada = function(opcion) {
+    opcionesSeleccionadas.encolar(opcion);
+    console.log(opcionesSeleccionadas);
+}
+
+Frontend.mostrarOpcionesPulsadas = function(opcionesSeleccionadasPrueba) {
+    const opcionesSeleccionadasArray = opcionesSeleccionadasPrueba?.obtenerElementos() || opcionesSeleccionadas?.obtenerElementos()
+    //console.log(opcionesSeleccionadas.obtenerElementos());
+    let msj = '<table class="listado-jugadores">';
+    msj += '<tr><th>Número</th><th>Opción</th></tr>';
+  
+    for (let i = 0; i < opcionesSeleccionadasArray.length; i++) {
+      const dato = opcionesSeleccionadasArray[i];
+      msj += '<tr>';
+      msj += '<td>' + (i + 1) + '</td>';
+      msj += '<td>' + dato + '</td>';
+      msj += '</tr>';
+    }
+  
+    msj += '</table>';
+  
+    Frontend.Article.actualizar("Opciones pulsadas", msj);
+
 Frontend.cambiarContraste = function () {
     if(document.getElementById(Frontend.ID_BODY).classList.length > 0)
         document.getElementById(Frontend.ID_BODY).classList.remove('alto-contraste')

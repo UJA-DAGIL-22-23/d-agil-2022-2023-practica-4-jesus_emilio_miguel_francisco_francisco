@@ -231,5 +231,35 @@ describe("Frontend.pieTable", function () {
     it("muestra las etiquetas HTML para el pie de tabla",
         function () {
             expect(Frontend.pieTable()).toBe("</tbody></table>");
-        });
+        });        
+});
+
+describe('Frontend.mostrarOpcionesPulsadas', function() {
+    beforeEach(function() {
+        // Configurar el estado inicial de la cola
+        opcionesSeleccionadasPrueba = new Cola(5);
+        opcionesSeleccionadasPrueba.encolar('Opción 1');
+        opcionesSeleccionadasPrueba.encolar('Opción 2');
+        opcionesSeleccionadasPrueba.encolar('Opción 3');
+    });
+    
+    it('debería construir una tabla HTML con los elementos de la cola', function() {
+        Frontend.mostrarOpcionesPulsadas(opcionesSeleccionadasPrueba);
+    
+        const contenidoActual = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO).innerHTML;
+    
+        expect(contenidoActual).toContain('<table class="listado-jugadores">');
+        expect(contenidoActual).toContain('<th>Número</th><th>Opción</th>');
+        expect(contenidoActual).toContain('<td>1</td><td>Opción 1</td>');
+        expect(contenidoActual).toContain('<td>2</td><td>Opción 2</td>');
+        expect(contenidoActual).toContain('<td>3</td><td>Opción 3</td>');
+    });
+    
+    it('debería llamar al método Frontend.Article.actualizar con los parámetros correctos', function() {
+        spyOn(Frontend.Article, 'actualizar');
+    
+        Frontend.mostrarOpcionesPulsadas(opcionesSeleccionadasPrueba);
+    
+        expect(Frontend.Article.actualizar).toHaveBeenCalledWith('Opciones pulsadas', jasmine.any(String));
+    });
 });
