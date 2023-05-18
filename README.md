@@ -248,3 +248,38 @@ En este incremento nuestro equipo ha logrado implementar todas las historias de 
 > **11.** Mostrar un historial de las últimas 10 opciones que ha pulsado el usuario en nuestra app (desde que cargó/recargó la página web de la app).  
 
 Las capturas de pantalla de Trello y de las historias de usuario se pueden ver antes de este apartado.
+
+# Sprint Retrospective
+
+## ¿Qué se ha hecho bien?  
+
+ * Se ha trabajado bien en equipo, ha habido una buena comunicación entre los integrantes.
+ * Nos hemos ayudado unos a otros cuando teníamos dudas en las distintas funcionalidades que implementábamos cada uno.
+ * Hemos tenido un ritmo de trabajo constante, desarrollando la práctica todas las semanas desde que empezamos.
+ * Hemos conseguido seguir la metodología inspirada en Scrum que se había planteado.
+ * Hemos logrado implementar todas las HU que nos habíamos propuesto.
+
+## ¿Qué se debería mejorar?
+
+ * Se debería cambiar la forma en la que aparecen los botones que representan las distintas funcionalidades para que sea más fácil identificar cuáles pertenecen a cada microservicio.
+ * El botón del menú *Home* no debería colgar de uno de los 5 microservicios, sino que debería estar en el Frontend con el resto de métodos comunes.
+ * Podríamos utilizar la herramienta de *Pull Request* que tenemos en GitHub, porque al fusionar algunas ramas hemos tenido problemas, como que desaparezca código sin querer.
+ * Similar a lo descrito anteriormente, al pulsar los botones de *"Mostar opciones"* deberían desaparecer el resto de opciones o mostrar de forma más clara los nuevos botones que aparecen, porque no se distinguen bien.
+
+## ¿A qué se compromete cada miembro del equipo?
+
+### Jesús Morales Villegas  
+
+* Me comprometo a trabajar de manera más costante y empezar desde la primera semana con el trabajo.
+
+### Francisco José Jordán Jiménez  
+
+* Me comprometo a esperar a la hora de empezar las HU que puedan afectar a las demás, ya que por ejemplo, implementé la HU 10 (Alto contraste) a falta de que mis compañeros terminaran sus respectivas HU, y luego tuve que ir haciendo cambios una vez ya estaba implementada.
+
+### Francisco Javier Jiménez Aznar  
+
+* Me compromento a seguir de forma más rigurosa la metodología TDD, porque algunas de las funciones no tienen pruebas.
+
+### Emilio Martínez Conchillo  
+
+### Miguel Ángel Hurtado Molina  
