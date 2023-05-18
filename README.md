@@ -55,20 +55,33 @@ En este incremento se han realizado todas las historias de usuario.
 
 ## **HU 1. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Jesús Morales Villegas**
 
-Para acceder a las funcionalidades hay que pulsar el boton de mostrar opciones de boxeo
+Para acceder a las funcionalidades hay que pulsar el boton de mostrar opciones de boxeo:  
+
 ![image](assets/img/HU1_1.png)
-Al pulsar sobre Listar boxeadores aparece lo siguiente, las funcionalidades siguen funcionando
+
+Al pulsar sobre Listar boxeadores aparece lo siguiente, las funcionalidades siguen funcionando:  
+
 ![image](assets/img/HU1_2.png)
-Al pulsar sobre mostrar aparece lo siguiente
-![image](assets/img/HU1_7.png)
-Al pulsar sobre Listar boxeadores por nombre aparece lo siguiente, y si se pulsa en ordenar ordena alfabéticamente
-![image](assets/img/HU1_3.png)
-Aqui ordenado
-![image](assets/img/HU1_4.png)
-Al pulsar sobre buscar boxeadores por nombre aparece el buscador
-![image](assets/img/HU1_5.png)
-Si se introduce en el buscador la cadena de texto "Canelo" aparece lo siguiente
-![image](assets/img/HU1_6.png)
+
+Al pulsar sobre mostrar aparece lo siguiente:  
+
+![image](assets/img/HU1_7.png)  
+
+Al pulsar sobre Listar boxeadores por nombre aparece lo siguiente, y si se pulsa en ordenar ordena alfabéticamente:  
+
+![image](assets/img/HU1_3.png)  
+
+Aqui ordenado:  
+
+![image](assets/img/HU1_4.png)  
+
+Al pulsar sobre buscar boxeadores por nombre aparece el buscador:  
+
+![image](assets/img/HU1_5.png)  
+
+Si se introduce en el buscador la cadena de texto "Canelo" aparece lo siguiente:  
+
+![image](assets/img/HU1_6.png)  
 
 ## **HU 2. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Francisco José Jordán Jiménez**
 
@@ -86,7 +99,8 @@ Las funcionalidades siguen funcionando correctamente
 
 ## **HU 3. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Francisco Javier Jiménez Aznar**
 
-Al igual que con el resto de compañeros, en la página principal se muestra un botón, que al pulsarlo, despliega las funcionalidades de mi práctica. Todas ellas siguen funcionando correctamente.
+Al igual que con el resto de compañeros, en la página principal se muestra un botón, que al pulsarlo, despliega las funcionalidades de mi práctica. Todas ellas siguen funcionando correctamente.  
+
 ![image](assets/img/HU03_1.png)
 ![image](assets/img/HU03_2.png)
 ![image](assets/img/HU03_3.png)
