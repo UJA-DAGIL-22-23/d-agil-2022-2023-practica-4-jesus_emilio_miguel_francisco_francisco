@@ -215,3 +215,22 @@ Al pulsar 11 opciones vemos que se borra la primera y se almacena la última:
 
 Al recargar la página se vacía la cola y por lo tanto empieza a contar desde cero:
 ![Alt text](assets/img/HU11_Recarga.png)
+
+
+# Sprint Review
+
+En este incremento nuestro equipo ha logrado implementar todas las historias de usuario que planificamos en el Sprint Planning, es decir, las 11 historias de usuario que era posible hacer:
+
+> **1.** Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el estudiante Jesús Morales Villegas.  
+> **2.** Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el estudiante Francisco José Jordán Jiménez.  
+> **3.** Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el estudiante Francisco Javier Jiménez Aznar.  
+> **4.** Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el estudiante Emilio Martínez Conchillo.  
+> **5.** Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el estudiante Miguel Ángel Hurtado Molina.  
+> **6.** Ver en una sola página la información de todos los autores de la aplicación al pulsar en el botón “Acerca de”.  
+> **7.** Ver un listado solo con los nombres de todos los jugadores/equipos de todos los deportes incluidos en la app.  
+> **8.** Ver un listado solo con los nombres de todos los jugadores/equipos ordenados alfabéticamente de todos los deportes incluidos en la app. (Todos los nombres aparecerán ordenados en una sola tabla).  
+> **9.** Mostrar el nombre y el deporte de todos los jugadores/equipos que contengan una determinada cadena introducida por el usuario. (Por ejemplo, si el usuario introduce “EST” se mostrarán todos los nombres junto con el deporte practicado de todos los jugadores/equipos cuyo nombre incluya “EST”)  
+> **10.** Modificar la visualización de la app con un modo ALTO CONTRASTE. (Es decir: el usuario podrá cambiar entre visualizar la app en el modo normal o en modo ALTO CONTRASTE pulsando solo un botón)  
+> **11.** Mostrar un historial de las últimas 10 opciones que ha pulsado el usuario en nuestra app (desde que cargó/recargó la página web de la app).  
+
+Las capturas de pantalla de Trello y de las historias de usuario se pueden ver antes de este apartado.
