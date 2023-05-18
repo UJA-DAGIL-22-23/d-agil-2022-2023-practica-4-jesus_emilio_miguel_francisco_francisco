@@ -71,6 +71,7 @@ Si se introduce en el buscador la cadena de texto "Canelo" aparece lo siguiente
 ![image](assets/img/HU1_6.png)
 
 ## **HU 2. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Francisco José Jordán Jiménez**
+## **HU 2. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Francisco José Jordán Jiménez**
 
 La página muestra un botón que al pulsarlo despliega los botones de mi práctica
 ![image](https://user-images.githubusercontent.com/114186139/235651384-99753eee-6c0c-48ae-a6ed-9fbc047969de.png)
@@ -85,12 +86,14 @@ Las funcionalidades siguen funcionando correctamente
 ![image](https://user-images.githubusercontent.com/114186139/235651850-2394dd40-b8ff-4c15-bb60-64358d455647.png)
 
 ## **HU 3. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Francisco Javier Jiménez Aznar**
+## **HU 3. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Francisco Javier Jiménez Aznar**
 
 Al igual que con el resto de compañeros, en la página principal se muestra un botón, que al pulsarlo, despliega las funcionalidades de mi práctica. Todas ellas siguen funcionando correctamente.
 ![image](assets/img/HU03_1.png)
 ![image](assets/img/HU03_2.png)
 ![image](assets/img/HU03_3.png)
 
+## **HU 4. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Emilio Martínez Conchillo**
 ## **HU 4. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Emilio Martínez Conchillo**
 
 La página muestra un botón que al pulsarlo lista todos los atletas y otro botón que muestra la información del alumno: Emilio Martínez Conchillo
@@ -117,6 +120,7 @@ También podemos filtrar los atletas escribiendo en el buscador. Por ejemplo, es
 ![Alt text](assets/img/4_11-Buscador.png)
 
 ## **HU 5. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Miguel Ángel Hurtado Molina**
+## **HU 5. Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Miguel Ángel Hurtado Molina**
 
 Al igual que mi compañero Francisco José, la página muestra un botón que al pulsarlo despliega los botones de mi práctica:
 ![image](https://user-images.githubusercontent.com/124782259/235898836-e8568743-9223-4b6e-9e2e-eb067df9643f.png)
@@ -131,10 +135,12 @@ Como podemos comprobar, las funcionalidades siguen funcionando correctamente:
 ![image](https://user-images.githubusercontent.com/124782259/235899289-1c11ab4d-1b0c-40de-8058-3dccddc1222a.png)
 
 ## **HU 6. Ver en una sola página la información de todos los autores de la aplicación al pulsar en el botón “Acerca de”**
+## **HU 6. Ver en una sola página la información de todos los autores de la aplicación al pulsar en el botón “Acerca de”**
 
 ![image](https://github.com/UJA-DAGIL-22-23/d-agil-2022-2023-practica-4-jesus_emilio_miguel_francisco_francisco/assets/114186139/15394a64-634f-4564-8b6a-152ea4d292e7)
 ![image](https://github.com/UJA-DAGIL-22-23/d-agil-2022-2023-practica-4-jesus_emilio_miguel_francisco_francisco/assets/114186139/89a85bf6-52da-4ac1-926c-fc29ceede856)
 
+## **HU 7. Ver un listado solo con los nombres de todos los jugadores/equipos de todos los deportes incluidos en la app.**
 ## **HU 7. Ver un listado solo con los nombres de todos los jugadores/equipos de todos los deportes incluidos en la app.**
 
 Se ha añadido un botón a la página principal con el nombre "Nombres de todos los jugadores". Al pulsarlo aparecerá una tabla en la que se
@@ -151,6 +157,7 @@ los datos de los jugadores, etc.
 ![image](assets/img/HU07_4.png)
 
 ## **HU 8. Ver un listado solo con los nombres de todos los jugadores/equipos ordenados alfabéticamente de todos los deportes incluidos en la app. (Todos los nombres aparecerán ordenados en una sola tabla).**
+## **HU 8. Ver un listado solo con los nombres de todos los jugadores/equipos ordenados alfabéticamente de todos los deportes incluidos en la app. (Todos los nombres aparecerán ordenados en una sola tabla).**
 
 Se ha implementado do forma que al pulsar sobre la cabecera de la tabla de nombres se ordene.
 En la imagen vemos como aparecen los nombres sin ordenar
@@ -158,6 +165,7 @@ En la imagen vemos como aparecen los nombres sin ordenar
 Despues de hacer click sobre la cabecera de la table vemos como se ordenan.
 ![image](assets/img/HU8_2.png)
 
+## **HU 9. Mostrar el nombre y el deporte de todos los jugadores/equipos que contengan una determinada cadena introducida por el usuario.**
 ## **HU 9. Mostrar el nombre y el deporte de todos los jugadores/equipos que contengan una determinada cadena introducida por el usuario.**
 
 Se ha añadido una nueva pestaña "Filtrar deportistas". 
@@ -173,6 +181,7 @@ todo el listado se filtrará mostrando únicamente aquellos deportistas cuyo nom
 ![Alt text](assets/img/9_4-Resultado%20filtrado.png)
 
 ## **HU 10. Modificar la visualización de la app con un modo ALTO CONTRASTE.**
+## **HU 10. Modificar la visualización de la app con un modo ALTO CONTRASTE.**
 
 Se ha añadido un botón a la página principal
 ![image](https://github.com/UJA-DAGIL-22-23/d-agil-2022-2023-practica-4-jesus_emilio_miguel_francisco_francisco/assets/114186139/e268afb4-131a-452a-ba6b-18d98609e9da)
@@ -183,6 +192,7 @@ Al pulsarlo, se modifica el estilo de la página para que aparezca en alto contr
 Ejemplo del alto contraste en una tabla
 ![image](https://github.com/UJA-DAGIL-22-23/d-agil-2022-2023-practica-4-jesus_emilio_miguel_francisco_francisco/assets/114186139/71591dad-c4f2-42c0-8c6b-2e2dc5e534e0)
 
+## **HU 11. Mostrar un historial de las últimas 10 opciones que ha pulsado el usuario en nuestra app (desde que cargó/recargó la página web de la app).**
 ## **HU 11. Mostrar un historial de las últimas 10 opciones que ha pulsado el usuario en nuestra app (desde que cargó/recargó la página web de la app).**
 
 Se ha añadido un nuevo botón a la página principal.
