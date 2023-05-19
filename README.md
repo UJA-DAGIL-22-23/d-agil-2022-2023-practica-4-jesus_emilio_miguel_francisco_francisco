@@ -282,5 +282,7 @@ Las capturas de pantalla de Trello y de las historias de usuario se pueden ver a
 
 ### Emilio Martínez Conchillo  
 
+* Me comprometo a mejorar la comunicación con el resto del equipo con el objetivo de unificar la manera de presentar las opciones relacionadas con los microservicios.
+
 ### Miguel Ángel Hurtado Molina
 * Me comprometo a mejorar la comunicación y la coordinación dentro del equipo, asegurándome de que todos estemos al tanto de las tareas y los avances realizados.
