@@ -282,4 +282,5 @@ Las capturas de pantalla de Trello y de las historias de usuario se pueden ver a
 
 ### Emilio Martínez Conchillo  
 
-### Miguel Ángel Hurtado Molina  
+### Miguel Ángel Hurtado Molina
+* Me comprometo a mejorar la comunicación y la coordinación dentro del equipo, asegurándome de que todos estemos al tanto de las tareas y los avances realizados.
